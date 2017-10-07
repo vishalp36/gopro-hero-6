@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: $main-font;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+h1 { font-size: 2.6rem; }
+
+h2 { font-size: 2.1rem; }
+
+h3 { font-size: 1.75rem; }
+
+h4 { font-size: 1.5rem; }
+
+h5 { font-size: 1.25rem; }
+
+h6 { font-size: 1rem; }
+
+p {
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+a {
+	font-size: 1em;
+	text-decoration: none;
+	color: $main-color;
+	transition: $transition;
+
+	&:hover {
+		color: $main-color-hover;
+		transition: $transition;
+	}
+}
+
+input:focus {
+	outline: none;
+}
+
+::selection {
+	background-color: $main-color;
+	color: $white;
+}
+
+::-moz-selection {
+	background-color: $main-color;
+	color: $white;
+}

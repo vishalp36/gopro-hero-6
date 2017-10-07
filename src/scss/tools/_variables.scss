@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+// Fonts
+$main-font: 'Open Sans', sans-serif;
+
+// Colors
+$white: #ffffff;
+
+$black: #36383E;
+
+$main-color: #FF6600;
+$main-color-hover: #EF5F00;
+
+// Box shadow
+$box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.05);
+
+// Border radius
+$border-radius: 40px;
+
+// Transition
+$easing: cubic-bezier(0.58, 0.01, 0.41, 1);
+$transition: all 0.3s $easing;
+
+// Text shadow
+$text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+
+// Breakpoints
+$xs: 576px;
+$sm: 720px;
+$md: 960px;
+$lg: 1140px;
+$xl: 1400px;
+
+// Z-index
+$zindex: 1;
+$zindex-2: 5;
+$zindex-3: 10;
+$zindex-4: 15;
+$zindex-5: 20;
+$zindex-6: 25;
+$zindex-7: 30;
