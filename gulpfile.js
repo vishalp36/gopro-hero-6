@@ -10,6 +10,10 @@ const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const babel = require('gulp-babel');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const gutil = require('gulp-util');
 
 const config = {
   src: 'src/',
@@ -52,31 +56,15 @@ gulp.task('sass', () =>
 );
 
 gulp.task('javascript', () =>
-  gulp
-    .src(config.src + 'js/*.js')
-    .pipe(
-      plumber({
-        errorHandler: notify.onError('JS Error: <%= error.message %>')
-      })
-    )
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-    .pipe(
-      babel({
-        presets: ['es2015']
-      })
-    )
-    .pipe(
-      minify({
-        ext: {
-          src: '.js',
-          min: '.min.js'
-        },
-        ignoreFiles: ['.min.js'],
-        noSource: false
-      })
-    )
+  browserify({
+    entries: config.src + 'js/app.js',
+    debug: true
+  })
+    .transform(babelify, { presets: ['es2015'] })
+    .on('error', gutil.log)
+    .bundle()
+    .on('error', gutil.log)
+    .pipe(source('bundle.js'))
     .pipe(gulp.dest(config.dist + 'assets/js'))
     .pipe(browserSync.stream())
 );

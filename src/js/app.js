@@ -1,1 +1,3 @@
-console.log('Hello World');
+import Test from './test';
+
+let test = new Test();
