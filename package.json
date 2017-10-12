@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
-    "build": "NODE_ENV=production gulp build"
+    "build": "yarn && NODE_ENV=production gulp build"
   },
   "author": "HETIC P2020 - E10",
   "license": "ISC",
