@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
+const pug = require('gulp-pug');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
@@ -14,11 +15,13 @@ const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
 const uglify = require('gulp-uglify');
 const streamify = require('gulp-streamify');
+const gulpif = require('gulp-if');
 
 const config = {
   src: 'src/',
   dist: 'dist/',
-  port: 8080
+  port: 8080,
+  env: process.env.NODE_ENV === 'production'
 };
 
 gulp.task('liveserver', () => {
@@ -37,9 +40,9 @@ gulp.task('sass', () =>
         errorHandler: notify.onError('SASS Error: <%= error.message %>')
       })
     )
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(!config.env, sourcemaps.init()))
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(!config.env, sourcemaps.write()))
     .pipe(
       autoprefixer({
         browsers: ['last 2 versions'],
@@ -86,21 +89,21 @@ gulp.task('fonts', () =>
     .pipe(browserSync.stream())
 );
 
-gulp.task('html', () =>
+gulp.task('pug', () =>
   gulp
-    .src(config.src + '*.html')
+    .src(config.src + '*.pug')
+    .pipe(pug())
     .pipe(gulp.dest(config.dist))
     .pipe(browserSync.stream())
 );
 
 gulp.task('watch', () => {
-  gulp.watch(config.src + '**/*.html', ['html']);
+  gulp.watch(config.src + '**/*.pug', ['pug']);
   gulp.watch(config.src + 'scss/**/*.scss', ['sass']);
   gulp.watch(config.src + 'js/*.js', ['javascript']);
   gulp.watch(config.src + 'img/**/*', ['images']);
   gulp.watch(config.src + 'font/*', ['fonts']);
 });
 
-gulp.task('build', ['html', 'sass', 'javascript', 'images', 'fonts'], () => {});
-
+gulp.task('build', ['pug', 'sass', 'javascript', 'images', 'fonts'], () => {});
 gulp.task('default', ['build', 'liveserver', 'watch'], () => {});
