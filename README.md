@@ -11,7 +11,7 @@ git clone https://github.com/greeeg/hetic-p2020-10.git
 cd hetic-p2020-10
 
 # Install packages
-npm install
+yarn
 
 # Install globally Eslint
 npm i -g eslint eslint-plugin-import eslint-config-airbnb eslint-config-airbnb-base

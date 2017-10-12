@@ -2,8 +2,6 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
-const minify = require('gulp-minify');
-const eslint = require('gulp-eslint');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
@@ -14,6 +12,8 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
+const uglify = require('gulp-uglify');
+const streamify = require('gulp-streamify');
 
 const config = {
   src: 'src/',
@@ -65,6 +65,7 @@ gulp.task('javascript', () =>
     .bundle()
     .on('error', gutil.log)
     .pipe(source('bundle.js'))
+    .pipe(streamify(uglify()))
     .pipe(gulp.dest(config.dist + 'assets/js'))
     .pipe(browserSync.stream())
 );
