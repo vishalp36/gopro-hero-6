@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp",
-    "build": "yarn && NODE_ENV=production gulp build"
+    "dev": "gulp"
   },
   "author": "HETIC P2020 - E10",
   "license": "ISC",
