@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		title GoPro HERO 6
+		meta(name="description", content="")
+		link(href="https://fonts.googleapis.com/css?family=Hind", rel="stylesheet")
+		link(href="assets/css/app.min.css", rel="stylesheet", type="text/css")
+	body
+		include includes/_intro.pug
 
-		<title></title>
-		<meta name="description" content="" />
-
-		<!-- Links -->
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
-	</head>
-
-	<body>
-
-
-
-		<script src="assets/js/bundle.js"></script>
-	</body>
-</html>
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js")
+		script(src="assets/js/bundle.js")
