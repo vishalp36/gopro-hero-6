@@ -1,4 +1,5 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
+import YoutubePlayer from 'youtube-player';
 import { map } from './components/utils';
 import SnowParticles from './components/SnowParticles';
 import ButtonMovement from './components/ButtonMovement';
@@ -217,16 +218,25 @@ const movement = new ButtonMovement(document.querySelector('.intro'), [
 const particles = new SnowParticles();
 
 const $button = document.querySelector('.intro__button');
+const $buttonContent = document.querySelector('.intro__button-content');
 const $buttonContainer = document.querySelector('.intro__button-container');
+const $videoIntro = document.querySelector('.video-intro');
 let buttonContainerDetails = $buttonContainer.getBoundingClientRect();
 let buttonDetails = $buttonContainer.getBoundingClientRect();
-let currentPositionX = 0;
-let currentPositionY = 0;
+let currentButtonPositionX = 0;
+let currentButtonPositionY = 0;
+let currentButtonContentPositionX = 0;
+let currentButtonContentPositionY = 0;
 
 $buttonContainer.addEventListener('mouseenter', event => {
   buttonContainerDetails = $buttonContainer.getBoundingClientRect();
   TweenMax.to($button, 1.2, {
-    scale: 1.1,
+    scale: 1.04,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($buttonContent, 1.2, {
+    scale: 1.05,
     ease: Power4.easeOut
   });
 });
@@ -237,35 +247,62 @@ $buttonContainer.addEventListener('mousemove', event => {
       Math.abs(buttonContainerDetails.x - event.screenX),
       0,
       buttonDetails.width,
-      -20,
-      20
+      -16,
+      16
     )
   );
 
   let y =
-    -20 +
+    -16 +
     Math.floor(
       map(
         Math.abs(buttonContainerDetails.y - event.screenY),
         0,
         buttonDetails.width,
-        -20,
-        20
+        -16,
+        16
       )
     );
 
   TweenMax.to($button, 1.2, {
-    x: currentPositionX + x,
-    y: currentPositionY + y,
+    x: currentButtonPositionX + x,
+    y: currentButtonPositionY + y,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($buttonContent, 1.2, {
+    x: currentButtonPositionX + x * 0.5,
+    y: currentButtonPositionY + y * 0.5,
     ease: Power4.easeOut
   });
 });
 
 $buttonContainer.addEventListener('mouseleave', event => {
   TweenMax.to($button, 1.2, {
-    x: -currentPositionX,
-    x: -currentPositionY,
-    scale: 0.9,
+    x: -currentButtonPositionX,
+    y: -currentButtonPositionY,
+    scale: 0.96,
     ease: Power4.easeOut
   });
+
+  TweenMax.to($buttonContent, 1.2, {
+    x: -currentButtonPositionX,
+    y: -currentButtonPositionY,
+    scale: 0.95,
+    ease: Power4.easeOut
+  });
+});
+
+const player = YoutubePlayer('video-intro__source');
+player.loadVideoById('vr0qNXmkUJ8');
+player.pauseVideo();
+
+$button.addEventListener('click', () => {
+  $videoIntro.classList.add('video-intro--active');
+  player.playVideo();
+});
+
+$videoIntro.addEventListener('click', () => {
+  $videoIntro.classList.remove('video-intro--active');
+  player.pauseVideo();
 });
