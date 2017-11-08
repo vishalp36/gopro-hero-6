@@ -1,18 +1,16 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
+import { map } from './components/utils';
 import SnowParticles from './components/SnowParticles';
 import ButtonMovement from './components/ButtonMovement';
+import ProgressLoader from './components/ProgressLoader';
 
-const movement = new ButtonMovement(document.querySelector('.intro'), [
-  {
-    domElement: document.querySelector('.intro__snowboarder'),
-    scale: 1.2,
-    movement: 'normal'
-  }
-]);
+const progress = new ProgressLoader();
 
-const particles = new SnowParticles();
+progress.on('progress', value => {
+  document.querySelector('.loader').innerHTML = `${value}%`;
+});
 
-document.addEventListener('DOMContentLoaded', () => {
+progress.on('complete', () => {
   setTimeout(() => {
     const $loader = document.querySelector('.loader');
     const $background = document.querySelector('.intro__background');
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadingTimeline
       .to($loader, 1.2, {
-        scaleX: 0,
+        x: '100%',
         transformOrigin: 'right',
         ease: Expo.easeOut
       })
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $backgroundAfter,
         1.5,
         {
-          scaleX: 0,
+          x: '100%',
           transformOrigin: 'right',
           ease: Expo.easeOut
         },
@@ -135,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(
         el =>
           `
-          <div class="wrapper__title">
+          <div class="intro__title-wrapper">
             <span>${el}</span>
           </div>
         `
@@ -143,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .join('');
 
     const $titleParts = [].slice.call(
-      document.querySelectorAll('.wrapper__title')
+      document.querySelectorAll('.intro__title-wrapper')
     );
 
     $titleParts.reduce((prev, val, index) => {
@@ -208,9 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 1000);
 });
 
-const map = (value, istart, istop, ostart, ostop) => {
-  return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
-};
+const movement = new ButtonMovement(document.querySelector('.intro'), [
+  {
+    domElement: document.querySelector('.intro__snowboarder'),
+    scale: 1.2,
+    movement: 'normal'
+  }
+]);
+
+const particles = new SnowParticles();
 
 const $button = document.querySelector('.intro__button');
 const $buttonContainer = document.querySelector('.intro__button-container');
