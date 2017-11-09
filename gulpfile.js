@@ -82,6 +82,13 @@ gulp.task('images', () =>
     .pipe(notify('Image minified: <%= file.relative %>'))
 );
 
+gulp.task('videos', () =>
+  gulp
+    .src(config.src + 'video/**/*')
+    .pipe(gulp.dest(config.dist + 'assets/video'))
+    .pipe(browserSync.stream())
+);
+
 gulp.task('fonts', () =>
   gulp
     .src(config.src + 'font/**/*')
@@ -100,10 +107,15 @@ gulp.task('pug', () =>
 gulp.task('watch', () => {
   gulp.watch(config.src + '**/*.pug', ['pug']);
   gulp.watch(config.src + 'scss/**/*.scss', ['sass']);
-  gulp.watch(config.src + 'js/*.js', ['javascript']);
+  gulp.watch(config.src + 'js/**/*.js', ['javascript']);
   gulp.watch(config.src + 'img/**/*', ['images']);
+  gulp.watch(config.src + 'video/**/*', ['videos']);
   gulp.watch(config.src + 'font/*', ['fonts']);
 });
 
-gulp.task('build', ['pug', 'sass', 'javascript', 'images', 'fonts'], () => {});
+gulp.task(
+  'build',
+  ['pug', 'sass', 'javascript', 'images', 'fonts', 'videos'],
+  () => {}
+);
 gulp.task('default', ['build', 'liveserver', 'watch'], () => {});

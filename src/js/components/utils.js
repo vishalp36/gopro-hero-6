@@ -18,4 +18,10 @@ const intersectionObserver = (element, callback) => {
   observer.observe(element);
 };
 
-export { map, intersectionObserver };
+const isMobile = () => {
+  return new RegExp(
+    '/Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/'
+  ).test(navigator.userAgent);
+};
+
+export { map, intersectionObserver, isMobile };

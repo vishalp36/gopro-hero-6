@@ -7,6 +7,8 @@ module.exports = {
     'prefer-template': 0,
     'function-paren-newline': 0,
     'arrow-parens': 0,
-    'no-param-reassign': 0
+    'no-param-reassign': 0,
+    'class-methods-use-this': 0,
+    'no-lonely-if': 0
   }
 };

@@ -1,10 +1,9 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
 import YoutubePlayer from 'youtube-player';
-import { map } from './components/utils';
+import { map, isMobile } from './components/utils';
 import SnowParticles from './components/SnowParticles';
 import ButtonMovement from './components/ButtonMovement';
 import ProgressLoader from './components/ProgressLoader';
-
 const progress = new ProgressLoader();
 
 progress.on('progress', value => {
@@ -152,10 +151,10 @@ progress.on('complete', () => {
           val.querySelector('span'),
           0.6,
           {
-            y: 100
+            y: '110%'
           },
           {
-            y: 0,
+            y: '0%',
             ease: Power4.easeOut
           }
         );
@@ -164,10 +163,10 @@ progress.on('complete', () => {
           val.querySelector('span'),
           0.6,
           {
-            y: 100
+            y: '110%'
           },
           {
-            y: 0,
+            y: '0%',
             ease: Power4.easeOut
           },
           '-=0.6'
@@ -177,10 +176,10 @@ progress.on('complete', () => {
           val.querySelector('span'),
           0.6,
           {
-            y: 100
+            y: '110%'
           },
           {
-            y: 0,
+            y: '0%',
             ease: Power4.easeOut
           },
           '-=0.5'
@@ -215,12 +214,15 @@ const movement = new ButtonMovement(document.querySelector('.intro'), [
   }
 ]);
 
-const particles = new SnowParticles();
+if (!isMobile()) {
+  const particles = new SnowParticles();
+}
 
 const $button = document.querySelector('.intro__button');
 const $buttonContent = document.querySelector('.intro__button-content');
 const $buttonContainer = document.querySelector('.intro__button-container');
 const $videoIntro = document.querySelector('.video-intro');
+const $videoIntroButton = document.querySelector('.video-intro__quit');
 let buttonContainerDetails = $buttonContainer.getBoundingClientRect();
 let buttonDetails = $buttonContainer.getBoundingClientRect();
 let currentButtonPositionX = 0;
@@ -302,7 +304,11 @@ $button.addEventListener('click', () => {
   player.playVideo();
 });
 
-$videoIntro.addEventListener('click', () => {
+const quitIntroVideo = event => {
+  event.preventDefault();
   $videoIntro.classList.remove('video-intro--active');
   player.pauseVideo();
-});
+};
+
+$videoIntro.addEventListener('click', event => quitIntroVideo(event));
+$videoIntroButton.addEventListener('click', event => quitIntroVideo(event));

@@ -10,10 +10,15 @@ html, body {
 	width: 100%;
 }
 
+body {
+	overflow-x: hidden;	
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 	font-weight: 600;
-	line-height: 1.2;
+	line-height: 1;
+	text-transform: uppercase;
 }
 
 h1 { font-size: 2.6rem; }
@@ -57,4 +62,40 @@ input:focus {
 ::-moz-selection {
 	background-color: $main-color;
 	color: $white;
+}
+
+.container {
+	width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: $sm) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: $md) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: $lg) {
+  .container {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: $xl) {
+  .container {
+    max-width: 1180px;
+
+    &--small {
+      max-width: 800px;
+    }
+  }
 }
