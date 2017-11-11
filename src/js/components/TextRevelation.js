@@ -14,9 +14,9 @@ class TextRevelation {
 
   defaultOptions() {
     return {
-      duration: 1,
-      between: 0.2,
-      ease: Power4.easeOut
+      duration: 0.8,
+      between: 0.1,
+      ease: Power4.easeInOut
     };
   }
 

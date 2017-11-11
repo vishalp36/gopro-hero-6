@@ -1,7 +1,112 @@
 .capture {
-  padding: 130px 0px 80px 0px;
+	position: relative;
+	padding: 120px 0px 120px 0px;
+	width: 100%;
+	overflow: hidden;
+
+	@include responsive($xs) {
+		padding: 160px 0px 160px 0px;
+	}
+
+	@include responsive($lg) {
+		padding: 320px 0px 260px 0px;
+	}
+}
+
+.capture__content {
+	margin-bottom: 40px;
 }
 
 .capture__title {
-  font-size: 5em;
+	font-size: 5em;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+		width: 60%;
+		margin-bottom: 0px;
+	}
+
+	@include responsive($md) {
+		font-size: 6em;
+		max-width: 400px;
+	}
+}
+
+.capture__description {
+  margin-top: 40px;
+  font-size: 1.2em;
+	color: $grey;
+
+	@include responsive($lg) {
+		width: 46%;
+		max-width: 500px;		
+	}
+}
+
+.capture__visual {
+	width: calc(100% - 60px);
+	margin-left: 30px;
+	margin-right: 30px;
+	height: 40vh;
+	overflow: hidden;
+
+	@include responsive($sm) {
+		height: 50vh;
+		width: calc(100% - 100px);
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+
+	@include responsive($md) {
+		width: calc(100% - 50px);
+		margin-left: 50px;
+		margin-right: 0px;
+		height: 55vh;
+	}
+
+	@include responsive($lg) {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 0;
+		margin-left: 0px;
+		width: 48%;
+		height: 80vh;
+	}
+}
+
+.capture__wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.capture__source {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.capture__window,
+.capture__window2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scale(1.005);
+}
+
+.capture__window {
+	background-color: #fff;
+	z-index: 3;
+}
+
+.capture__window2 {
+	background-color: $main-color;
+	z-index: 2;
 }

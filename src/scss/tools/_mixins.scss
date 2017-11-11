@@ -16,6 +16,6 @@
   }
 
   @else if $point == $xs {
-    @media (max-width: $xs)  { @content ; }
+    @media (min-width: $xs)  { @content ; }
   }
 }

@@ -5,13 +5,16 @@ const map = (value, istart, istop, ostart, ostop) =>
 
 const intersectionObserver = (element, callback) => {
   const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.intersectionRatio < 1) return;
-      callback();
-      observer.disconnect();
+    observables => {
+      observables.forEach(observable => {
+        if (observable.intersectionRatio >= 0.7) {
+          callback();
+          observer.disconnect();
+        }
+      });
     },
     {
-      threshold: 1
+      threshold: [0.7]
     }
   );
 

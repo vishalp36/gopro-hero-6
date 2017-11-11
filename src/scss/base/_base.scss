@@ -68,34 +68,19 @@ input:focus {
 	width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  padding-left: 30px;
+	padding-right: 30px;
+	max-width: 1350px;
 
-@media (min-width: $sm) {
-  .container {
-    max-width: 576px;
-  }
-}
+	@include responsive($sm) {
+		padding-left: 50px;
+		padding-right: 50px;
+		max-width: 1390px;
+	}
 
-@media (min-width: $md) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: $lg) {
-  .container {
-    max-width: 940px;
-  }
-}
-
-@media (min-width: $xl) {
-  .container {
-    max-width: 1180px;
-
-    &--small {
-      max-width: 800px;
-    }
-  }
+	@include responsive($lg) {
+		padding-left: 70px;
+		padding-right: 70px;
+		max-width: 1430px;
+	}
 }
