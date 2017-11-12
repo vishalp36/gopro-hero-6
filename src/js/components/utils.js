@@ -7,14 +7,13 @@ const intersectionObserver = (element, callback) => {
   const observer = new IntersectionObserver(
     observables => {
       observables.forEach(observable => {
-        if (observable.intersectionRatio >= 0.7) {
-          callback();
-          observer.disconnect();
-        }
+        if (observable.intersectionRatio <= 0.5) return;
+        callback();
+        observer.disconnect();
       });
     },
     {
-      threshold: [0.7]
+      threshold: [0.5]
     }
   );
 

@@ -9,10 +9,12 @@ $white: #ffffff;
 $light-white: #f7f7f7;
 
 $black: #36383E;
+$black-background: #1E1E1E;
 $grey: rgb(89, 92, 102);
 
 $main-color: #45C0F5;
-$main-color-hover: #EF5F00;
+$main-color-light: #00D1EF;
+$main-color-hover: $main-color-light;
 
 // Box shadow
 $box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.05);

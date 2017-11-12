@@ -38,8 +38,25 @@
 	color: $grey;
 
 	@include responsive($lg) {
-		width: 46%;
+		width: 45%;
 		max-width: 500px;		
+	}
+}
+
+.capture__shape {
+	position: absolute;
+	right: calc(100% - 138px);
+	top: 25%;
+	width: 250px;
+	height: 90px;
+	background: linear-gradient(45deg, $main-color-light, $main-color);
+	z-index: 10;
+	transform: skewX(-16deg) scaleX(0.4);
+	transform-origin: right;
+	display: none;
+
+	@include responsive($lg) {
+		display: block;
 	}
 }
 
@@ -48,7 +65,6 @@
 	margin-left: 30px;
 	margin-right: 30px;
 	height: 40vh;
-	overflow: hidden;
 
 	@include responsive($sm) {
 		height: 50vh;
@@ -79,6 +95,23 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;	
+
+	@include responsive($lg) {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			height: 0;
+			border-top: 80vh solid #fff;
+			border-right: 200px solid transparent;
+			z-index: 8;
+		}
+	}
 }
 
 .capture__source {
@@ -98,15 +131,38 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	transform: scale(1.005);
+	
+	@include responsive($lg) {
+		transform: skewX(-20deg) scale(1.005);
+		
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+			width: 50%;
+			transform: skewX(20deg);
+		}
+	}
 }
 
 .capture__window {
 	background-color: #fff;
 	z-index: 3;
+
+	&:after {
+		background-color: #fff;
+	}
 }
 
 .capture__window2 {
 	background-color: $main-color;
 	z-index: 2;
+
+	&:after {
+		background-color: $main-color;
+	}
 }

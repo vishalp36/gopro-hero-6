@@ -116,11 +116,11 @@ progress.on('complete', () => {
         $gopro,
         1.2,
         {
-          y: 60,
+          y: '-10%',
           opacity: 0
         },
         {
-          y: 0,
+          y: '0%',
           opacity: 1,
           ease: Power4.easeOut
         },

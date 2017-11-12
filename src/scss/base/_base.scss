@@ -83,4 +83,15 @@ input:focus {
 		padding-right: 70px;
 		max-width: 1430px;
 	}
+
+	&--right {
+		display: flex;
+		flex-direction: column;
+
+		@include responsive($lg) {
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+	}
 }
