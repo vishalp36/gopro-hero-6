@@ -1,8 +1,8 @@
 class Bubbles {
-  constructor(container, translation) {
+  constructor(container, translation = -1) {
     this.started = false;
-    this.mover = container.querySelector('.slider__mover');
-    this.wrappers = this.$el.mover.querySelector('.slider__wrapper');
+    this.mover = container.querySelector('.bubbles__mover');
+    this.wrappers = this.mover.querySelector('.bubbles__wrapper');
     this.translate = 0;
     this.currentTime = 0;
     this.wrapperIndex = 0;
@@ -19,7 +19,7 @@ class Bubbles {
   init() {
     const clone = this.wrappers.cloneNode(true);
     this.mover.appendChild(clone);
-    this.wrappers = this.mover.querySelectorAll('.slider__wrapper');
+    this.wrappers = this.mover.querySelectorAll('.bubbles__wrapper');
   }
 
   render() {

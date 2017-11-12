@@ -1,0 +1,50 @@
+.bubbles {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.bubbles__mover {
+  width: 10000px;
+  transform: translateX(0px);
+  will-change: transform;
+  display: flex;
+  flex-direction: row;
+}
+
+.bubbles__wrapper {
+  width: 400vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  overflow: hidden;
+
+  @include responsive($sm) {
+    width: 300vw;
+  }
+
+  @include responsive($md) {
+    width: 220vw;
+  }
+
+  @include responsive($lg) {
+    width: 160vw;
+  }
+}
+
+.bubbles__element {
+  flex: 1;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+
+  @include responsive($md) {
+    height: 280px;
+  }
+
+  @include responsive($lg) {
+    height: 300px;
+  }
+}

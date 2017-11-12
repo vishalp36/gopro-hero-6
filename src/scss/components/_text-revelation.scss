@@ -6,4 +6,8 @@
 
 .text-revelation__text {
   display: inline-block;
+
+  &--last {
+    color: $main-color;
+  }
 }

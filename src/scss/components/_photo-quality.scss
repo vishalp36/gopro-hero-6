@@ -1,0 +1,46 @@
+.photo-quality {
+  padding: 100px 0px;
+
+  @include responsive($md) {
+    padding: 200px 0px;
+  }
+}
+
+.photo-quality__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  justify-content: space-between;
+
+  @include responsive($md) {
+    flex-direction: row;
+  }
+}
+
+.photo-quality__description {
+  font-size: 1.2em;
+  color: $grey;
+
+  @include responsive($md) {
+    max-width: 60%;
+  }
+
+  @include responsive($lg) {
+    max-width: 500px;
+  }
+}
+
+.photo-quality__title {
+  font-size: 5em;
+  margin-bottom: 20px;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+	}
+
+	@include responsive($md) {
+    font-size: 6em;
+    max-width: 400px;
+	}
+}
