@@ -214,10 +214,6 @@ const movement = new ButtonMovement(document.querySelector('.intro'), [
   }
 ]);
 
-if (!isMobile()) {
-  const particles = new SnowParticles();
-}
-
 const $button = document.querySelector('.intro__button');
 const $buttonContent = document.querySelector('.intro__button-content');
 const $buttonContainer = document.querySelector('.intro__button-container');

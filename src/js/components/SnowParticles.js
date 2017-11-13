@@ -4,7 +4,7 @@ class SnowParticles {
     this.camPosX = 0;
     this.camPosZ = 700;
     this.camPosY = 400;
-    this.particleCount = 1000;
+    this.particleCount = 300;
 
     this.scene = new THREE.Scene();
     this.aspectRatio = window.innerWidth / window.innerHeight;
@@ -29,9 +29,7 @@ class SnowParticles {
 
     document.querySelector('.intro').appendChild(this.renderer.domElement);
 
-    this.scene.fog = new THREE.Fog(0xffffff, 750, 1250);
-
-    this.initLights();
+    // this.initLights();
 
     this.camera.position.z = 200;
     this.camera.position.x = this.camPosX;
