@@ -1,0 +1,124 @@
+.slow-motion {
+  padding-top: 60px;
+
+  @include responsive($md) {
+    padding-top: 30px;
+  }
+}
+
+.slow-motion__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  justify-content: space-between;
+
+  @include responsive($md) {
+    flex-direction: row;
+  }
+}
+
+.slow-motion__description {
+  font-size: 1.2em;
+  color: $grey;
+
+  @include responsive($md) {
+    max-width: 60%;
+  }
+
+  @include responsive($lg) {
+    max-width: 500px;
+  }
+}
+
+.slow-motion__title {
+  font-size: 5em;
+  margin-bottom: 20px;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+	}
+
+	@include responsive($md) {
+    font-size: 6em;
+    max-width: 500px;
+	}
+}
+
+.slow-motion__video {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+
+  @include responsive($md) {
+    height: 80vh;
+  }
+}
+
+.slow-motion__controls {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.slow-motion__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.slow-motion__source {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.slow-motion__button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-bottom: 0px;
+}
+
+.slow-motion__circle,
+.slow-motion__circle2,
+.slow-motion__pause,
+.slow-motion__play {
+  position: absolute;
+}
+
+.slow-motion__circle,
+.slow-motion__circle2 {
+  top: -3px;
+  left: -3px;
+  transform: scale(1.3);
+}
+
+.slow-motion__pause,
+.slow-motion__play {
+  transform: scale(1.3);
+  top: 18px;
+  left: 20px;
+}
+
+.slow-motion__circle-completion,
+.slow-motion__circle2-completion {
+  stroke-width: 2px;
+  stroke-dashoffset: 0px;
+  stroke-dasharray: 0px;
+  fill: none;
+  stroke: #fff;
+}
+
+.slow-motion__circle2-completion {
+  stroke: $main-color;
+  stroke-dasharray: 180px;
+  stroke-dashoffset: 180px;
+}

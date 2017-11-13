@@ -1,0 +1,28 @@
+div(class="slow-motion")
+  div(class="container")
+    div(class="slow-motion__content")
+      h2(class="slow-motion__title") Slow things down
+      p(class="slow-motion__description") Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta.
+  div(class="slow-motion__video")
+    div(class="slow-motion__controls")
+      div(class="container")
+        div(class="slow-motion__button")
+          svg(class="slow-motion__circle", width='56', height='56', viewbox='0 0 56 56')
+            circle(class="slow-motion__circle-completion" r='27', cx='28', cy='28')
+          svg(class="slow-motion__circle2" width='56', height='56', viewbox='0 0 56 56')
+            circle(class="slow-motion__circle2-completion" r='27', cx='28', cy='28')
+          svg(class="slow-motion__pause" width='12px', height='14px', viewbox='0 0 12 14', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+            g(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
+              g(transform='translate(-178.000000, -5033.000000)', fill-rule='nonzero', fill='#00A4DA')
+                g(transform='translate(178.000000, 5033.000000)')
+                  path(d='M0,14 L4,14 L4,0 L0,0 L0,14 Z M8,0 L8,14 L12,14 L12,0 L8,0 Z')
+          svg(class="slow-motion__play" width='11px', height='14px', viewbox='0 0 11 14', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+            g(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
+              g(transform='translate(-179.000000, -5033.000000)', fill='#00A4DA')
+                g(transform='translate(-501.000000, 2799.000000)')
+                  g(transform='translate(0.000000, 694.000000)')
+                    polygon(points='680 1540 680 1554 691 1547')
+
+        div(class="slow-motion__timer") 00:00/00:00
+    div(class="slow-motion__wrapper")
+      video(class="slow-motion__source" src="assets/video/slow-motion.mp4" playsinline autoplay loop)
