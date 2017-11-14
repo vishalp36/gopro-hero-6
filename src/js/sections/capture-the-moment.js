@@ -1,6 +1,6 @@
 import { TweenMax, Power4 } from 'gsap';
-import TextRevelation from './components/TextRevelation';
-import { intersectionObserver } from './components/utils';
+import TextRevelation from '../components/TextRevelation';
+import { intersectionObserver } from '../components/utils';
 
 const $title = document.querySelector('.capture__title');
 const $description = document.querySelector('.capture__description');

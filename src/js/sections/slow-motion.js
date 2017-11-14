@@ -1,7 +1,7 @@
 import { TweenMax, Power4 } from 'gsap';
-import TextRevelation from './components/TextRevelation';
-import { intersectionObserver } from './components/utils';
-import VideoPlayer from './components/VideoPlayer';
+import TextRevelation from '../components/TextRevelation';
+import { intersectionObserver } from '../components/utils';
+import VideoPlayer from '../components/VideoPlayer';
 
 const $section = document.querySelector('.slow-motion');
 const $title = document.querySelector('.slow-motion__title');

@@ -1,9 +1,9 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
 import YoutubePlayer from 'youtube-player';
-import { map, isMobile } from './components/utils';
-import SnowParticles from './components/SnowParticles';
-import ButtonMovement from './components/ButtonMovement';
-import ProgressLoader from './components/ProgressLoader';
+import { map, isMobile } from '../components/utils';
+import SnowParticles from '../components/SnowParticles';
+import ButtonMovement from '../components/ButtonMovement';
+import ProgressLoader from '../components/ProgressLoader';
 const progress = new ProgressLoader();
 
 progress.on('progress', value => {

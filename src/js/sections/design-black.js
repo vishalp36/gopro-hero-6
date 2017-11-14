@@ -1,6 +1,6 @@
 import { TweenMax, Power4, TimelineMax } from 'gsap';
-import SectionRevelation from './components/SectionRevelation';
-import { intersectionObserver } from './components/utils';
+import SectionRevelation from '../components/SectionRevelation';
+import { intersectionObserver } from '../components/utils';
 
 const $content = document.querySelector('.design-black__content');
 const $visualSource = document.querySelector('.design-black__source');

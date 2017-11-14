@@ -5,19 +5,19 @@
 @import 'tools/mixins';
 @import 'tools/fonts';
 
-// Vendors
-
 // Base
 @import 'base/normalize';
 @import 'base/base';
 
 // Components
 @import 'components/loader';
-@import 'components/intro';
-@import 'components/capture-the-moment';
-@import 'components/design-black';
-@import 'components/photo-quality';
-@import 'components/slow-motion';
 @import 'components/text-revelation';
 @import 'components/section-revelation';
 @import 'components/bubbles';
+
+// Sections
+@import 'sections/intro';
+@import 'sections/capture-the-moment';
+@import 'sections/design-black';
+@import 'sections/photo-quality';
+@import 'sections/slow-motion';

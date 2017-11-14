@@ -1,5 +1,5 @@
-import './intro';
-import './capture-the-moment';
-import './design-black';
-import './photo-quality';
-import './slow-motion';
+import './sections/intro';
+import './sections/capture-the-moment';
+import './sections/design-black';
+import './sections/photo-quality';
+import './sections/slow-motion';

@@ -1,7 +1,7 @@
 import { TweenMax, Power4 } from 'gsap';
-import Bubbles from './components/Bubbles';
-import TextRevelation from './components/TextRevelation';
-import { intersectionObserver } from './components/utils';
+import Bubbles from '../components/Bubbles';
+import TextRevelation from '../components/TextRevelation';
+import { intersectionObserver } from '../components/utils';
 
 const bubbles = new Bubbles(document.querySelector('.bubbles--first'));
 const bubbles2 = new Bubbles(document.querySelector('.bubbles--second'), -1.5);
