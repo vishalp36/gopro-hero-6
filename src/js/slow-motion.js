@@ -1,12 +1,21 @@
 import { TweenMax, Power4 } from 'gsap';
 import TextRevelation from './components/TextRevelation';
 import { intersectionObserver } from './components/utils';
+import VideoPlayer from './components/VideoPlayer';
 
+const $section = document.querySelector('.slow-motion');
 const $title = document.querySelector('.slow-motion__title');
 const $description = document.querySelector('.slow-motion__description');
 const $video = document.querySelector('.slow-motion__video');
 const $button = document.querySelector('.slow-motion__button');
 const $completion = document.querySelector('.slow-motion__circle2-completion');
+
+const videoPlayer = new VideoPlayer(
+  $section,
+  document.querySelector('.slow-motion__button'),
+  document.querySelector('.slow-motion__timer'),
+  document.querySelector('.slow-motion__source')
+);
 
 TweenMax.to($description, 0, {
   opacity: 0,
@@ -22,6 +31,7 @@ const titleRevelation = new TextRevelation($title);
 
 intersectionObserver(document.querySelector('.slow-motion'), () => {
   titleRevelation.reveal();
+  videoPlayer.init();
 
   TweenMax.to($description, 0.8, {
     opacity: 1,

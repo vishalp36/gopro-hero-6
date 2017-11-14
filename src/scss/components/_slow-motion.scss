@@ -4,6 +4,18 @@
   @include responsive($md) {
     padding-top: 30px;
   }
+
+  &.running {
+    .slow-motion__play {
+      display: none;
+    }
+  }
+
+  &.paused {
+    .slow-motion__pause {
+      display: none;
+    }
+  }
 }
 
 .slow-motion__content {
@@ -58,11 +70,18 @@
 
 .slow-motion__controls {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 2;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 .slow-motion__wrapper {
@@ -78,6 +97,13 @@
 	object-fit: cover;
 }
 
+.slow-motion__timer {
+  margin-left: 30px;
+  font-size: 1.1em;
+  color: #fff;
+  user-select: none;
+}
+
 .slow-motion__button {
   position: relative;
   width: 50px;
@@ -85,6 +111,10 @@
   border-radius: 50%;
   background-color: #fff;
   margin-bottom: 0px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .slow-motion__circle,
@@ -104,8 +134,16 @@
 .slow-motion__pause,
 .slow-motion__play {
   transform: scale(1.3);
+}
+
+.slow-motion__pause {
   top: 18px;
   left: 20px;
+}
+
+.slow-motion__play {
+  top: 18px;
+  left: 22px;
 }
 
 .slow-motion__circle-completion,
