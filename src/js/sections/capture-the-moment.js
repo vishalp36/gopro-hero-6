@@ -16,7 +16,7 @@ TweenMax.to($description, 0, {
 
 TweenMax.to($shape, 0, {
   scaleX: 0,
-  skewX: -16
+  skewX: -30
 });
 
 intersectionObserver(document.querySelector('.capture'), () => {
@@ -43,7 +43,7 @@ intersectionObserver(document.querySelector('.capture'), () => {
 
   TweenMax.to($shape, 0.7, {
     scaleX: 1,
-    skewX: -16,
+    skewX: -30,
     delay: 0.45,
     ease: Power4.easeInOut
   });

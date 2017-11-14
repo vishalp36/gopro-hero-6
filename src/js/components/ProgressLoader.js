@@ -32,24 +32,22 @@ class ProgressLoader {
     });
 
     this.requests.forEach((request, index) => {
-      axios
-        .get(request.element.getAttribute(request.type), {
-          onDownloadProgress: e => {
-            const progress = Math.floor(e.loaded / e.total * 100);
-            this.updateRequestProgress(index, progress);
-          }
-        })
-        .then(() => {
-          if (request.type === 'data-background') {
-            request.element.style.backgroundImage = `url('${request.element.getAttribute(
-              request.type
-            )}')`;
-            request.element.removeAttribute(request.type);
-          } else if (request.type === 'data-src') {
-            request.element.src = request.element.getAttribute(request.type);
-            request.element.removeAttribute(request.type);
-          }
-        });
+      axios.get(request.element.getAttribute(request.type), {
+        onDownloadProgress: e => {
+          const progress = Math.floor(e.loaded / e.total * 100);
+          this.updateRequestProgress(index, progress);
+        }
+      });
+
+      if (request.type === 'data-background') {
+        request.element.style.backgroundImage = `url('${request.element.getAttribute(
+          request.type
+        )}')`;
+        request.element.removeAttribute(request.type);
+      } else if (request.type === 'data-src') {
+        request.element.src = request.element.getAttribute(request.type);
+        request.element.removeAttribute(request.type);
+      }
     });
   }
 

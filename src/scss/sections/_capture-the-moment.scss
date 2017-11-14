@@ -45,13 +45,13 @@
 
 .capture__shape {
 	position: absolute;
-	right: calc(100% - 138px);
+	right: calc(100% - 275px);
 	top: 25%;
 	width: 250px;
 	height: 90px;
 	background: linear-gradient(45deg, $main-color-light, $main-color);
 	z-index: 10;
-	transform: skewX(-16deg) scaleX(0.4);
+	transform: skewX($angle) scaleX(0.4);
 	transform-origin: right;
 	display: none;
 
@@ -108,7 +108,7 @@
 			width: 0;
 			height: 0;
 			border-top: 80vh solid #fff;
-			border-right: 200px solid transparent;
+			border-right: 400px solid transparent;
 			z-index: 8;
 		}
 	}
@@ -133,7 +133,7 @@
 	height: 100%;
 	
 	@include responsive($lg) {
-		transform: skewX(-20deg) scale(1.005);
+		transform: skewX($angle) scale(1.005);
 		
 		&:after {
 			content: '';
@@ -144,7 +144,7 @@
 			bottom: 0;
 			height: 100%;
 			width: 50%;
-			transform: skewX(20deg);
+			transform: skewX(30deg);
 		}
 	}
 }

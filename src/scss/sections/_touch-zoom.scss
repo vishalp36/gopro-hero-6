@@ -49,9 +49,13 @@
 .touch-zoom__view {
 	position: relative;
 	width: 100vw;
-	height: 80vh;
+	height: 75vh;
 	perspective: 1400px;
-  overflow: hidden;
+	overflow: hidden;
+	
+	@include responsive($md) {
+    height: 90vh;
+  }
 }
 
 .touch-zoom__controls {

@@ -1,0 +1,108 @@
+.wide-angle {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.wide-angle__content {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+
+  @include responsive($md) {
+    flex-direction: row;
+  }
+
+  @include responsive($lg) {
+    flex-direction: column;
+    padding-top: 360px;
+  }
+}
+
+.wide-angle__description {
+  font-size: 1.2em;
+  color: $grey;
+  margin-top: 10px;
+
+  @include responsive($md) {
+    max-width: 60%;
+  }
+
+  @include responsive($lg) {
+    max-width: 500px;
+  }
+}
+
+.wide-angle__title {
+  font-size: 5em;
+  margin-bottom: 20px;
+  color: $black;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+	}
+
+	@include responsive($md) {
+    font-size: 6em;
+    max-width: 400px;
+    margin-bottom: 0px;
+	}
+}
+
+.wide-angle__shape {
+  position: absolute;
+  top: 100px;
+  left: 40vw;
+  width: 45vw;
+  height: 100px;
+  background: linear-gradient(45deg, $main-color-light, $main-color);
+  display: none;
+  transform: skewX($angle);
+
+  @include responsive($lg) {
+    display: block;
+  }
+}
+
+.wide-angle__shape2-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+
+  @include responsive($lg) {
+    display: block;
+  }
+}
+
+.wide-angle__shape2 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 48vw;
+  height: 600px;
+  background-color: $black-background;
+  transform-origin: left;
+  transform: skewX($angle) translateX(0%);
+  
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $black-background;
+    transform: skewX(30deg) translateX(-60%);
+  }
+}

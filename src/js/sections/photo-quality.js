@@ -8,6 +8,7 @@ const bubbles2 = new Bubbles(document.querySelector('.bubbles--second'), -1.5);
 
 const $title = document.querySelector('.photo-quality__title');
 const $description = document.querySelector('.photo-quality__description');
+const $shape = document.querySelector('.photo-quality__shape');
 const $bubbles = document.querySelectorAll('.bubbles--first .bubbles__element');
 const $bubbles2 = document.querySelectorAll(
   '.bubbles--second .bubbles__element'
@@ -16,6 +17,11 @@ const $bubbles2 = document.querySelectorAll(
 TweenMax.to($description, 0, {
   opacity: 0,
   y: 30
+});
+
+TweenMax.to($shape, 0, {
+  x: '-200%',
+  skewX: -30
 });
 
 TweenMax.to(document.querySelectorAll('.bubbles__element'), 0, {
@@ -56,4 +62,10 @@ intersectionObserver(document.querySelector('.photo-quality'), () => {
     },
     0.08
   );
+
+  TweenMax.to($shape, 0.8, {
+    x: '0%',
+    skewX: -30,
+    ease: Power4.easeOut
+  });
 });

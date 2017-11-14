@@ -1,26 +1,63 @@
 .photo-quality {
-  padding: 100px 0px;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.photo-quality__illustration {
+  position: relative;
+  padding-top: 40px;
+}
+
+.photo-quality__shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 1400px;
+  background-color: $black-background;
+  transform-origin: left;
+  transform: skewX($angle);
+  display: none;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140%;
+    height: 100%;
+    background-color: $black-background;
+    transform: translateX(-100%)
+  }
 
   @include responsive($md) {
-    padding: 200px 0px;
+    display: block;
   }
 }
 
 .photo-quality__content {
+  padding-top: 160px;
+  padding-bottom: 40px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
-  justify-content: space-between;
-
-  @include responsive($md) {
-    flex-direction: row;
+  background-color: $black-background;
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    justify-content: space-between;
+    
+    @include responsive($md) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
   }
 }
 
 .photo-quality__description {
   font-size: 1.2em;
-  color: $grey;
+  color: #fff;
 
   @include responsive($md) {
     max-width: 60%;
@@ -34,6 +71,7 @@
 .photo-quality__title {
   font-size: 5em;
   margin-bottom: 20px;
+  color: #fff;
 
   @include responsive($sm) {
 		font-size: 5.4em;
@@ -42,5 +80,6 @@
 	@include responsive($md) {
     font-size: 6em;
     max-width: 400px;
+    margin-bottom: 0px;
 	}
 }
