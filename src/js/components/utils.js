@@ -1,4 +1,6 @@
 import 'intersection-observer';
+import { TweenLite } from 'gsap';
+import * as CustomEase from './CustomEase';
 
 const map = (value, istart, istop, ostart, ostop) =>
   ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
@@ -26,4 +28,6 @@ const isMobile = () => {
   ).test(navigator.userAgent);
 };
 
-export { map, intersectionObserver, isMobile };
+const ease = CustomEase.create('custom', 'M0,0 C0.82,0 0.188,0.93 1,1');
+
+export { map, intersectionObserver, isMobile, ease };

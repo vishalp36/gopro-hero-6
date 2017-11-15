@@ -1,4 +1,5 @@
 import { TweenMax, Power4, TimelineMax } from 'gsap';
+import { ease } from './utils';
 
 class TextRevelation {
   constructor(element, options = this.defaultOptions()) {
@@ -16,7 +17,7 @@ class TextRevelation {
     return {
       duration: 0.8,
       between: 0.1,
-      ease: Power4.easeInOut
+      ease
     };
   }
 
