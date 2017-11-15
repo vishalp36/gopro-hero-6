@@ -54,7 +54,7 @@
 	overflow: hidden;
 	
 	@include responsive($md) {
-    height: 90vh;
+    height: 100vh;
   }
 }
 

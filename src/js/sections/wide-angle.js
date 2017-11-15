@@ -4,6 +4,8 @@ import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver } from '../components/utils';
 
 const $section = document.querySelector('.wide-angle');
+const $shape = document.querySelector('.wide-angle__shape');
+const $shape2 = document.querySelector('.wide-angle__shape2');
 const $title = document.querySelector('.wide-angle__title');
 const $source = document.querySelector('.wide-angle__illustration');
 const $sourceSource = document.querySelector('.wide-angle__source');
@@ -12,6 +14,17 @@ const $borderRight = document.querySelector('.wide-angle__border-right');
 let windowHeight = window.innerHeight;
 
 const titleRevelation = new TextRevelation($title);
+
+TweenMax.to($shape, 0, {
+  scaleX: 0,
+  skewX: -30
+});
+
+TweenMax.to($shape2, 0, {
+  scaleX: 0,
+  x: '-120%',
+  skewX: -30
+});
 
 document.addEventListener('resize', () => {
   windowHeight = window.innerHeight;
@@ -52,8 +65,23 @@ document.addEventListener('scroll', () => {
   });
 });
 
-intersectionObserver($section, () => {
+intersectionObserver(document.querySelector('.wide-angle__content'), () => {
   titleRevelation.reveal();
+
+  TweenMax.to($shape, 0.7, {
+    scaleX: 1,
+    skewX: -30,
+    delay: 0.45,
+    ease: Power4.easeInOut
+  });
+
+  TweenMax.to($shape2, 0.7, {
+    scaleX: 1,
+    skewX: -30,
+    x: '0%',
+    delay: 0.45,
+    ease: Power4.easeInOut
+  });
 });
 
 let sourceWidth = Math.round($sourceSource.offsetWidth);

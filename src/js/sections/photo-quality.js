@@ -47,7 +47,8 @@ intersectionObserver(document.querySelector('.photo-quality'), () => {
     {
       opacity: 1,
       x: 30,
-      ease: Power4.easeOut
+      ease: Power4.easeOut,
+      delay: 0.8
     },
     0.08
   );
@@ -58,7 +59,8 @@ intersectionObserver(document.querySelector('.photo-quality'), () => {
     {
       opacity: 1,
       x: 30,
-      ease: Power4.easeOut
+      ease: Power4.easeOut,
+      delay: 0.8
     },
     0.08
   );
@@ -66,6 +68,7 @@ intersectionObserver(document.querySelector('.photo-quality'), () => {
   TweenMax.to($shape, 0.8, {
     x: '0%',
     skewX: -30,
-    ease: Power4.easeOut
+    ease: Power4.easeOut,
+    delay: 0.7
   });
 });
