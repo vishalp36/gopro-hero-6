@@ -1,69 +1,26 @@
-import axios from 'axios';
-
 class ProgressLoader {
   constructor() {
-    this.srcElements = [].slice.call(document.querySelectorAll('[data-src]'));
-    this.backgroundElements = [].slice.call(
-      document.querySelectorAll('[data-background]')
-    );
     this.eventsList = ['progress', 'complete'];
     this.progressEvents = [];
     this.completeEvents = [];
     this.globalProgress = 0;
-    this.requests = [];
-    this.initRequests();
-  }
-
-  initRequests() {
-    this.srcElements.forEach(element => {
-      this.requests.push({
-        element,
-        type: 'data-src',
-        progress: 0
-      });
-    });
-
-    this.backgroundElements.forEach(element => {
-      this.requests.push({
-        element,
-        type: 'data-background',
-        progress: 0
-      });
-    });
-
-    this.requests.forEach((request, index) => {
-      axios.get(request.element.getAttribute(request.type), {
-        onDownloadProgress: e => {
-          const progress = Math.floor(e.loaded / e.total * 100);
-          this.updateRequestProgress(index, progress);
-        }
-      });
-
-      if (request.type === 'data-background') {
-        request.element.style.backgroundImage = `url('${request.element.getAttribute(
-          request.type
-        )}')`;
-        request.element.removeAttribute(request.type);
-      } else if (request.type === 'data-src') {
-        request.element.src = request.element.getAttribute(request.type);
-        request.element.removeAttribute(request.type);
-      }
-    });
-  }
-
-  updateRequestProgress(index, progress) {
-    this.requests[index].progress = progress;
-    const total = this.requests.reduce(
-      (value, request) => value + request.progress,
-      0
+    this.performanceData = window.performance.timing;
+    this.estimatedTime = -(
+      this.performanceData.loadEventEnd - this.performanceData.navigationStart
     );
+    this.convertedEstimatedTime =
+      parseInt((this.estimatedTime / 1000) % 60) * 100;
+    this.updateRequestProgress();
+  }
 
-    this.globalProgress = Math.floor(total / this.requests.length);
+  updateRequestProgress() {
+    this.globalProgress += 1;
 
     if (this.globalProgress === 100) {
       this.callProgressEvents();
       this.callCompleteEvents();
     } else {
+      requestAnimationFrame(this.updateRequestProgress.bind(this));
       this.callProgressEvents();
     }
   }

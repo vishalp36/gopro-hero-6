@@ -108,7 +108,7 @@ gulp.task('watch', () => {
   gulp.watch(config.src + '**/*.pug', ['pug']);
   gulp.watch(config.src + 'scss/**/*.scss', ['sass']);
   gulp.watch(config.src + 'js/**/*.js', ['javascript']);
-  gulp.watch(config.src + 'img/**/*', ['images']);
+  gulp.watch(config.src + 'img/**/*', ['images', 'srcset']);
   gulp.watch(config.src + 'video/**/*', ['videos']);
   gulp.watch(config.src + 'font/*', ['fonts']);
 });

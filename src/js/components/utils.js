@@ -1,4 +1,3 @@
-import 'intersection-observer';
 import { TweenLite } from 'gsap';
 import * as CustomEase from './CustomEase';
 

@@ -2,6 +2,7 @@ import { TweenMax, Power4 } from 'gsap';
 import Bubbles from '../components/Bubbles';
 import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver } from '../components/utils';
+import lazyLoad from '../components/Lazyload';
 
 const bubbles = new Bubbles(document.querySelector('.bubbles--first'));
 const bubbles2 = new Bubbles(document.querySelector('.bubbles--second'), -1.5);
@@ -33,6 +34,13 @@ const titleRevelation = new TextRevelation($title);
 
 intersectionObserver(document.querySelector('.photo-quality'), () => {
   titleRevelation.reveal();
+
+  const coolImages = [].slice.call(
+    document.querySelectorAll('.bubbles__element img.lazyload')
+  );
+  coolImages.forEach(coolImage => {
+    lazyLoad.triggerLoad(coolImage);
+  });
 
   TweenMax.to($description, 0.8, {
     opacity: 1,
