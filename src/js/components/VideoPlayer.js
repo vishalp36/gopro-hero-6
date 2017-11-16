@@ -63,7 +63,7 @@ class VideoPlayer {
 
   initListeners() {
     this.source.addEventListener('loadedmetadata', () => {
-      this.updateTimer();
+      this.timer.innerText = this.updateTimer();
 
       this.source.ontimeupdate = () => {
         const timer = this.updateTimer();

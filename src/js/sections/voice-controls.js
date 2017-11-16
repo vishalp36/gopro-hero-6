@@ -1,6 +1,7 @@
 import { TweenMax, Power4 } from 'gsap';
 import { intersectionObserver } from '../components/utils';
 import { map, ease } from '../components/utils';
+import lazyLoad from '../components/Lazyload';
 
 const $section = document.querySelector('.voice-controls');
 const $illustrations = document.querySelectorAll(
@@ -19,6 +20,14 @@ TweenMax.set($explanations, {
 });
 
 intersectionObserver($section, () => {
+  const coolImages = [].slice.call(
+    document.querySelectorAll('.voice-controls img.lazyload')
+  );
+
+  coolImages.forEach(coolImage => {
+    lazyLoad.triggerLoad(coolImage);
+  });
+
   TweenMax.staggerTo(
     $illustrations,
     0.7,
