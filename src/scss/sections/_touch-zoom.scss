@@ -52,6 +52,7 @@
 	height: 75vh;
 	perspective: 1400px;
 	overflow: hidden;
+	background-color: $light-white;
 	
 	@include responsive($md) {
     height: 100vh;

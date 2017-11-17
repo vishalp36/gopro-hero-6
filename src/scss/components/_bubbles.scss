@@ -35,10 +35,8 @@
 .bubbles__element {
   flex: 1;
   height: 260px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   margin-right: 20px;
+  background-color: $light-white;
 
   @include responsive($md) {
     height: 280px;
