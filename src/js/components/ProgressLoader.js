@@ -1,26 +1,50 @@
+import axios from 'axios';
+
 class ProgressLoader {
   constructor() {
+    this.srcElements = [].slice.call(
+      document.querySelectorAll('[data-preload]')
+    );
     this.eventsList = ['progress', 'complete'];
     this.progressEvents = [];
     this.completeEvents = [];
     this.globalProgress = 0;
-    this.performanceData = window.performance.timing;
-    this.estimatedTime = -(
-      this.performanceData.loadEventEnd - this.performanceData.navigationStart
-    );
-    this.convertedEstimatedTime =
-      parseInt((this.estimatedTime / 1000) % 60) * 100;
-    this.updateRequestProgress();
+    this.requests = [];
+    this.initRequests();
   }
 
-  updateRequestProgress() {
-    this.globalProgress += 1;
+  initRequests() {
+    this.srcElements.forEach(element => {
+      this.requests.push({
+        element,
+        type: 'src',
+        progress: 0
+      });
+    });
+
+    this.requests.forEach((request, index) => {
+      axios.get(request.element.getAttribute(request.type), {
+        onDownloadProgress: e => {
+          const progress = Math.floor(e.loaded / e.total * 100);
+          this.updateRequestProgress(index, progress);
+        }
+      });
+    });
+  }
+
+  updateRequestProgress(index, progress) {
+    this.requests[index].progress = progress;
+    const total = this.requests.reduce(
+      (value, request) => value + request.progress,
+      0
+    );
+
+    this.globalProgress = Math.floor(total / this.requests.length);
 
     if (this.globalProgress === 100) {
       this.callProgressEvents();
       this.callCompleteEvents();
     } else {
-      requestAnimationFrame(this.updateRequestProgress.bind(this));
       this.callProgressEvents();
     }
   }
