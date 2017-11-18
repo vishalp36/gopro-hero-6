@@ -1,4 +1,4 @@
-import { TweenMax, Power4, TimelineMax } from 'gsap';
+import { TweenMax, TimelineMax } from 'gsap';
 import { ease } from './utils';
 
 class TextRevelation {

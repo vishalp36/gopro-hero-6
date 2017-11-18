@@ -1,6 +1,6 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
 import YoutubePlayer from 'youtube-player';
-import { map, isMobile } from '../components/utils';
+import { map, isMobile, ease } from '../components/utils';
 import SnowParticles from '../components/SnowParticles';
 import ButtonMovement from '../components/ButtonMovement';
 import ProgressLoader from '../components/ProgressLoader';
@@ -26,7 +26,7 @@ progress.on('complete', () => {
       .to($loader, 1.2, {
         x: '100%',
         transformOrigin: 'right',
-        ease: Expo.easeOut
+        ease
       })
       .fromTo(
         $background,
@@ -36,7 +36,7 @@ progress.on('complete', () => {
         },
         {
           opacity: 1,
-          ease: Power4.easeOut
+          ease
         },
         '-=1'
       )
@@ -46,7 +46,7 @@ progress.on('complete', () => {
         {
           x: '100%',
           transformOrigin: 'right',
-          ease: Expo.easeOut
+          ease
         },
         '-=1.2'
       )
@@ -69,7 +69,7 @@ progress.on('complete', () => {
         },
         {
           x: -10,
-          ease: Expo.easeOut
+          ease
         },
         '-=1.5'
       )
@@ -94,7 +94,7 @@ progress.on('complete', () => {
         {
           x: 30,
           opacity: 1,
-          ease: Expo.easeOut
+          ease
         },
         '-=1.5'
       )
@@ -108,7 +108,7 @@ progress.on('complete', () => {
         {
           y: 0,
           opacity: 1,
-          ease: Power4.easeOut
+          ease
         },
         '-=1.5'
       )
@@ -122,7 +122,7 @@ progress.on('complete', () => {
         {
           y: '0%',
           opacity: 1,
-          ease: Power4.easeOut
+          ease
         },
         '-=1.3'
       );
@@ -155,7 +155,7 @@ progress.on('complete', () => {
           },
           {
             y: '0%',
-            ease: Power4.easeOut
+            ease
           }
         );
       } else if (prev && prev === y) {
@@ -167,7 +167,7 @@ progress.on('complete', () => {
           },
           {
             y: '0%',
-            ease: Power4.easeOut
+            ease
           },
           '-=0.6'
         );
@@ -180,7 +180,7 @@ progress.on('complete', () => {
           },
           {
             y: '0%',
-            ease: Power4.easeOut
+            ease
           },
           '-=0.5'
         );
@@ -199,7 +199,7 @@ progress.on('complete', () => {
       {
         scale: 1,
         opacity: 1,
-        ease: Power4.easeOut
+        ease
       },
       '-=0.4'
     );

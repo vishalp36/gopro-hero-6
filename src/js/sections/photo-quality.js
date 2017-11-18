@@ -1,7 +1,7 @@
-import { TweenMax, Power4 } from 'gsap';
+import { TweenMax } from 'gsap';
 import Bubbles from '../components/Bubbles';
 import TextRevelation from '../components/TextRevelation';
-import { intersectionObserver } from '../components/utils';
+import { intersectionObserver, ease } from '../components/utils';
 import lazyLoad from '../components/Lazyload';
 
 const bubbles = new Bubbles(document.querySelector('.bubbles--first'));
@@ -50,19 +50,19 @@ intersectionObserver(document.querySelector('.photo-quality__content'), () => {
     opacity: 1,
     y: -30,
     delay: 0.3,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.staggerTo(
@@ -71,7 +71,7 @@ intersectionObserver(document.querySelector('.photo-quality__content'), () => {
     {
       opacity: 1,
       x: 30,
-      ease: Power4.easeOut,
+      ease,
       delay: 0.8
     },
     0.08
@@ -83,7 +83,7 @@ intersectionObserver(document.querySelector('.photo-quality__content'), () => {
     {
       opacity: 1,
       x: 30,
-      ease: Power4.easeOut,
+      ease,
       delay: 0.8
     },
     0.08
@@ -92,7 +92,7 @@ intersectionObserver(document.querySelector('.photo-quality__content'), () => {
   TweenMax.to($shape, 0.8, {
     x: '0%',
     skewX: -30,
-    ease: Power4.easeOut,
+    ease,
     delay: 0.7
   });
 });

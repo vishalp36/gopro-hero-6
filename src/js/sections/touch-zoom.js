@@ -1,6 +1,6 @@
 import { TweenMax, Power4 } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
-import { intersectionObserver } from '../components/utils';
+import { intersectionObserver, ease } from '../components/utils';
 import Touchzoom from '../components/Touchzoom';
 
 const $section = document.querySelector('.touch-zoom');
@@ -37,25 +37,25 @@ intersectionObserver(document.querySelector('.touch-zoom__content'), () => {
     opacity: 1,
     y: -30,
     delay: 0.7,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($view, 0.8, {
     opacity: 1,
     y: 0,
     delay: 0.6,
-    ease: Power4.easeInOut
+    ease
   });
 });

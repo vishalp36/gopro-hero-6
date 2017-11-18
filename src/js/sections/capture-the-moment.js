@@ -1,6 +1,6 @@
-import { TweenMax, Power4 } from 'gsap';
+import { TweenMax } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
-import { intersectionObserver } from '../components/utils';
+import { intersectionObserver, ease } from '../components/utils';
 
 const $title = document.querySelector('.capture__title');
 const $description = document.querySelector('.capture__description');
@@ -28,37 +28,37 @@ intersectionObserver(document.querySelector('.capture'), () => {
     opacity: 1,
     y: -30,
     delay: 0.3,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($window, 1, {
     x: '150%',
     delay: 0.3,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($window2, 1, {
     x: '150%',
     delay: 0.45,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($shape, 0.7, {
     scaleX: 1,
     skewX: -30,
     delay: 0.45,
-    ease: Power4.easeInOut
+    ease
   });
 });

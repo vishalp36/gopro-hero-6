@@ -1,4 +1,5 @@
-import { TweenMax, Power4, TimelineMax } from 'gsap';
+import { TweenMax, TimelineMax } from 'gsap';
+import { ease } from './utils';
 
 class SectionRevelation {
   constructor(container, steps) {
@@ -9,7 +10,7 @@ class SectionRevelation {
     this.options = {
       duration: 0.8,
       between: 0.1,
-      ease: Power4.easeInOut
+      ease
     };
     this.init();
   }

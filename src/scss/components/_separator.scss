@@ -14,6 +14,16 @@
       justify-content: flex-start;
     }
   }
+
+  &--black {
+    .separator__bar {
+      background-color: $separator-black;
+    }
+
+    .separator__square {
+      stroke: $separator-black;
+    }
+  }
 }
 
 .separator__container {
@@ -29,12 +39,12 @@
   stroke-dasharray: 170px;
   stroke-dashoffset: 170px;
   stroke-width: 2px;
-  stroke: $black;
+  stroke: $separator-white;
 }
 
 .separator__bar {
   height: 1px;
-  background-color: $black;
+  background-color: $separator-white;
   flex: 1;
   transform-origin: left;
   transform: scaleX(0);

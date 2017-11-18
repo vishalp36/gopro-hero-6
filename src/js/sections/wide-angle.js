@@ -1,5 +1,5 @@
 import { TweenMax, Power4 } from 'gsap';
-import { map } from '../components/utils';
+import { map, ease } from '../components/utils';
 import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver } from '../components/utils';
 
@@ -82,26 +82,26 @@ intersectionObserver(document.querySelector('.wide-angle__content'), () => {
     opacity: 1,
     y: 0,
     delay: 0.3,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($shape, 0.7, {
     scaleX: 1,
     skewX: -30,
     delay: 0.45,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($shape2, 0.7, {
@@ -109,7 +109,7 @@ intersectionObserver(document.querySelector('.wide-angle__content'), () => {
     skewX: -30,
     x: '0%',
     delay: 0.45,
-    ease: Power4.easeInOut
+    ease
   });
 });
 

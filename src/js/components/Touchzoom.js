@@ -1,6 +1,6 @@
 import { TweenMax, Power1 } from 'gsap';
 import Hammer from 'hammerjs';
-import { map } from './utils';
+import { map, ease } from './utils';
 
 class Touchzoom {
   constructor(container, source, pointer, controls) {
@@ -108,7 +108,7 @@ class Touchzoom {
     this.manager.on('panend', event => {
       TweenMax.to(this.pointer, 0.5, {
         y: this.moved + event.deltaY,
-        ease: Power1.easeOut
+        ease
       });
 
       this.pointer.classList.remove('active');
@@ -119,7 +119,7 @@ class Touchzoom {
       ) {
         TweenMax.to(this.pointer, 0.5, {
           y: -this.controls.getBoundingClientRect().height + 20,
-          ease: Power1.easeOut
+          ease
         });
 
         this.moved = -this.controls.getBoundingClientRect().height + 20;
@@ -134,12 +134,12 @@ class Touchzoom {
 
         TweenMax.to(this.source, 1, {
           scale: 1 + zoom,
-          ease: Power1.easeOut
+          ease
         });
       } else {
         TweenMax.to(this.pointer, 0.5, {
           y: 0,
-          ease: Power1.easeOut
+          ease
         });
 
         const zoom = map(
@@ -152,7 +152,7 @@ class Touchzoom {
 
         TweenMax.to(this.source, 1, {
           scale: 1 + zoom,
-          ease: Power1.easeOut
+          ease
         });
 
         this.moved = 0;

@@ -1,6 +1,6 @@
-import { TweenMax, Power4, TimelineMax } from 'gsap';
+import { TweenMax } from 'gsap';
 import SectionRevelation from '../components/SectionRevelation';
-import { intersectionObserver } from '../components/utils';
+import { intersectionObserver, ease } from '../components/utils';
 
 const $content = document.querySelector('.design-black__content');
 const $visualSource = document.querySelector('.design-black__source');
@@ -37,7 +37,7 @@ intersectionObserver(document.querySelector('.design-black'), () => {
     {
       opacity: 1,
       x: 0,
-      ease: Power4.easeOut,
+      ease,
       delay: 0.8
     }
   );
@@ -45,13 +45,13 @@ intersectionObserver(document.querySelector('.design-black'), () => {
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.fromTo(
@@ -64,7 +64,7 @@ intersectionObserver(document.querySelector('.design-black'), () => {
     {
       opacity: 1,
       x: 0,
-      ease: Power4.easeOut,
+      ease,
       delay: 0.7
     }
   );

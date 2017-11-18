@@ -1,6 +1,6 @@
-import { TweenMax, Power4 } from 'gsap';
+import { TweenMax } from 'gsap';
 import { intersectionObserver } from '../components/utils';
-import { map, ease } from '../components/utils';
+import { ease } from '../components/utils';
 import lazyLoad from '../components/Lazyload';
 
 const $section = document.querySelector('.voice-controls');

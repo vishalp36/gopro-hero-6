@@ -1,6 +1,6 @@
-import { TweenMax, Power4 } from 'gsap';
+import { TweenMax } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
-import { intersectionObserver } from '../components/utils';
+import { intersectionObserver, ease } from '../components/utils';
 import VideoPlayer from '../components/VideoPlayer';
 
 const $section = document.querySelector('.slow-motion');
@@ -41,39 +41,39 @@ intersectionObserver(document.querySelector('.slow-motion'), () => {
     opacity: 1,
     y: -30,
     delay: 0.3,
-    ease: Power4.easeInOut
+    ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
     delay: 0.5,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($separatorBar, 0.6, {
     scaleX: 1,
     delay: 0.8,
-    ease: Power4.easeOut
+    ease
   });
 
   TweenMax.to($video, 0.8, {
     opacity: 1,
     y: -30,
     delay: 0.4,
-    ease: Power4.easeInOut
+    ease
   });
 });
 
 $button.addEventListener('mouseenter', () => {
   TweenMax.to($completion, 1.4, {
     strokeDashoffset: 0,
-    ease: Power4.easeOut
+    ease
   });
 });
 
 $button.addEventListener('mouseleave', () => {
   TweenMax.to($completion, 1.4, {
     strokeDashoffset: 180,
-    ease: Power4.easeOut
+    ease
   });
 });
