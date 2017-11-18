@@ -7,6 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
+const srcset = require('gulp-srcset');
 const browserSync = require('browser-sync');
 const babel = require('gulp-babel');
 const browserify = require('browserify');
@@ -77,9 +78,13 @@ gulp.task('images', () =>
   gulp
     .src(config.src + 'img/**/*')
     .pipe(imagemin())
+    .pipe(srcset([{
+      width: [1, 1920, 1280, 720, 560, 320],
+      format: ['jpg', 'png']
+    }]))
     .pipe(gulp.dest(config.dist + 'assets/img'))
     .pipe(browserSync.stream())
-    .pipe(notify('Image minified: <%= file.relative %>'))
+    .pipe(notify('Image minified and added new widths of images: <%= file.relative %>'))
 );
 
 gulp.task('videos', () =>
@@ -108,14 +113,14 @@ gulp.task('watch', () => {
   gulp.watch(config.src + '**/*.pug', ['pug']);
   gulp.watch(config.src + 'scss/**/*.scss', ['sass']);
   gulp.watch(config.src + 'js/**/*.js', ['javascript']);
-  gulp.watch(config.src + 'img/**/*', ['images', 'srcset']);
   gulp.watch(config.src + 'video/**/*', ['videos']);
   gulp.watch(config.src + 'font/*', ['fonts']);
 });
 
 gulp.task(
-  'build',
-  ['pug', 'sass', 'javascript', 'images', 'fonts', 'videos'],
-  () => {}
+  'build', gulp.series('pug', 'sass', 'javascript', 'images', 'fonts', 'videos')
 );
-gulp.task('default', ['build', 'liveserver', 'watch'], () => {});
+
+gulp.task(
+  'default', gulp.series('build', 'liveserver', 'watch')
+);
