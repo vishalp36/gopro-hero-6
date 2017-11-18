@@ -16,6 +16,25 @@
       display: none;
     }
   }
+
+  .separator {
+		flex: 1;
+		margin-bottom: 30px;
+
+		@include responsive($md) {
+			display: none;
+		}
+
+		@include responsive($xl) {
+			display: flex;
+		}
+	}
+
+	.separator__container {
+		padding-left: 10px;
+		padding-right: 40px;
+		padding-bottom: 8px;
+	}
 }
 
 .slow-motion__content {

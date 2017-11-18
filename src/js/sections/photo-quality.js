@@ -9,6 +9,10 @@ const bubbles2 = new Bubbles(document.querySelector('.bubbles--second'), -1.5);
 
 const $title = document.querySelector('.photo-quality__title');
 const $description = document.querySelector('.photo-quality__description');
+const $separatorSquare = document.querySelector(
+  '.photo-quality .separator__square'
+);
+const $separatorBar = document.querySelector('.photo-quality .separator__bar');
 const $shape = document.querySelector('.photo-quality__shape');
 const $bubbles = document.querySelectorAll('.bubbles--first .bubbles__element');
 const $bubbles2 = document.querySelectorAll(
@@ -32,7 +36,7 @@ TweenMax.to(document.querySelectorAll('.bubbles__element'), 0, {
 
 const titleRevelation = new TextRevelation($title);
 
-intersectionObserver(document.querySelector('.photo-quality'), () => {
+intersectionObserver(document.querySelector('.photo-quality__content'), () => {
   titleRevelation.reveal();
 
   const coolImages = [].slice.call(
@@ -47,6 +51,18 @@ intersectionObserver(document.querySelector('.photo-quality'), () => {
     y: -30,
     delay: 0.3,
     ease: Power4.easeInOut
+  });
+
+  TweenMax.to($separatorSquare, 0.5, {
+    strokeDasharray: 230,
+    delay: 0.5,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($separatorBar, 0.6, {
+    scaleX: 1,
+    delay: 0.8,
+    ease: Power4.easeOut
   });
 
   TweenMax.staggerTo(

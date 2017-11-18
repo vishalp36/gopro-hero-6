@@ -4,6 +4,10 @@ import { intersectionObserver } from '../components/utils';
 
 const $content = document.querySelector('.design-black__content');
 const $visualSource = document.querySelector('.design-black__source');
+const $separatorSquare = document.querySelector(
+  '.design-black .separator__square'
+);
+const $separatorBar = document.querySelector('.design-black .separator__bar');
 
 const sectionRevelation = new SectionRevelation(
   document.querySelector('.design-black__windows'),
@@ -37,6 +41,18 @@ intersectionObserver(document.querySelector('.design-black'), () => {
       delay: 0.8
     }
   );
+
+  TweenMax.to($separatorSquare, 0.5, {
+    strokeDasharray: 230,
+    delay: 0.5,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($separatorBar, 0.6, {
+    scaleX: 1,
+    delay: 0.8,
+    ease: Power4.easeOut
+  });
 
   TweenMax.fromTo(
     $visualSource,

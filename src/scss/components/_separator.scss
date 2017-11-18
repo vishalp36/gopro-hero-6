@@ -1,0 +1,41 @@
+.separator {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex: 1;
+
+  @include responsive($md) {
+    justify-content: flex-end;
+  }
+
+  &--left {
+    @include responsive($md) {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.separator__container {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.separator__square {
+  fill: none;
+  stroke-dasharray: 170px;
+  stroke-dashoffset: 170px;
+  stroke-width: 2px;
+  stroke: $black;
+}
+
+.separator__bar {
+  height: 1px;
+  background-color: $black;
+  flex: 1;
+  transform-origin: left;
+  transform: scaleX(0);
+}

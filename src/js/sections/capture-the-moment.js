@@ -7,6 +7,8 @@ const $description = document.querySelector('.capture__description');
 const $window = document.querySelector('.capture__window');
 const $window2 = document.querySelector('.capture__window2');
 const $shape = document.querySelector('.capture__shape');
+const $separatorSquare = document.querySelector('.capture .separator__square');
+const $separatorBar = document.querySelector('.capture .separator__bar');
 const titleRevelation = new TextRevelation($title);
 
 TweenMax.to($description, 0, {
@@ -27,6 +29,18 @@ intersectionObserver(document.querySelector('.capture'), () => {
     y: -30,
     delay: 0.3,
     ease: Power4.easeInOut
+  });
+
+  TweenMax.to($separatorSquare, 0.5, {
+    strokeDasharray: 230,
+    delay: 0.5,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($separatorBar, 0.6, {
+    scaleX: 1,
+    delay: 0.8,
+    ease: Power4.easeOut
   });
 
   TweenMax.to($window, 1, {

@@ -15,7 +15,26 @@
 
   @include responsive($md) {
     flex-direction: row;
-  }
+	}
+	
+	.separator {
+		flex: 1;
+		margin-bottom: 30px;
+
+		@include responsive($md) {
+			display: none;
+		}
+
+		@include responsive($xl) {
+			display: flex;
+		}
+	}
+
+	.separator__container {
+		padding-left: 10px;
+		padding-right: 40px;
+		padding-bottom: 8px;
+	}
 }
 
 .touch-zoom__description {
@@ -143,4 +162,8 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	transform: translate3d(0, 0, 30px) rotate3d(0, 0, 0, 10deg);
+
+	img {
+		transform: scale(1.1);
+	}
 }
