@@ -4,6 +4,11 @@ import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver } from '../components/utils';
 
 const $section = document.querySelector('.wide-angle');
+const $description = document.querySelector('.wide-angle__description');
+const $separatorSquare = document.querySelector(
+  '.wide-angle .separator__square'
+);
+const $separatorBar = document.querySelector('.wide-angle .separator__bar');
 const $shape = document.querySelector('.wide-angle__shape');
 const $shape2 = document.querySelector('.wide-angle__shape2');
 const $title = document.querySelector('.wide-angle__title');
@@ -24,6 +29,11 @@ TweenMax.to($shape2, 0, {
   scaleX: 0,
   x: '-120%',
   skewX: -30
+});
+
+TweenMax.to($description, 0, {
+  opacity: 0,
+  y: 30
 });
 
 document.addEventListener('resize', () => {
@@ -68,11 +78,30 @@ document.addEventListener('scroll', () => {
 intersectionObserver(document.querySelector('.wide-angle__content'), () => {
   titleRevelation.reveal();
 
+  TweenMax.to($description, 0.8, {
+    opacity: 1,
+    y: 0,
+    delay: 0.3,
+    ease: Power4.easeInOut
+  });
+
   TweenMax.to($shape, 0.7, {
     scaleX: 1,
     skewX: -30,
     delay: 0.45,
     ease: Power4.easeInOut
+  });
+
+  TweenMax.to($separatorSquare, 0.5, {
+    strokeDasharray: 230,
+    delay: 0.5,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($separatorBar, 0.6, {
+    scaleX: 1,
+    delay: 0.8,
+    ease: Power4.easeOut
   });
 
   TweenMax.to($shape2, 0.7, {

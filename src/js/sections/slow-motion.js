@@ -6,6 +6,10 @@ import VideoPlayer from '../components/VideoPlayer';
 const $section = document.querySelector('.slow-motion');
 const $title = document.querySelector('.slow-motion__title');
 const $description = document.querySelector('.slow-motion__description');
+const $separatorSquare = document.querySelector(
+  '.slow-motion .separator__square'
+);
+const $separatorBar = document.querySelector('.slow-motion .separator__bar');
 const $video = document.querySelector('.slow-motion__video');
 const $button = document.querySelector('.slow-motion__button');
 const $completion = document.querySelector('.slow-motion__circle2-completion');
@@ -38,6 +42,18 @@ intersectionObserver(document.querySelector('.slow-motion'), () => {
     y: -30,
     delay: 0.3,
     ease: Power4.easeInOut
+  });
+
+  TweenMax.to($separatorSquare, 0.5, {
+    strokeDasharray: 230,
+    delay: 0.5,
+    ease: Power4.easeOut
+  });
+
+  TweenMax.to($separatorBar, 0.6, {
+    scaleX: 1,
+    delay: 0.8,
+    ease: Power4.easeOut
   });
 
   TweenMax.to($video, 0.8, {

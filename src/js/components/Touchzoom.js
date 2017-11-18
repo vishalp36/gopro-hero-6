@@ -43,6 +43,29 @@ class Touchzoom {
       });
     });
 
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener(
+        'deviceorientation',
+        event => {
+          console.log(event.alpha, event.beta);
+          const mappedX = Math.round(15 - map(event.alpha, -180, 180, 0, 30));
+          const mappedY = Math.round(map(event.beta, -180, 180, 0, 30));
+
+          console.log(mappedX, mappedY);
+
+          TweenMax.to(this.source, 1, {
+            x: -mappedX,
+            y: mappedY,
+            z: 30,
+            rotationY: Math.round(mappedY * 0.2),
+            rotationX: Math.round(mappedX * 0.2),
+            ease: Power1.easeOut
+          });
+        },
+        false
+      );
+    }
+
     this.manager.on('panstart', event => {
       const gbcr = this.pointer.getBoundingClientRect();
 
