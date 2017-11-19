@@ -74,10 +74,9 @@ gulp.task('javascript', () =>
     .pipe(browserSync.stream())
 );
 
-gulp.task('images', () =>
+gulp.task('srcset', () => {
   gulp
-    .src(config.src + 'img/**/*')
-    .pipe(imagemin())
+    .src(config.src + 'img/src/*')
     .pipe(
       srcset([
         {
@@ -86,6 +85,13 @@ gulp.task('images', () =>
         }
       ])
     )
+    .pipe(gulp.dest(config.src + 'img'));
+});
+
+gulp.task('images', () =>
+  gulp
+    .src(config.src + 'img/*')
+    .pipe(imagemin())
     .pipe(gulp.dest(config.dist + 'assets/img'))
     .pipe(browserSync.stream())
     .pipe(
@@ -122,11 +128,9 @@ gulp.task(
   gulp.series('pug', 'sass', 'javascript', 'images', 'fonts', 'videos')
 );
 
-gulp.task('work', gulp.series('pug', 'sass', 'javascript', 'fonts', 'videos'));
-
 gulp.task(
   'default',
-  gulp.parallel('work', 'liveserver', () => {
+  gulp.parallel('build', 'liveserver', () => {
     gulp.watch(config.src + '**/*.pug', gulp.parallel('pug'));
     gulp.watch(config.src + 'scss/**/*.scss', gulp.parallel('sass'));
     gulp.watch(config.src + 'js/**/*.js', gulp.parallel('javascript'));
