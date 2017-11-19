@@ -8,4 +8,5 @@ import './sections/photo-quality';
 import './sections/slow-motion';
 import './sections/touch-zoom';
 import './sections/wide-angle';
+import './sections/share-story';
 import './sections/voice-controls';
