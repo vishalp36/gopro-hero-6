@@ -4,9 +4,10 @@ import { ease } from './utils';
 class TextRevelation {
   constructor(element, options = this.defaultOptions()) {
     this.element = element;
-    this.options = options;
+    this.options = Object.assign({}, this.defaultOptions(), options);
     this.parts = null;
     this.lines = [];
+    this.timeline = null;
 
     this.buildText();
     this.getInfos();
@@ -17,6 +18,7 @@ class TextRevelation {
     return {
       duration: 0.8,
       between: 0.1,
+      initialDelay: 0,
       ease
     };
   }
@@ -28,8 +30,8 @@ class TextRevelation {
         (el, index) =>
           `
           <div class="text-revelation__wrapper">
-            <span class="text-revelation__text ${index === content.length - 1
-              ? 'text-revelation__text--last'
+            <span class="text-revelation__text${index === content.length - 1
+              ? ' text-revelation__text--last'
               : ''}">${el}</span>
           </div>
         `
@@ -88,7 +90,8 @@ class TextRevelation {
               this.options.duration,
               {
                 y: '0%',
-                ease: this.options.ease
+                ease: this.options.ease,
+                delay: this.options.initialDelay
               }
             );
           } else {
@@ -127,6 +130,14 @@ class TextRevelation {
         }
       });
     });
+  }
+
+  unveil() {
+    this.timeline.restart();
+  }
+
+  veil() {
+    this.timeline.reverse();
   }
 }
 
