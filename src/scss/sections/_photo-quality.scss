@@ -56,10 +56,14 @@
 }
 
 .photo-quality__content {
-  padding-top: 160px;
+  padding-top: 90px;
   padding-bottom: 40px;
   width: 100%;
   background-color: $black-background;
+
+  @include responsive($lg) {
+    padding-top: 160px;
+  }
   
   .container {
     display: flex;
@@ -77,6 +81,7 @@
 .photo-quality__description {
   font-size: 1.2em;
   color: #fff;
+  margin-top: 30px;
 
   @include responsive($md) {
     max-width: 60%;
@@ -89,7 +94,7 @@
 
 .photo-quality__title {
   font-size: 5em;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: #fff;
 
   @include responsive($sm) {

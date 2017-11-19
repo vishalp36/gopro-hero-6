@@ -35,7 +35,7 @@ intersectionObserver(document.querySelector('.touch-zoom__content'), () => {
 
   TweenMax.to($description, 0.8, {
     opacity: 1,
-    y: -30,
+    y: 0,
     delay: 0.7,
     ease
   });

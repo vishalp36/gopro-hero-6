@@ -26,7 +26,7 @@ intersectionObserver(document.querySelector('.capture'), () => {
 
   TweenMax.to($description, 0.8, {
     opacity: 1,
-    y: -30,
+    y: 0,
     delay: 0.3,
     ease
   });

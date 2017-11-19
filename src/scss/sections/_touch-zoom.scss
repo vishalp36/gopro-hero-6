@@ -19,7 +19,6 @@
 	
 	.separator {
 		flex: 1;
-		margin-bottom: 30px;
 
 		@include responsive($md) {
 			display: none;
@@ -27,13 +26,13 @@
 
 		@include responsive($xl) {
 			display: flex;
-		}
-	}
 
-	.separator__container {
-		padding-left: 10px;
-		padding-right: 40px;
-		padding-bottom: 8px;
+			.separator__container {
+				padding-left: 10px;
+				padding-right: 40px;
+				padding-bottom: 8px;
+			}
+		}
 	}
 }
 
@@ -53,7 +52,7 @@
 
 .touch-zoom__title {
   font-size: 5em;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 
   @include responsive($sm) {
 		font-size: 5.4em;
@@ -68,7 +67,7 @@
 .touch-zoom__view {
 	position: relative;
 	width: 100vw;
-	height: 75vh;
+	height: 90vh;
 	perspective: 1400px;
 	overflow: hidden;
 	background-color: $light-white;

@@ -1,4 +1,4 @@
-import { TweenMax } from 'gsap';
+import { TweenMax, Power4 } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver, ease } from '../components/utils';
 import VideoPlayer from '../components/VideoPlayer';
@@ -60,7 +60,7 @@ intersectionObserver(document.querySelector('.slow-motion'), () => {
     opacity: 1,
     y: -30,
     delay: 0.4,
-    ease
+    ease: Power4.easeOut
   });
 });
 

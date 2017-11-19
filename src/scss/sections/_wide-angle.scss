@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding-top: 130px;
 
   .container {
     display: flex;
@@ -13,8 +14,6 @@
 }
 
 .wide-angle__content {
-  padding-top: 100px;
-  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
 
@@ -26,12 +25,30 @@
     flex-direction: column;
     padding-top: 360px;
   }
+
+  .separator {
+		flex: 1;
+
+		@include responsive($md) {
+			display: none;
+		}
+
+		@include responsive($xl) {
+			display: flex;
+
+			.separator__container {
+				padding-left: 10px;
+				padding-right: 40px;
+				padding-bottom: 8px;
+			}
+		}
+	}
 }
 
 .wide-angle__description {
   font-size: 1.2em;
   color: $grey;
-  margin-top: 10px;
+  margin-top: 30px;
 
   @include responsive($md) {
     max-width: 60%;
@@ -44,7 +61,7 @@
 
 .wide-angle__title {
   font-size: 5em;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: $black;
 
   @include responsive($sm) {

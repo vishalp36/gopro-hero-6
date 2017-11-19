@@ -47,11 +47,8 @@ class Touchzoom {
       window.addEventListener(
         'deviceorientation',
         event => {
-          console.log(event.alpha, event.beta);
           const mappedX = Math.round(15 - map(event.alpha, -180, 180, 0, 30));
           const mappedY = Math.round(map(event.beta, -180, 180, 0, 30));
-
-          console.log(mappedX, mappedY);
 
           TweenMax.to(this.source, 1, {
             x: -mappedX,
