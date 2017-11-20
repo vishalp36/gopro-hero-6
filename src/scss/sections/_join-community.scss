@@ -1,3 +1,71 @@
 .join-community {
+  position: relative;
+	padding: 120px 0px 120px 0px;
+	width: 100%;
+	overflow: hidden;
   background-color: #080808;
+  display: flex;
+  flex-direction: column-reverse;
+
+	@include responsive($xs) {
+		padding: 160px 0px 160px 0px;
+	}
+
+	@include responsive($lg) {
+		padding: 280px 0px 60px 0px;
+		flex-direction: row;
+	}
+}
+
+.join-community__visual {
+	overflow: hidden;
+
+	@include responsive($lg) {
+		width: 50%;
+	}
+}
+
+.join-community__globe {
+	position: relative;
+
+	@include responsive($lg) {
+		transform: translateX(-70%);
+	}
+}
+
+.join-community__content {
+  margin-bottom: 40px;
+	color: #fff;
+	
+	@include responsive($lg) {
+		width: 50%;
+		display: flex;
+		align-content: center;
+	}
+}
+
+.join-community__title {
+	font-size: 5em;
+	margin-bottom: 14px;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+		width: 60%;
+		margin-bottom: 0px;
+	}
+
+	@include responsive($md) {
+		font-size: 6em;
+		max-width: 400px;
+	}
+}
+
+.join-community__description {
+  margin-top: 30px;
+  font-size: 1.2em;
+	color: #fff;
+
+	@include responsive($lg) {
+		max-width: 500px;		
+	}
 }

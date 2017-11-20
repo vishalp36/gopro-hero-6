@@ -7,16 +7,31 @@ class EarthGlobe {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
-    this.rad = Math.PI / 180;
+    this.RAD = Math.PI / 180;
     this.PI_HALF = Math.PI / 2;
-    this.$distance = 200;
-    this.$distanceTarget = 200;
+    this.BREAKPOINT = 800;
+    this.responsive = {
+      small: {
+        distance: 200
+      },
+      large: {
+        distance: 160
+      }
+    };
+    this.$distance = this.responsive.large.distance;
+    this.$distanceTarget = this.responsive.large.distance;
     this.$mouse = { x: 0, y: 0 };
     this.$mouseOnDown = { x: 0, y: 0 };
     this.$rotation = { x: 0, y: 0 };
     this.$target = { x: Math.PI * 1 / 2, y: Math.PI / 6.0 };
     this.$targetOnDown = { x: 0, y: 0 };
     this.markers = [];
+
+    if (this.width <= this.BREAKPOINT) {
+      this.$distance = this.responsive.small.distance;
+      this.$distanceTarget = this.responsive.small.distance;
+      this.height = window.innerHeight * 0.7;
+    }
 
     this.manager = new Hammer.Manager(this.container);
     this.manager.add(new Hammer.Pan());
@@ -104,6 +119,16 @@ class EarthGlobe {
       this.camera.aspect = this.width / this.height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.width, this.height);
+
+      if (this.width <= this.BREAKPOINT) {
+        this.$distance = this.responsive.small.distance;
+        this.$distanceTarget = this.responsive.small.distance;
+        this.height = window.innerHeight * 0.7;
+      } else {
+        this.$distance = this.responsive.large.distance;
+        this.$distanceTarget = this.responsive.large.distance;
+        this.height = window.innerHeight;
+      }
     });
   }
 
@@ -212,7 +237,7 @@ class EarthGlobe {
 
   placeMarker(marker, lat, long) {
     marker.quaternion.setFromEuler(
-      new THREE.Euler(0, long * this.rad, lat * this.rad, 'YZX')
+      new THREE.Euler(0, long * this.RAD, lat * this.RAD, 'YZX')
     );
   }
 }
