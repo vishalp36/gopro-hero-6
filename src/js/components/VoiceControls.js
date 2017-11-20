@@ -146,9 +146,12 @@ class VoiceControls {
     const {
       width: buttonWidth,
       height: buttonHeight,
-      top,
       left
     } = this.buttonContainer.getBoundingClientRect();
+    const top =
+      document.querySelector('.voice-controls__content').offsetTop +
+      this.buttonContainer.offsetTop -
+      buttonHeight;
 
     const x = Math.round(width / 2) - Math.round(left + buttonWidth / 2);
     const y = Math.round(height / 2) - Math.round(top + buttonHeight / 2);
