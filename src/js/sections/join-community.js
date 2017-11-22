@@ -2,14 +2,22 @@ import { TweenMax, Power4 } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
 import { intersectionObserver, ease } from '../components/utils';
 import EarthGlobe from '../components/EarthGlobe';
+import EarthGlobeElements from '../components/EarthGlobeElements';
+import markers from '../data/markers.json';
 
 const globe = new EarthGlobe(
   document.querySelector('.join-community__globe'),
   window
 );
 
-globe.addMarker('coucou', 48.866667, 2.333333);
-globe.addMarker('test', 50.866667, 2.333333);
+const globeElements = new EarthGlobeElements(
+  globe,
+  document.querySelector('.join-community__elements')
+);
+markers.forEach(marker => {
+  const el = globe.addMarker(marker);
+  globeElements.addElement(el);
+});
 
 const $title = document.querySelector('.join-community__title');
 const $description = document.querySelector('.join-community__description');
@@ -25,7 +33,7 @@ TweenMax.set($description, {
   y: 30
 });
 
-intersectionObserver(document.querySelector('.join-community__content'), () => {
+intersectionObserver(document.querySelector('.join-community__title'), () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

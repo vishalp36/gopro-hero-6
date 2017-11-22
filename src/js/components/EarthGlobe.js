@@ -181,12 +181,18 @@ class EarthGlobe {
     vector.y = -(vector.y * heightHalf) + heightHalf;
 
     return {
-      x: vector.x,
-      y: vector.y
+      x: Math.round(vector.x),
+      y: Math.round(vector.y)
     };
   }
 
-  addMarker(name, lat, lng) {
+  addMarker(json) {
+    const {
+      id: name,
+      geo: { lat, lng },
+      position: { x: posX, y: posY }
+    } = json;
+
     const pointer = new THREE.Mesh(
       new THREE.CylinderGeometry(0.1, 0, 0.1),
       new THREE.MeshPhongMaterial({ color: 0xcc9900 })
@@ -203,21 +209,35 @@ class EarthGlobe {
     this.obj.add(marker);
 
     const $marker = document.createElement('div');
-    $marker.classList.add('marker');
+    $marker.setAttribute('data-name', name);
+    $marker.setAttribute('data-lng', lng);
+    $marker.setAttribute('data-lat', lat);
+    $marker.classList.add('join-community__marker');
+    $marker.innerHTML = `
+      <div class="join-community__marker-content">
+        <div class="join-community__marker-circle"></div>
+        <div class="join-community__marker-dots"></div>
+      </div>
+    `;
     this.container.appendChild($marker);
 
-    this.markers.push({
-      name,
+    const data = {
+      json,
       marker,
       pointer,
       $marker
-    });
+    };
+
+    this.markers.push(data);
+
+    return data;
   }
 
   updateMarker(marker) {
     const screenPosition = this.toScreenPosition(marker.pointer, this.camera);
-    marker.$marker.style.left = `${Math.floor(screenPosition.x)}px`;
-    marker.$marker.style.top = `${Math.floor(screenPosition.y)}px`;
+    marker.$marker.style.transform = `translate(${Math.floor(
+      screenPosition.x
+    )}px, ${Math.floor(screenPosition.y)}px) rotate(45deg)`;
 
     const meshPosition = marker.pointer.getWorldPosition();
     const eye = this.camera.position.clone().sub(meshPosition);

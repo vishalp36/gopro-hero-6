@@ -33,6 +33,45 @@
 	}
 }
 
+.join-community__marker {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	width: 26px;
+	height: 26px;
+	transform: rotate(45deg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.join-community__marker-content {
+	position: relative;
+}
+
+.join-community__marker-circle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 50%;
+}
+
+.join-community__marker-dots {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: 2px dotted #fff;
+}
+
 .join-community__content {
   margin-bottom: 40px;
 	color: #fff;
@@ -68,4 +107,82 @@
 	@include responsive($lg) {
 		max-width: 500px;		
 	}
+}
+
+.join-community__elements {
+	width: 100%;
+	padding-top: 40px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	@include responsive($lg) {
+		flex-direction: row;
+	}
+}
+
+.join-community__element {
+	width: 100%;
+	margin-bottom: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	flex-direction: row;
+
+	@include responsive($lg) {
+		width: 50%;
+	}
+}
+
+.join-community__element-left {
+	width: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.join-community__element-date {
+	width: 50px;
+	height: 50px;
+	border: 1px solid $main-color;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	span {
+		display: inline-block;
+	}
+}
+
+.join-community__element-month {
+	font-size: 0.8em;
+	line-height: 1;
+}
+
+.join-community__element-day {
+	line-height: 1;
+	font-size: 1.4em;
+	margin-bottom: -4px;
+}
+
+.join-community__element-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+	color: #fff;
+}
+
+.join-community__element-name {
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-bottom: 4px;
+}
+
+.join-community__element-location {
+	color: #7d7d7d;
 }
