@@ -70,7 +70,7 @@ intersectionObserver(document.querySelector('.share-story'), () => {
   );
 });
 
-const movingClouds = event => {
+const movingClouds = () => {
   $clouds.forEach(cloud => {
     const gbcr = cloud.getBoundingClientRect();
     TweenMax.to(cloud, 0.1, {

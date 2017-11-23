@@ -190,7 +190,8 @@ class EarthGlobe {
     const {
       id: name,
       geo: { lat, lng },
-      position: { x: posX, y: posY }
+      position: { x: posX, y: posY },
+      link
     } = json;
 
     const pointer = new THREE.Mesh(
@@ -208,7 +209,9 @@ class EarthGlobe {
     this.placeMarker(marker, lat, lng);
     this.obj.add(marker);
 
-    const $marker = document.createElement('div');
+    const $marker = document.createElement('a');
+    $marker.setAttribute('href', link);
+    $marker.setAttribute('target', '_blank');
     $marker.setAttribute('data-name', name);
     $marker.setAttribute('data-lng', lng);
     $marker.setAttribute('data-lat', lat);
@@ -249,9 +252,9 @@ class EarthGlobe {
     const ocluded = dot < -0.2;
 
     if (ocluded) {
-      marker.$marker.style.display = 'none';
+      marker.$marker.classList.add('hidden');
     } else {
-      marker.$marker.style.display = 'block';
+      marker.$marker.classList.remove('hidden');
     }
   }
 

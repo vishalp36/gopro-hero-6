@@ -5,7 +5,7 @@ class EarthGlobeElements {
     this.elements = [];
   }
 
-  addElement({ json: element }) {
+  addElement({ $marker: marker, json: element }) {
     this.elements.push(element);
     const $marker = document.createElement('a');
     $marker.setAttribute('href', element.link);
@@ -31,6 +31,11 @@ class EarthGlobeElements {
     $marker.addEventListener('mouseenter', () => {
       this.earth.$target.x = element.position.x;
       this.earth.$target.y = element.position.y;
+      marker.classList.add('active');
+    });
+
+    $marker.addEventListener('mouseleave', () => {
+      marker.classList.remove('active');
     });
 
     this.elementsContainer.appendChild($marker);
