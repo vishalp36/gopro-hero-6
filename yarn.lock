@@ -1619,10 +1619,6 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-dat.gui@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.6.1.tgz#7c3d0a2ac2c570dafb61b91203fd7fe3171d6ac7"
-
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -5529,6 +5525,10 @@ stat-mode@^0.2.0:
 "statuses@>= 1.3.1 < 2", statuses@~1.3.0, statuses@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
+
+stickyfilljs@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/stickyfilljs/-/stickyfilljs-2.0.3.tgz#c0e7967d6c79a1d069ba80daccdb71d40dee9775"
 
 stream-browserify@^2.0.0:
   version "2.0.1"

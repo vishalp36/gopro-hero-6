@@ -1,0 +1,167 @@
+.quickstories {
+  position: relative;
+  padding: 130px 0px;
+  
+  @include responsive($lg) {
+    position: relative;
+    height: 350vh;
+  }
+}
+
+.quickstories__container {
+  @include responsive($lg) {
+    position: sticky;
+    top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+    }
+  }
+}
+
+.quickstories__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include responsive($lg) {
+    align-items: flex-start;
+    width: 50%;
+  }
+}
+
+.quickstories__phone {
+  position: relative;
+}
+
+.quickstories__mockup {
+  width: 250px;
+  height: auto;
+
+  @include responsive($xs) {
+    width: 320px;
+  }
+
+  @include responsive($md) {
+    width: 350px;
+  }
+
+  @include responsive($lg) {
+    width: 400px;
+  }
+}
+
+.quickstories__sources {
+  position: absolute;
+  top: 55px;
+  left: 25px;
+  width: 201px;
+  height: 358px;
+  overflow: hidden;
+
+  @include responsive($xs) {
+    top: 70px;
+    left: 31px;
+    width: 257px;
+    height: 457px;
+  }
+
+  @include responsive($md) {
+    top: 77px;
+    left: 35px;
+    width: 280px;
+    height: 498px;
+  }
+
+  @include responsive($lg) {
+    top: 88px;
+    left: 40px;
+    width: 320px;
+    height: 570px;
+  }
+}
+
+.quickstories__source {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 201px;
+  height: auto;
+
+  @include responsive($xs) {
+    width: 257px;
+  }
+
+  @include responsive($md) {
+    width: 280px;
+  }
+
+  @include responsive($lg) {
+    width: 320px;
+  }
+}
+
+.quickstories__content {
+  margin-top: 40px;
+  
+  @include responsive($lg) {
+    margin-top: 0px;
+    width: 50%;
+  }
+}
+
+.quickstories__steps {
+  position: relative;
+}
+
+.quickstories__step {
+  padding: 0px 30px;
+  margin-bottom: 30px;
+
+  @include responsive($lg) {
+    margin-bottom: 0px;
+    padding: 0px;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+}
+
+.quickstories__step-description {
+  font-size: 1.2em;
+	color: $grey;
+
+	@include responsive($lg) {
+		max-width: 400px;		
+  }
+}
+
+.quickstories__step-description-container {
+  overflow: hidden;
+  margin-top: 30px;  
+}
+
+.quickstories__step-title {
+	font-size: 5em;
+  margin-bottom: 14px;
+
+  @include responsive($sm) {
+		font-size: 5.4em;
+		width: 60%;
+		margin-bottom: 0px;
+	}
+
+	@include responsive($md) {
+    font-size: 6em;
+    width: 70%;
+		max-width: 600px;
+	}
+}

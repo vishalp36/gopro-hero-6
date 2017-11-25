@@ -41,6 +41,7 @@
     "intersection-observer": "^0.4.2",
     "lozad": "^1.0.9",
     "object-fit-images": "^3.2.3",
+    "stickyfilljs": "^2.0.3",
     "youtube-player": "^5.4.0"
   }
 }
