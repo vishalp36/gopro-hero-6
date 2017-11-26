@@ -30,7 +30,7 @@ TweenMax.to($view, 0, {
 
 const titleRevelation = new TextRevelation($title);
 
-intersectionObserver(document.querySelector('.touch-zoom__content'), () => {
+intersectionObserver(document.querySelector('.touch-zoom__title'), () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

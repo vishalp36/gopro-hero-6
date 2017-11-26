@@ -33,7 +33,7 @@ TweenMax.to($video, 0, {
 
 const titleRevelation = new TextRevelation($title);
 
-intersectionObserver(document.querySelector('.slow-motion'), () => {
+intersectionObserver(document.querySelector('.slow-motion__title'), () => {
   titleRevelation.reveal();
   videoPlayer.init();
 

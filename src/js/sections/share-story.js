@@ -29,7 +29,7 @@ TweenMax.set($clouds, {
   scale: 0
 });
 
-intersectionObserver(document.querySelector('.share-story'), () => {
+intersectionObserver(document.querySelector('.share-story__title'), () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

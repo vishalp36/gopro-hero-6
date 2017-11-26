@@ -75,7 +75,7 @@ document.addEventListener('scroll', () => {
   });
 });
 
-intersectionObserver(document.querySelector('.wide-angle__content'), () => {
+intersectionObserver(document.querySelector('.wide-angle__title'), () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

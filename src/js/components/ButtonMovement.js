@@ -1,5 +1,5 @@
 import { TweenMax, Power1 } from 'gsap';
-import { map, ease } from './utils';
+import { map } from './utils';
 
 class ButtonMovement {
   constructor(container, elements) {

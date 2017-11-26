@@ -198,7 +198,12 @@
 	display: inline-block;
 	padding: 50px;
 	margin-left: -35px;
-	margin-top: -20px;
+  margin-top: -20px;
+  pointer-events: none;
+
+  @include responsive($md) {
+    pointer-events: all;
+  }
 
 	&:hover {
 		.voice-controls__button {
@@ -216,7 +221,12 @@
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+  justify-content: center;
+  pointer-events: none;
+  
+  @include responsive($md) {
+    pointer-events: all;
+  }
 
 	&:before {
 		content: '';

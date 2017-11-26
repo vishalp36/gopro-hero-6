@@ -21,7 +21,7 @@ TweenMax.to($shape, 0, {
   skewX: -30
 });
 
-intersectionObserver(document.querySelector('.capture'), () => {
+intersectionObserver(document.querySelector('.capture__title'), () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

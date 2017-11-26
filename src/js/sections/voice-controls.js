@@ -43,7 +43,7 @@ TweenMax.set($buttonContainer, {
   y: 30
 });
 
-intersectionObserver($section, () => {
+intersectionObserver($title, () => {
   titleRevelation.reveal();
 
   TweenMax.to($description, 0.8, {

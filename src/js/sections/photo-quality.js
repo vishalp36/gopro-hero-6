@@ -36,7 +36,7 @@ TweenMax.to(document.querySelectorAll('.bubbles__element'), 0, {
 
 const titleRevelation = new TextRevelation($title);
 
-intersectionObserver(document.querySelector('.photo-quality__content'), () => {
+intersectionObserver(document.querySelector('.photo-quality__title'), () => {
   titleRevelation.reveal();
 
   const coolImages = [].slice.call(
