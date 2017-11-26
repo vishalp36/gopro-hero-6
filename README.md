@@ -1,6 +1,10 @@
 HETIC-P2020-10
 ========
+![](https://img.shields.io/badge/node-%3E%3D%208.1.4-brightgreen.svg) ![](https://img.shields.io/badge/gulp-4.0-red.svg) ![](https://img.shields.io/badge/yarn-%3E%3D%201.2.1-blue.svg)
+
 > GoPro front-end project made for HETIC front-end classes. [Link](https://gopro.netlify.com/)
+
+[![](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://gopro.netlify.com)
 
 ## Conventions
 - CSS
@@ -12,7 +16,7 @@ HETIC-P2020-10
 ## Requirements
 - Node 8.1.4
 - Gulp 4.0
-- NPM 5.4.2
+- Yarn 1.2.1
 
 ## Installation
 Before installing the project, make sure to match all the requirements listed above.
@@ -41,8 +45,8 @@ gulp build
 ```
 
 ## Credits
-
-[Grégoire Mielle](https://github.com/greeeg)
-[Naïm El Ayadi](https://github.com/naim-ea)
-[Yoann Baunach](https://github.com/YoannBa)
-[Paul Esdoluc](https://github.com/PaulEsdoluc)
+- [Grégoire Mielle](https://github.com/greeeg) - Web developer
+- [Naïm El Ayadi](https://github.com/naim-ea) - Web developer
+- [Yoann Baunach](https://github.com/YoannBa) - UX/UI designer
+- [Paul Esdoluc](https://github.com/PaulEsdoluc) - UX/UI designer
+- [Alexandre Bourjade](#) - Content editor
