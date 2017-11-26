@@ -64,7 +64,7 @@ gulp.task('javascript', () =>
     entries: config.src + 'js/app.js',
     debug: true
   })
-    .transform(babelify, { presets: ['es2015'] })
+    .transform(babelify, { presets: ['flow', 'es2015'] })
     .on('error', gutil.log)
     .bundle()
     .on('error', gutil.log)

@@ -1,3 +1,4 @@
+// @flow
 import 'intersection-observer';
 import './components/Lazyload';
 import './components/ObjectFit';
