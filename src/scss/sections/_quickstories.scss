@@ -66,6 +66,8 @@
   width: 201px;
   height: 358px;
   overflow: hidden;
+  background-color: $light-white;
+  z-index: -1;
 
   @include responsive($xs) {
     top: 70px;
@@ -126,6 +128,7 @@
 .quickstories__step {
   padding: 0px 30px;
   margin-bottom: 30px;
+  overflow: hidden;
 
   @include responsive($lg) {
     margin-bottom: 0px;

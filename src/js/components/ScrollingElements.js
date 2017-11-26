@@ -2,17 +2,20 @@ import { TweenMax, Power4 } from 'gsap';
 import { ease } from './utils';
 
 class ScrollingElements {
-  constructor(container, elements) {
+  constructor(window, container, elements) {
+    this.window = window;
     this.container = container;
     this.elements = elements;
+    this.BREAKPOINT = 1080;
     this.currentPourcentage = 0;
+    this.observer = null;
     this.currentIndex = null;
     this.previousIndex = null;
     this.onScrollEvent = this.onScroll.bind(this);
 
     this.initElements();
 
-    const observer = new IntersectionObserver(
+    this.observer = new IntersectionObserver(
       observables => {
         observables.forEach(observable => {
           if (observable.intersectionRatio >= 0) {
@@ -27,7 +30,63 @@ class ScrollingElements {
       }
     );
 
-    observer.observe(this.container);
+    this.initEvents();
+  }
+
+  setupDesktop() {
+    this.elements.forEach((element, index) => {
+      if (index !== 0) {
+        TweenMax.set(element.source, {
+          opacity: 0
+        });
+      }
+
+      TweenMax.set(element.titleParts, {
+        y: '-110%'
+      });
+
+      TweenMax.set(element.description, {
+        y: '-110%'
+      });
+    });
+
+    this.observer.observe(this.container);
+  }
+
+  setupMobile() {
+    window.removeEventListener('scroll', this.onScrollEvent, false);
+
+    this.elements.forEach(element => {
+      TweenMax.set(element.source, {
+        opacity: 1
+      });
+
+      TweenMax.set(element.titleParts, {
+        y: '0%'
+      });
+
+      TweenMax.set(element.description, {
+        y: '0%'
+      });
+    });
+
+    this.observer.unobserve(this.container);
+  }
+
+  initEvents() {
+    if (this.window.innerWidth <= this.BREAKPOINT) {
+      this.setupMobile();
+    } else {
+      this.observer.observe(this.container);
+    }
+
+    this.window.addEventListener('resize', () => {
+      if (this.window.innerWidth <= this.BREAKPOINT) {
+        this.setupMobile();
+      } else {
+        this.setupDesktop();
+      }
+    });
   }
 
   getCurrentElement() {

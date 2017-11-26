@@ -15,6 +15,7 @@ window.addEventListener('resize', () => {
 });
 
 const scrollingElements = new ScrollingElements(
+  window,
   document.querySelector('.quickstories'),
   [
     {
