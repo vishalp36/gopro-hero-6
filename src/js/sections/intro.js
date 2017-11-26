@@ -1,209 +1,256 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
+import bodymovin from 'bodymovin';
 import YoutubePlayer from 'youtube-player';
 import { map, isMobile, ease } from '../components/utils';
 import SnowParticles from '../components/SnowParticles';
 import ButtonMovement from '../components/ButtonMovement';
 import ProgressLoader from '../components/ProgressLoader';
-const progress = new ProgressLoader();
 
-progress.on('progress', value => {
-  document.querySelector('.loader').innerHTML = `${value}%`;
+const progress = new ProgressLoader();
+const $progressBar = document.querySelector('.loader__progress');
+let animationFinished = false;
+let loadingFinished = false;
+
+const intro = bodymovin.loadAnimation({
+  container: document.querySelector('.loader__logo'),
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'assets/data/intro.json'
 });
 
-progress.on('complete', () => {
-  setTimeout(() => {
-    const $loader = document.querySelector('.loader');
-    const $background = document.querySelector('.intro__background');
-    const $backgroundAfter = document.querySelector('.intro__background-cover');
-    const $leftMountain = document.querySelector('.intro__mountain-left');
-    const $rightMountain = document.querySelector('.intro__mountain-right');
-    const $snowboarder = document.querySelector('.intro__snowboarder');
-    const $gopro = document.querySelector('.intro__gopro');
+intro.play();
 
-    const loadingTimeline = new TimelineMax();
+const introAnimation = () => {
+  const $loader = document.querySelector('.loader');
+  const $background = document.querySelector('.intro__background');
+  const $backgroundAfter = document.querySelector('.intro__background-cover');
+  const $leftMountain = document.querySelector('.intro__mountain-left');
+  const $rightMountain = document.querySelector('.intro__mountain-right');
+  const $snowboarder = document.querySelector('.intro__snowboarder');
+  const $gopro = document.querySelector('.intro__gopro');
 
-    loadingTimeline
-      .to($loader, 1.2, {
+  const loadingTimeline = new TimelineMax();
+
+  loadingTimeline
+    .set($progressBar, {
+      transformOrigin: 'right'
+    })
+    .to($progressBar, 0.8, {
+      scaleX: 0,
+      ease
+    })
+    .to(
+      $loader,
+      1.2,
+      {
         x: '100%',
         transformOrigin: 'right',
         ease
-      })
-      .fromTo(
-        $background,
-        1.3,
-        {
-          opacity: 0
-        },
-        {
-          opacity: 1,
-          ease
-        },
-        '-=1'
-      )
-      .to(
-        $backgroundAfter,
-        1.5,
-        {
-          x: '100%',
-          transformOrigin: 'right',
-          ease
-        },
-        '-=1.2'
-      )
-      .fromTo(
-        $leftMountain,
-        0.5,
-        {
-          opacity: 0
-        },
-        {
-          opacity: 1
-        },
-        '-=1.5'
-      )
-      .fromTo(
-        $leftMountain,
-        1.5,
-        {
-          x: -50
-        },
-        {
-          x: -10,
-          ease
-        },
-        '-=1.5'
-      )
-      .fromTo(
-        $rightMountain,
-        0.5,
-        {
-          opacity: 0
-        },
-        {
-          opacity: 1
-        },
-        '-=1.5'
-      )
-      .fromTo(
-        $rightMountain,
-        1.3,
-        {
-          x: 0,
-          opacity: 0
-        },
-        {
-          x: 30,
-          opacity: 1,
-          ease
-        },
-        '-=1.5'
-      )
-      .fromTo(
-        $snowboarder,
-        1.5,
-        {
-          y: -40,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          ease
-        },
-        '-=1.5'
-      )
-      .fromTo(
-        $gopro,
-        1.2,
-        {
-          y: '-10%',
-          opacity: 0
-        },
-        {
-          y: '0%',
-          opacity: 1,
-          ease
-        },
-        '-=1.3'
-      );
-
-    const $title = document.querySelector('.intro__title');
-    const content = $title.innerHTML.split(' ');
-    $title.innerHTML = content
-      .map(
-        el =>
-          `
-          <div class="intro__title-wrapper">
-            <span>${el}</span>
-          </div>
-        `
-      )
-      .join('');
-
-    const $titleParts = [].slice.call(
-      document.querySelectorAll('.intro__title-wrapper')
-    );
-
-    $titleParts.reduce((prev, val, index) => {
-      const y = val.getBoundingClientRect().top;
-      if (index === 0) {
-        loadingTimeline.fromTo(
-          val.querySelector('span'),
-          0.6,
-          {
-            y: '110%'
-          },
-          {
-            y: '0%',
-            ease
-          }
-        );
-      } else if (prev && prev === y) {
-        loadingTimeline.fromTo(
-          val.querySelector('span'),
-          0.6,
-          {
-            y: '110%'
-          },
-          {
-            y: '0%',
-            ease
-          },
-          '-=0.6'
-        );
-      } else {
-        loadingTimeline.fromTo(
-          val.querySelector('span'),
-          0.6,
-          {
-            y: '110%'
-          },
-          {
-            y: '0%',
-            ease
-          },
-          '-=0.5'
-        );
-      }
-
-      return y;
-    }, false);
-
-    loadingTimeline.fromTo(
-      document.querySelector('.intro__button-container'),
-      0.6,
+      },
+      '-=0.8'
+    )
+    .fromTo(
+      $background,
+      1.3,
       {
-        scale: 0,
         opacity: 0
       },
       {
-        scale: 1,
         opacity: 1,
         ease
       },
-      '-=0.4'
+      '-=1'
+    )
+    .to(
+      $backgroundAfter,
+      1.5,
+      {
+        x: '100%',
+        transformOrigin: 'right',
+        ease
+      },
+      '-=1.2'
+    )
+    .fromTo(
+      $leftMountain,
+      0.5,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      '-=1.5'
+    )
+    .fromTo(
+      $leftMountain,
+      1.5,
+      {
+        x: -50
+      },
+      {
+        x: -10,
+        ease
+      },
+      '-=1.5'
+    )
+    .fromTo(
+      $rightMountain,
+      0.5,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      },
+      '-=1.5'
+    )
+    .fromTo(
+      $rightMountain,
+      1.3,
+      {
+        x: 0,
+        opacity: 0
+      },
+      {
+        x: 30,
+        opacity: 1,
+        ease
+      },
+      '-=1.5'
+    )
+    .fromTo(
+      $snowboarder,
+      1.5,
+      {
+        y: -40,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease
+      },
+      '-=1.5'
+    )
+    .fromTo(
+      $gopro,
+      1.2,
+      {
+        y: '-10%',
+        opacity: 0
+      },
+      {
+        y: '0%',
+        opacity: 1,
+        ease
+      },
+      '-=1.3'
     );
-  }, 1000);
+
+  const $title = document.querySelector('.intro__title');
+  const content = $title.innerHTML.split(' ');
+  $title.innerHTML = content
+    .map(
+      el =>
+        `
+        <div class="intro__title-wrapper">
+          <span>${el}</span>
+        </div>
+      `
+    )
+    .join('');
+
+  const $titleParts = [].slice.call(
+    document.querySelectorAll('.intro__title-wrapper')
+  );
+
+  $titleParts.reduce((prev, val, index) => {
+    const y = val.getBoundingClientRect().top;
+    if (index === 0) {
+      loadingTimeline.fromTo(
+        val.querySelector('span'),
+        0.6,
+        {
+          y: '110%'
+        },
+        {
+          y: '0%',
+          ease
+        }
+      );
+    } else if (prev && prev === y) {
+      loadingTimeline.fromTo(
+        val.querySelector('span'),
+        0.6,
+        {
+          y: '110%'
+        },
+        {
+          y: '0%',
+          ease
+        },
+        '-=0.6'
+      );
+    } else {
+      loadingTimeline.fromTo(
+        val.querySelector('span'),
+        0.6,
+        {
+          y: '110%'
+        },
+        {
+          y: '0%',
+          ease
+        },
+        '-=0.5'
+      );
+    }
+
+    return y;
+  }, false);
+
+  loadingTimeline.fromTo(
+    document.querySelector('.intro__button-container'),
+    0.6,
+    {
+      scale: 0,
+      opacity: 0
+    },
+    {
+      scale: 1,
+      opacity: 1,
+      ease
+    },
+    '-=0.4'
+  );
+};
+
+progress.on('progress', value => {
+  document.querySelector('.loader__text').innerHTML = `${value}%`;
+  TweenMax.to($progressBar, 0.2, {
+    scaleX: value / 100,
+    ease: Power4.easeOut
+  });
+});
+
+progress.on('complete', () => {
+  loadingFinished = true;
+
+  if (animationFinished) {
+    introAnimation();
+  }
+});
+
+intro.addEventListener('complete', () => {
+  animationFinished = true;
+
+  if (loadingFinished) {
+    setTimeout(() => {
+      introAnimation();
+    }, 800);
+  }
 });
 
 const movement = new ButtonMovement(document.querySelector('.intro'), [

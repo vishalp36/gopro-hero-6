@@ -108,6 +108,13 @@ gulp.task('videos', () =>
     .pipe(browserSync.stream())
 );
 
+gulp.task('data', () =>
+  gulp
+    .src(config.src + 'data/**/*')
+    .pipe(gulp.dest(config.dist + 'assets/data'))
+    .pipe(browserSync.stream())
+);
+
 gulp.task('fonts', () =>
   gulp
     .src(config.src + 'font/**/*')
@@ -125,7 +132,7 @@ gulp.task('pug', () =>
 
 gulp.task(
   'build',
-  gulp.series('pug', 'sass', 'javascript', 'images', 'fonts', 'videos')
+  gulp.series('pug', 'sass', 'javascript', 'images', 'fonts', 'videos', 'data')
 );
 
 gulp.task(
