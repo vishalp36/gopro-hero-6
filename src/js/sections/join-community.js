@@ -25,12 +25,28 @@ const $separatorSquare = document.querySelector(
   '.join-community .separator__square'
 );
 const $separatorBar = document.querySelector('.join-community .separator__bar');
+const $elements = document.querySelector('.join-community__elements');
+const $canvas = document.querySelector('.join-community__globe canvas');
+const $markers = document.querySelectorAll('.join-community__marker');
 
 const titleRevelation = new TextRevelation($title);
 
 TweenMax.set($description, {
   opacity: 0,
   y: 30
+});
+
+TweenMax.set($elements, {
+  x: '-4%',
+  opacity: 0
+});
+
+TweenMax.set($canvas, {
+  opacity: 0
+});
+
+TweenMax.set($markers, {
+  opacity: 0
 });
 
 intersectionObserver(document.querySelector('.join-community__title'), () => {
@@ -53,5 +69,24 @@ intersectionObserver(document.querySelector('.join-community__title'), () => {
     scaleX: 1,
     delay: 0.8,
     ease
+  });
+
+  TweenMax.to($elements, 0.6, {
+    x: '0%',
+    opacity: 1,
+    ease: Power4.easeOut,
+    delay: 0.5
+  });
+
+  TweenMax.to($canvas, 0.6, {
+    opacity: 1,
+    ease: Power4.easeOut,
+    delay: 0.5
+  });
+
+  TweenMax.to($markers, 0.6, {
+    opacity: 1,
+    ease: Power4.easeOut,
+    delay: 0.5
   });
 });
