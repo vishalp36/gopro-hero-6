@@ -54,7 +54,7 @@ gulp.task('sass', () => {
   const plugins = [autoprefixer({ browsers: ['last 1 version'] }), cssnano()];
 
   return gulp
-    .src(config.src + 'scss/*.scss')
+    .src(`${config.src}scss/*.scss`)
     .pipe(
       plumber({
         errorHandler: notify.onError('SASS Error: <%= error.message %>')
@@ -69,13 +69,13 @@ gulp.task('sass', () => {
         path.basename += '.min';
       })
     )
-    .pipe(gulp.dest(config.dist + 'assets/css'))
+    .pipe(gulp.dest(`${config.dist}assets/css`))
     .pipe(browserSync.stream());
 });
 
 gulp.task('javascript', () =>
   browserify({
-    entries: config.src + 'js/app.js',
+    entries: `${config.src}js/app.js`,
     debug: true
   })
     .transform(babelify, { presets: ['flow', 'env'] })
@@ -84,13 +84,13 @@ gulp.task('javascript', () =>
     .on('error', gutil.log)
     .pipe(source('bundle.js'))
     .pipe(streamify(uglify()))
-    .pipe(gulp.dest(config.dist + 'assets/js'))
+    .pipe(gulp.dest(`${config.dist}assets/js`))
     .pipe(browserSync.stream())
 );
 
 gulp.task('srcset', () => {
   gulp
-    .src(config.src + 'img/src/*')
+    .src(`${config.src}img/src/*`)
     .pipe(
       srcset([
         {
@@ -99,14 +99,14 @@ gulp.task('srcset', () => {
         }
       ])
     )
-    .pipe(gulp.dest(config.src + 'img'));
+    .pipe(gulp.dest(`${config.src}img`));
 });
 
 gulp.task('images', () =>
   gulp
-    .src(config.src + 'img/*')
+    .src(`${config.src}img/*`)
     .pipe(imagemin())
-    .pipe(gulp.dest(config.dist + 'assets/img'))
+    .pipe(gulp.dest(`${config.dist}assets/img`))
     .pipe(browserSync.stream())
     .pipe(
       notify(
@@ -128,7 +128,7 @@ gulp.task('copy', () => {
 
 gulp.task('pug', () =>
   gulp
-    .src(config.src + '*.pug')
+    .src(`${config.src}*.pug`)
     .pipe(pug())
     .pipe(gulp.dest(config.dist))
     .pipe(browserSync.stream())
@@ -139,9 +139,9 @@ gulp.task('build', gulp.series('pug', 'sass', 'javascript', 'images', 'copy'));
 gulp.task(
   'default',
   gulp.parallel('build', 'liveserver', () => {
-    gulp.watch(config.src + '**/*.pug', gulp.parallel('pug'));
-    gulp.watch(config.src + 'scss/**/*.scss', gulp.parallel('sass'));
-    gulp.watch(config.src + 'js/**/*.js', gulp.parallel('javascript'));
-    gulp.watch(config.src + 'img/**/*', gulp.parallel('images'));
+    gulp.watch(`${config.src}**/*.pug`, gulp.parallel('pug'));
+    gulp.watch(`${config.src}scss/**/*.scss`, gulp.parallel('sass'));
+    gulp.watch(`${config.src}js/**/*.js`, gulp.parallel('javascript'));
+    gulp.watch(`${config.src}img/**/*`, gulp.parallel('images'));
   })
 );
