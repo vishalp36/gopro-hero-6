@@ -13,3 +13,4 @@ import './sections/share-story';
 import './sections/voice-controls';
 import './sections/quickstories';
 import './sections/join-community';
+import './sections/footer';
