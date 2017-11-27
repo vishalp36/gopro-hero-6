@@ -14,6 +14,21 @@
 	}
 }
 
+.intro__header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 20;
+}
+
+.intro__logo {
+	margin-top: 40px;
+	width: 140px;
+	height: auto;
+}
+
 .intro__background-parts {
 	position: relative;
 	width: 100vw;

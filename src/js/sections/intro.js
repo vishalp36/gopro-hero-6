@@ -29,12 +29,16 @@ const introAnimation = () => {
   const $rightMountain = document.querySelector('.intro__mountain-right');
   const $snowboarder = document.querySelector('.intro__snowboarder');
   const $gopro = document.querySelector('.intro__gopro');
+  const $logo = document.querySelector('.intro__logo');
 
   const loadingTimeline = new TimelineMax();
 
   loadingTimeline
     .set($progressBar, {
       transformOrigin: 'right'
+    })
+    .set($logo, {
+      opacity: 0
     })
     .to($progressBar, 0.8, {
       scaleX: 0,
@@ -147,6 +151,15 @@ const introAnimation = () => {
         ease
       },
       '-=1.3'
+    )
+    .to(
+      $logo,
+      1.2,
+      {
+        opacity: 1,
+        ease
+      },
+      '-=1'
     );
 
   const $title = document.querySelector('.intro__title');
