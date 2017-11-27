@@ -4,7 +4,9 @@ const notify = require('gulp-notify');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
 const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const srcset = require('gulp-srcset');
@@ -33,8 +35,10 @@ gulp.task('liveserver', () => {
   });
 });
 
-gulp.task('sass', () =>
-  gulp
+gulp.task('sass', () => {
+  const plugins = [autoprefixer({ browsers: ['last 1 version'] }), cssnano()];
+
+  return gulp
     .src(config.src + 'scss/*.scss')
     .pipe(
       plumber({
@@ -42,22 +46,17 @@ gulp.task('sass', () =>
       })
     )
     .pipe(gulpif(!config.env, sourcemaps.init()))
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulpif(!config.env, sourcemaps.write()))
-    .pipe(
-      autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-      })
-    )
+    .pipe(postcss(plugins))
     .pipe(
       rename(path => {
         path.basename += '.min';
       })
     )
     .pipe(gulp.dest(config.dist + 'assets/css'))
-    .pipe(browserSync.stream())
-);
+    .pipe(browserSync.stream());
+});
 
 gulp.task('javascript', () =>
   browserify({
