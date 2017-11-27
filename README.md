@@ -1,4 +1,4 @@
-HETIC-P2020-10
+GoPro Hero 6
 ========
 ![](https://img.shields.io/badge/node-%3E%3D%208.1.4-brightgreen.svg) ![](https://img.shields.io/badge/gulp-4.0-red.svg) ![](https://img.shields.io/badge/yarn-%3E%3D%201.2.1-blue.svg)
 
@@ -49,4 +49,4 @@ gulp build
 - [Naïm El Ayadi](https://github.com/naim-ea) - Web developer
 - [Yoann Baunach](https://github.com/YoannBa) - UX/UI designer
 - [Paul Esdoluc](https://github.com/PaulEsdoluc) - UX/UI designer
-- [Alexandre Bourjade](#) - Content editor
+- [Alexandre Bourjade](https://www.linkedin.com/in/alexandre-bourjade-70189391/) - Content editor
