@@ -30,9 +30,9 @@ class TextRevelation {
         (el, index) =>
           `
           <div class="text-revelation__wrapper">
-            <span class="text-revelation__text${index === content.length - 1
-              ? ' text-revelation__text--last'
-              : ''}">${el}</span>
+            <span class="text-revelation__text${
+              index === content.length - 1 ? ' text-revelation__text--last' : ''
+            }">${el}</span>
           </div>
         `
       )
