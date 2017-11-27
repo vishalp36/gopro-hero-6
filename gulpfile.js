@@ -3,6 +3,7 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
+const merge = require('merge-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -24,7 +25,21 @@ const config = {
   src: 'src/',
   dist: 'dist/',
   port: 8080,
-  env: process.env.NODE_ENV === 'production'
+  env: process.env.NODE_ENV === 'production',
+  copy: [
+    {
+      src: 'src/video/**/*',
+      dist: 'dist/assets/video'
+    },
+    {
+      src: 'src/data/**/*',
+      dist: 'dist/assets/data'
+    },
+    {
+      src: 'src/font/**/*',
+      dist: 'dist/assets/font'
+    }
+  ]
 };
 
 gulp.task('liveserver', () => {
@@ -100,26 +115,16 @@ gulp.task('images', () =>
     )
 );
 
-gulp.task('videos', () =>
-  gulp
-    .src(config.src + 'video/**/*')
-    .pipe(gulp.dest(config.dist + 'assets/video'))
-    .pipe(browserSync.stream())
-);
+gulp.task('copy', () => {
+  const tasks = config.copy.map(resource =>
+    gulp
+      .src(resource.src)
+      .pipe(gulp.dest(resource.dist))
+      .pipe(browserSync.stream())
+  );
 
-gulp.task('data', () =>
-  gulp
-    .src(config.src + 'data/**/*')
-    .pipe(gulp.dest(config.dist + 'assets/data'))
-    .pipe(browserSync.stream())
-);
-
-gulp.task('fonts', () =>
-  gulp
-    .src(config.src + 'font/**/*')
-    .pipe(gulp.dest(config.dist + 'assets/font'))
-    .pipe(browserSync.stream())
-);
+  return merge(tasks);
+});
 
 gulp.task('pug', () =>
   gulp
@@ -129,10 +134,7 @@ gulp.task('pug', () =>
     .pipe(browserSync.stream())
 );
 
-gulp.task(
-  'build',
-  gulp.series('pug', 'sass', 'javascript', 'images', 'fonts', 'videos', 'data')
-);
+gulp.task('build', gulp.series('pug', 'sass', 'javascript', 'images', 'copy'));
 
 gulp.task(
   'default',
@@ -140,8 +142,6 @@ gulp.task(
     gulp.watch(config.src + '**/*.pug', gulp.parallel('pug'));
     gulp.watch(config.src + 'scss/**/*.scss', gulp.parallel('sass'));
     gulp.watch(config.src + 'js/**/*.js', gulp.parallel('javascript'));
-    gulp.watch(config.src + 'video/**/*', gulp.parallel('videos'));
     gulp.watch(config.src + 'img/**/*', gulp.parallel('images'));
-    gulp.watch(config.src + 'font/*', gulp.parallel('fonts'));
   })
 );
