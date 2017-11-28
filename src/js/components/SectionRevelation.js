@@ -42,7 +42,7 @@ class SectionRevelation {
     this.windows.forEach((windows, index) => {
       if (index === 0) {
         this.timeline.to(windows.left, this.options.duration, {
-          x: '-120%',
+          x: '-160%',
           ease: this.options.ease
         });
 
@@ -50,7 +50,7 @@ class SectionRevelation {
           windows.right,
           this.options.duration,
           {
-            x: '120%',
+            x: '160%',
             ease: this.options.ease
           },
           `-=${this.options.duration}`
@@ -60,7 +60,7 @@ class SectionRevelation {
           windows.left,
           this.options.duration,
           {
-            x: '-120%',
+            x: '-160%',
             ease: this.options.ease
           },
           `-=${this.options.duration - this.options.between}`
@@ -70,7 +70,7 @@ class SectionRevelation {
           windows.right,
           this.options.duration,
           {
-            x: '120%',
+            x: '160%',
             ease: this.options.ease
           },
           `-=${this.options.duration - this.options.between}`

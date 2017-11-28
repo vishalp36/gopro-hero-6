@@ -24,7 +24,6 @@ TweenMax.set($squares, {
 
 intersectionObserver(document.querySelector('.footer__content'), () => {
   titleRevelation.reveal();
-  console.log('yo!');
 
   TweenMax.to($button, 0.5, {
     opacity: 1,

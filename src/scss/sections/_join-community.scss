@@ -126,7 +126,7 @@
 }
 
 .join-community__title {
-	font-size: 5em;
+	font-size: 4.4em;
 	margin-bottom: 14px;
 
   @include responsive($sm) {
@@ -144,7 +144,7 @@
 .join-community__description {
   margin-top: 30px;
   font-size: 1.2em;
-	color: #fff;
+	color: $light-grey;
 
 	@include responsive($lg) {
 		max-width: 500px;		

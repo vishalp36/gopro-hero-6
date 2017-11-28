@@ -17,7 +17,7 @@
 }
 
 .design-black__title {
-  font-size: 5em;
+  font-size: 4.4em;
   margin-bottom: 14px;
 
   @include responsive($sm) {
@@ -50,6 +50,7 @@
   font-size: 1.2em;
   color: #f7f7f7;
   margin-top: 30px;
+  color: $light-grey;
 
   @include responsive($md) {
     max-width: 620px;

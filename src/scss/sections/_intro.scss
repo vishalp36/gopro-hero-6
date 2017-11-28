@@ -27,6 +27,11 @@
 	margin-top: 40px;
 	width: 140px;
 	height: auto;
+	display: none;
+
+	@include responsive($md) {
+		display: block;
+	}
 }
 
 .intro__background-parts {
@@ -98,7 +103,7 @@
 	display: block;
 	font-weight: bold;
 	color: #fff;
-	font-size: 5em;
+	font-size: 4.4em;
 	line-height: 1;
 	max-width: 240px;
 	text-transform: uppercase;

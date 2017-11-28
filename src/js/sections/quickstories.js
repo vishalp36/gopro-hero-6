@@ -1,17 +1,22 @@
 import Stickyfill from 'stickyfilljs';
 import ScrollingElements from '../components/ScrollingElements';
+import { intersectionObserver } from '../components/utils';
 
 const $container = document.querySelector('.quickstories__container');
 Stickyfill.addOne($container);
 
-let containerMeta = $container.getBoundingClientRect();
-$container.style.top = `${Math.round(window.innerHeight / 2) -
-  Math.round(containerMeta.height / 2)}px`;
+let containerMeta = null;
 
-window.addEventListener('resize', () => {
+const updateContainerPosition = () => {
   containerMeta = $container.getBoundingClientRect();
   $container.style.top = `${Math.round(window.innerHeight / 2) -
     Math.round(containerMeta.height / 2)}px`;
+};
+
+updateContainerPosition();
+
+window.addEventListener('resize', () => {
+  updateContainerPosition();
 });
 
 const scrollingElements = new ScrollingElements(
@@ -59,3 +64,7 @@ const scrollingElements = new ScrollingElements(
     }
   ]
 );
+
+intersectionObserver(document.querySelector('.quickstories'), () => {
+  updateContainerPosition();
+});

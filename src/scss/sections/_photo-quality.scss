@@ -80,7 +80,7 @@
 
 .photo-quality__description {
   font-size: 1.2em;
-  color: #fff;
+  color: $light-grey;
   margin-top: 30px;
 
   @include responsive($md) {
@@ -93,7 +93,7 @@
 }
 
 .photo-quality__title {
-  font-size: 5em;
+  font-size: 4.4em;
   margin-bottom: 14px;
   color: #fff;
 
