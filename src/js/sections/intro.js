@@ -2,7 +2,6 @@ import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
 import bodymovin from 'bodymovin';
 import YoutubePlayer from 'youtube-player';
 import { map, isMobile, ease } from '../components/utils';
-import SnowParticles from '../components/SnowParticles';
 import ButtonMovement from '../components/ButtonMovement';
 import ProgressLoader from '../components/ProgressLoader';
 
