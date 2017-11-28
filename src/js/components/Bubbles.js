@@ -1,4 +1,9 @@
 class Bubbles {
+  /**
+   * Bubbles constructor
+   * @param container - DOM element where everything happens
+   * @param {number} translation - Mover direction
+   */
   constructor(container, translation = -1) {
     this.started = false;
     this.mover = container.querySelector('.bubbles__mover');
@@ -16,12 +21,22 @@ class Bubbles {
     });
   }
 
+  /**
+   * init()
+   * Clone the mover and update
+   * the wrappers value
+   */
   init() {
     const clone = this.wrappers.cloneNode(true);
     this.mover.appendChild(clone);
     this.wrappers = this.mover.querySelectorAll('.bubbles__wrapper');
   }
 
+  /**
+   * render()
+   * Update the translate value,
+   * called each frame
+   */
   render() {
     this.translate += this.translation;
     const gbcr = this.wrappers[1].getBoundingClientRect();
@@ -35,6 +50,11 @@ class Bubbles {
     requestAnimationFrame(this.render.bind(this));
   }
 
+  /**
+   * translateMover()
+   * Translate the DOM mover element
+   * according to the translate value
+   */
   translateMover() {
     this.mover.style.transform = `translateX(${this.translate}px)`;
   }

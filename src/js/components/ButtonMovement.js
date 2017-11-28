@@ -2,6 +2,11 @@ import { TweenMax, Power1 } from 'gsap';
 import { map } from './utils';
 
 class ButtonMovement {
+  /**
+   * ButtonMovement constructor
+   * @param container - DOM element where everything happens
+   * @param elements - Array of objects describing elements to move
+   */
   constructor(container, elements) {
     this.container = container;
     this.containerWidthCenter = Math.round(this.container.offsetWidth / 2);
@@ -27,6 +32,12 @@ class ButtonMovement {
     });
   }
 
+  /**
+   * onMouseMove()
+   * Update each element position according
+   * to mouse position
+   * @param event - Mousemove event
+   */
   onMouseMove(event) {
     const x = -this.containerWidthCenter + event.clientX;
     const y = this.containerHeightCenter - event.clientY;

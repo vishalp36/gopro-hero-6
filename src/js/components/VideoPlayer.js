@@ -1,4 +1,11 @@
 class VideoPlayer {
+  /**
+   * VideoPlayer constructor
+   * @param container - DOM element where everything happens
+   * @param button - DOM element to play/pause
+   * @param timer - DOM element with currentTime
+   * @param source - Video DOM element
+   */
   constructor(container, button, timer, source) {
     this.container = container;
     this.button = button;
@@ -9,10 +16,19 @@ class VideoPlayer {
     this.initListeners();
   }
 
+  /**
+   * init()
+   * Play the video on init
+   */
   init() {
     this.togglePlay();
   }
 
+  /**
+   * togglePlay()
+   * Play or pause according
+   * to the current state
+   */
   togglePlay() {
     if (this.source.paused) {
       this.source.play();
@@ -25,6 +41,10 @@ class VideoPlayer {
     }
   }
 
+  /**
+   * getFullTime()
+   * Get the formatted version of video duration
+   */
   getFullTime() {
     const { duration } = this.source;
     let minutes = Math.floor(duration / 60);
@@ -41,6 +61,10 @@ class VideoPlayer {
     return `${minutes}:${seconds}`;
   }
 
+  /**
+   * getCurrentTime()
+   * Get the formatted version of video currentTime
+   */
   getCurrentTime() {
     const duration = this.source.currentTime || 0;
     let minutes = Math.floor(duration / 60);
@@ -57,10 +81,17 @@ class VideoPlayer {
     return `${minutes}:${seconds}`;
   }
 
+  /**
+   * updateTimer()
+   * Get formatted currentTime + fullTime
+   */
   updateTimer() {
     return `${this.getCurrentTime()}/${this.getFullTime()}`;
   }
 
+  /**
+   * initListeners()
+   */
   initListeners() {
     this.source.addEventListener('loadedmetadata', () => {
       this.timer.innerText = this.updateTimer();

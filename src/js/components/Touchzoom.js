@@ -3,6 +3,13 @@ import Hammer from 'hammerjs';
 import { map, ease } from './utils';
 
 class Touchzoom {
+  /**
+   * Touchzoom constructor
+   * @param container - DOM element where everything happens
+   * @param source - Visual DOM element
+   * @param pointer - DOM element used to zoom
+   * @param controls - DOM element containing the control bar
+   */
   constructor(container, source, pointer, controls) {
     this.container = container;
     this.source = source;

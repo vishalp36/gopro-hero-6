@@ -3,6 +3,10 @@ import { ease } from './utils';
 import TextRevelation from './TextRevelation';
 
 class VoiceControls {
+  /**
+   * VoiceControls constructor
+   * @param container - DOM element where everything happens
+   */
   constructor(container) {
     this.container = container;
     this.illustrations = this.container.querySelectorAll(
@@ -28,12 +32,18 @@ class VoiceControls {
     this.initExplanations();
   }
 
+  /**
+   * initListeners()
+   */
   initListeners() {
     this.button.addEventListener('click', () => {
       this.toggleState();
     });
   }
 
+  /**
+   * initExplanations()
+   */
   initExplanations() {
     const explanations = [].slice.call(
       this.container.querySelectorAll('.voice-controls__part-explanation')
@@ -67,6 +77,9 @@ class VoiceControls {
     });
   }
 
+  /**
+   * toggleState()
+   */
   toggleState() {
     if (this.state === true) {
       this.state = false;
@@ -79,6 +92,9 @@ class VoiceControls {
     }
   }
 
+  /**
+   * open()
+   */
   open() {
     TweenMax.set(this.explanations, {
       x: '-100%'
@@ -141,6 +157,10 @@ class VoiceControls {
     this.opened = true;
   }
 
+  /**
+   * destinationPosition()
+   * @return destinationPosition - Position of the button
+   */
   destinationPosition() {
     const { width, height } = this.container.getBoundingClientRect();
     const {
@@ -162,6 +182,9 @@ class VoiceControls {
     };
   }
 
+  /**
+   * close()
+   */
   close() {
     TweenMax.set(this.illustrations, {
       x: '-100%'

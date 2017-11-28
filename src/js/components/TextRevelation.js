@@ -2,6 +2,11 @@ import { TweenMax, TimelineMax } from 'gsap';
 import { ease } from './utils';
 
 class TextRevelation {
+  /**
+   * TextRevelation constructor
+   * @param element - DOM element containing the text to reveal
+   * @param options - Animation options
+   */
   constructor(element, options = this.defaultOptions()) {
     this.element = element;
     this.options = Object.assign({}, this.defaultOptions(), options);
@@ -14,6 +19,10 @@ class TextRevelation {
     this.initTimeline();
   }
 
+  /**
+   * defaultOptions()
+   * @return defaultOptions - Default animation options
+   */
   defaultOptions() {
     return {
       duration: 0.8,
@@ -23,6 +32,11 @@ class TextRevelation {
     };
   }
 
+  /**
+   * buildText()
+   * Build the DOM structure for the text
+   * to reveal
+   */
   buildText() {
     const content = this.element.innerHTML.split(' ');
     this.element.innerHTML = content
@@ -43,6 +57,11 @@ class TextRevelation {
     );
   }
 
+  /**
+   * getInfos()
+   * Get position infos for all parts of
+   * the text to reveal
+   */
   getInfos() {
     this.parts.forEach(part => {
       const { top } = part.getBoundingClientRect();
@@ -59,6 +78,11 @@ class TextRevelation {
     });
   }
 
+  /**
+   * isInline()
+   * Is there an existing line for
+   * the current top position
+   */
   isInline(top) {
     const matchingLine = this.lines.findIndex(line => line.top === top);
     if (matchingLine === -1) {
@@ -68,6 +92,10 @@ class TextRevelation {
     return matchingLine;
   }
 
+  /**
+   * initTimeline()
+   * Position all lines before reveal
+   */
   initTimeline() {
     this.lines.forEach(line => {
       line.parts.forEach(part => {
@@ -78,6 +106,10 @@ class TextRevelation {
     });
   }
 
+  /**
+   * reveal()
+   * Init the timeline used to reveal the text
+   */
   reveal() {
     this.timeline = new TimelineMax();
 
@@ -132,10 +164,18 @@ class TextRevelation {
     });
   }
 
+  /**
+   * unveil()
+   * Restart the reveal animation
+   */
   unveil() {
     this.timeline.restart();
   }
 
+  /**
+   * veil()
+   * Reverse the reveal animation
+   */
   veil() {
     this.timeline.reverse();
   }

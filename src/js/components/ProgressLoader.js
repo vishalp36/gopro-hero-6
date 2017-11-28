@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 class ProgressLoader {
+  /**
+   * ProgressLoader constructor
+   */
   constructor() {
     this.srcElements = [].slice.call(
       document.querySelectorAll('[data-preload]')
@@ -13,6 +16,11 @@ class ProgressLoader {
     this.initRequests();
   }
 
+  /**
+   * initRequests()
+   * Start an AJAX request for every
+   * element that need to be loaded
+   */
   initRequests() {
     this.srcElements.forEach(element => {
       this.requests.push({
@@ -32,6 +40,11 @@ class ProgressLoader {
     });
   }
 
+  /**
+   * updateRequestProgress()
+   * @param {number} index - Index of the request in the requests array
+   * @param {number} progress - Percentage of completion of the request
+   */
   updateRequestProgress(index, progress) {
     this.requests[index].progress = progress;
     const total = this.requests.reduce(
@@ -49,18 +62,30 @@ class ProgressLoader {
     }
   }
 
+  /**
+   * callProgressEvents()
+   * Call every registered progress callbacks
+   */
   callProgressEvents() {
     this.progressEvents.forEach(({ callback }) => {
       callback(this.globalProgress);
     });
   }
 
+  /**
+   * callCompleteEvents()
+   * Call every registered complete callbacks
+   */
   callCompleteEvents() {
     this.completeEvents.forEach(({ callback }) => {
       callback();
     });
   }
 
+  /**
+   * on()
+   * Register an event
+   */
   on(event, callback) {
     if (!this.eventsList.includes(event)) {
       throw new Error(`Unknown event ${event} used.`);

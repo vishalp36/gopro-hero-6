@@ -1,10 +1,19 @@
 class EarthGlobeElements {
+  /**
+   * EarthGlobeElements constructor
+   * @param earth - EarthGlobe instance
+   * @param elementsContainer - DOM element where all elements are
+   */
   constructor(earth, elementsContainer) {
     this.earth = earth;
     this.elementsContainer = elementsContainer;
     this.elements = [];
   }
 
+  /**
+   * addElement()
+   * @param element - Element linked to a 3D marker
+   */
   addElement({ $marker: marker, json: element }) {
     this.elements.push(element);
     const $marker = document.createElement('a');

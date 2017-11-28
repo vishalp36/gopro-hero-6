@@ -2,6 +2,11 @@ import { TweenMax, TimelineMax } from 'gsap';
 import { ease } from './utils';
 
 class SectionRevelation {
+  /**
+   * SectionRevelation constructor
+   * @param container - DOM element where all elements are
+   * @param steps - DOM elements to hide to reveal the section
+   */
   constructor(container, steps) {
     this.container = container;
     this.timeline = null;
@@ -15,6 +20,10 @@ class SectionRevelation {
     this.init();
   }
 
+  /**
+   * init()
+   * Init all steps
+   */
   init() {
     this.steps.forEach(step => {
       let $windowLeft = document.createElement('div');
@@ -36,6 +45,10 @@ class SectionRevelation {
     this.windows.reverse();
   }
 
+  /**
+   * reveal()
+   * Animate all steps
+   */
   reveal() {
     this.timeline = new TimelineMax();
 

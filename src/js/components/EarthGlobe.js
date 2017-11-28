@@ -1,6 +1,11 @@
 import Hammer from 'hammerjs';
 
 class EarthGlobe {
+  /**
+   * EarthGlobe constructor
+   * @param container - DOM element where everything happens
+   * @param window - Global window object
+   */
   constructor(container, window) {
     this.container = container;
     this.window = window;
@@ -27,6 +32,7 @@ class EarthGlobe {
     this.$targetOnDown = { x: 0, y: 0 };
     this.markers = [];
 
+    // Update distance if screen is too small
     if (this.width <= this.BREAKPOINT) {
       this.$distance = this.responsive.small.distance;
       this.$distanceTarget = this.responsive.small.distance;
@@ -58,6 +64,7 @@ class EarthGlobe {
     );
     this.camera.position.set(0, 0, this.$distance);
 
+    // Load textures
     const earthTexture = new THREE.TextureLoader().load('assets/img/earth.jpg');
     const earthGeometry = new THREE.SphereGeometry(50, 32, 32);
     const earthMaterial = new THREE.MeshPhongMaterial({ map: earthTexture });
@@ -76,6 +83,12 @@ class EarthGlobe {
     this.loop();
   }
 
+  /**
+   * onPanStart()
+   * Update target and mouseDown values
+   * according to the event
+   * @param event - PanStart event
+   */
   onPanStart(event) {
     this.$mouseOnDown.x = event.deltaX;
     this.$mouseOnDown.y = event.deltaY;
@@ -84,6 +97,12 @@ class EarthGlobe {
     this.$targetOnDown.y = this.$target.y;
   }
 
+  /**
+   * onPanMove()
+   * Update target and mouseDown values
+   * according to the event while moving
+   * @param event - PanMove event
+   */
   onPanMove(event) {
     this.$mouse.x = -event.deltaX;
     this.$mouse.y = event.deltaY;
@@ -103,6 +122,10 @@ class EarthGlobe {
       this.$target.y < -this.PI_HALF ? -this.PI_HALF : this.$target.y;
   }
 
+  /**
+   * addEvents()
+   * Register all touch and resize events
+   */
   addEvents() {
     this.manager.on('panstart', event => {
       this.onPanStart(event);
@@ -132,6 +155,10 @@ class EarthGlobe {
     });
   }
 
+  /**
+   * addLights()
+   * Add Three.js lights to the scene
+   */
   addLights() {
     this.ambientLight = new THREE.AmbientLight(0x404040);
     this.scene.add(this.ambientLight);
@@ -144,6 +171,11 @@ class EarthGlobe {
     this.scene.add(this.light);
   }
 
+  /**
+   * loop()
+   * Method every frame to update camera
+   * position and rotation according to target
+   */
   loop() {
     requestAnimationFrame(this.loop.bind(this));
 
@@ -167,6 +199,13 @@ class EarthGlobe {
     });
   }
 
+  /**
+   * toScreenPosition()
+   * Method every frame to update camera
+   * position and rotation according to target
+   * @param obj - Three.js mesh to analyse
+   * @param camera - Three.js camera
+   */
   toScreenPosition(obj, camera) {
     const vector = new THREE.Vector3();
 
@@ -186,6 +225,11 @@ class EarthGlobe {
     };
   }
 
+  /**
+   * addMarker()
+   * Add a marker to the Three.js scene
+   * @param json - JSON source with all needed data
+   */
   addMarker(json) {
     const {
       id: name,
@@ -236,6 +280,12 @@ class EarthGlobe {
     return data;
   }
 
+  /**
+   * updateMarker()
+   * Move the attached DOM element and hide it
+   * if the 3D marker is hidden
+   * @param marker - Marker to analyse
+   */
   updateMarker(marker) {
     const screenPosition = this.toScreenPosition(marker.pointer, this.camera);
     marker.$marker.style.transform = `translate(${Math.floor(
@@ -258,6 +308,12 @@ class EarthGlobe {
     }
   }
 
+  /**
+   * placeMarker()
+   * @param marker - Object3D to position
+   * @param {number} lat - Marker latitude
+   * @param {number} long - Marker longitude
+   */
   placeMarker(marker, lat, long) {
     marker.quaternion.setFromEuler(
       new THREE.Euler(0, long * this.RAD, lat * this.RAD, 'YZX')

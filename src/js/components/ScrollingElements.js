@@ -2,12 +2,18 @@ import { TweenMax, Power4 } from 'gsap';
 import { ease } from './utils';
 
 class ScrollingElements {
+  /**
+   * ScrollingElements constructor
+   * @param window - Global window object
+   * @param container - DOM element where everything happens
+   * @param elements - Array of objects that describes every steps
+   */
   constructor(window, container, elements) {
     this.window = window;
     this.container = container;
     this.elements = elements;
     this.BREAKPOINT = 1080;
-    this.currentPourcentage = 0;
+    this.currentPercentage = 0;
     this.observer = null;
     this.currentIndex = null;
     this.previousIndex = null;
@@ -33,6 +39,11 @@ class ScrollingElements {
     this.initEvents();
   }
 
+  /**
+   * setupDesktop()
+   * Update all elements according to
+   * the size of the viewport (Large)
+   */
   setupDesktop() {
     this.elements.forEach((element, index) => {
       if (index !== 0) {
@@ -53,6 +64,11 @@ class ScrollingElements {
     this.observer.observe(this.container);
   }
 
+  /**
+   * setupMobile()
+   * Update all elements according to
+   * the size of the viewport (Small)
+   */
   setupMobile() {
     window.removeEventListener('scroll', this.onScrollEvent, false);
 
@@ -73,6 +89,11 @@ class ScrollingElements {
     this.observer.unobserve(this.container);
   }
 
+  /**
+   * initEvents()
+   * Listen to window width to call
+   * the rights settings
+   */
   initEvents() {
     if (this.window.innerWidth <= this.BREAKPOINT) {
       this.setupMobile();
@@ -89,13 +110,19 @@ class ScrollingElements {
     });
   }
 
+  /**
+   * getCurrentElement()
+   * Get the current element according
+   * to the current percentage
+   * @return {number} wantedIndex - Index of the current element
+   */
   getCurrentElement() {
     let wantedIndex = null;
 
     this.elements.forEach((element, index) => {
       if (
-        element.from <= this.currentPourcentage &&
-        element.to > this.currentPourcentage
+        element.from <= this.currentPercentage &&
+        element.to > this.currentPercentage
       ) {
         wantedIndex = index;
       }
@@ -104,6 +131,11 @@ class ScrollingElements {
     return wantedIndex;
   }
 
+  /**
+   * onScroll()
+   * Listen to scroll event to
+   * update the current percentage if needed
+   */
   onScroll() {
     const { top, height } = this.container.getBoundingClientRect();
     const percentage = Math.min(
@@ -111,12 +143,16 @@ class ScrollingElements {
       100
     );
 
-    if (percentage !== this.currentPourcentage) {
-      this.currentPourcentage = percentage;
+    if (percentage !== this.currentPercentage) {
+      this.currentPercentage = percentage;
       this.onPercentageChange();
     }
   }
 
+  /**
+   * onPercentageChange()
+   * Update currentIndex if needed
+   */
   onPercentageChange() {
     const wantedCurrentIndex = this.getCurrentElement();
 
@@ -127,6 +163,11 @@ class ScrollingElements {
     }
   }
 
+  /**
+   * onIndexChange()
+   * Animate previous and current step when
+   * the index changes
+   */
   onIndexChange() {
     if (this.previousIndex !== null) {
       TweenMax.staggerTo(
@@ -183,6 +224,11 @@ class ScrollingElements {
     this.elements[this.currentIndex].source.play();
   }
 
+  /**
+   * initElements()
+   * Split the title of each elements
+   * and set default positions
+   */
   initElements() {
     this.elements.forEach((element, index) => {
       const title = element.title.innerHTML.split(' ');
