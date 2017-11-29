@@ -40,6 +40,23 @@
 
 .quickstories__phone {
   position: relative;
+  width: 250px;
+  height: 450px;
+
+  @include responsive($xs) {
+    width: 320px;
+    height: 576px;
+  }
+
+  @include responsive($md) {
+    width: 350px;
+    height: 635px;
+  }
+
+  @include responsive($lg) {
+    width: 400px;
+    height: 725px;
+  }
 }
 
 .quickstories__mockup {
