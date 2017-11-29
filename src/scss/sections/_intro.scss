@@ -18,19 +18,79 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	right: 0;
-	width: 100%;
 	z-index: 20;
+	height: 60px;
+	width: 178px;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	transform: skewX(-20deg);
+	display: none;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		content: '';
+		width: 20px;
+		height: 60px;
+		background-color: #fff;
+		transform: skewX(20deg);
+	}
+
+	@include responsive($md) {
+		display: flex;		
+	}
 }
 
 .intro__logo {
-	margin-top: 40px;
-	width: 140px;
+	width: 110px;
 	height: auto;
+	transform: skewX(20deg);
+}
+
+.intro__cta {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 20;
+	height: 60px;
+	width: 178px;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	transform: skewX(-20deg);
 	display: none;
 
-	@include responsive($md) {
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
 		display: block;
+		content: '';
+		width: 20px;
+		height: 60px;
+		background-color: #fff;
+		transform: skewX(20deg);
+	}
+	
+	@include responsive($md) {
+		display: flex;
+	}
+
+	a {
+		display: inline-block;
+		transform: skewX(20deg);
+		font-family: $heading-font;
+		color: $black;
+		text-transform: uppercase;
+		font-size: 1.4em;
+		transition: $transition;
+
+		&:hover {
+			color: $main-color;
+		}
 	}
 }
 

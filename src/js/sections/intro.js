@@ -22,6 +22,14 @@ setTimeout(() => {
   intro.play();
 }, 1000);
 
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+
+  TweenMax.set(document.querySelector('.loader'), {
+    x: '0%'
+  });
+});
+
 const introAnimation = () => {
   const $loader = document.querySelector('.loader');
   const $background = document.querySelector('.intro__background');
