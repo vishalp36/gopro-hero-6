@@ -1,28 +1,28 @@
 .share-story {
-	position: relative;
-	width: 100%;
-	padding: 120px 0px 120px 0px;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 120px 0px 120px 0px;
+  overflow: hidden;
 
-	@include responsive($xs) {
-		padding: 160px 0px 160px 0px;
+  @include responsive($xs) {
+    padding: 160px 0px 160px 0px;
   }
-  
+
   @include responsive($sm) {
     padding: 260px 0px 120px 0px;
   }
-  
+
   @include responsive($md) {
     padding: 320px 0px 320px 0px;
   }
 
-	@include responsive($lg) {
+  @include responsive($lg) {
     .container {
       display: flex;
       flex-direction: row;
       align-items: center;
     }
-	}
+  }
 }
 
 .share-story__content {
@@ -35,30 +35,30 @@
 }
 
 .share-story__title {
-	margin-bottom: 14px;
-	font-size: 4.4em;
+  margin-bottom: 14px;
+  font-size: 4.4em;
 
   @include responsive($sm) {
     width: 60%;
-		margin-bottom: 0px;
-		font-size: 5.4em;
-	}
+    margin-bottom: 0px;
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
+  @include responsive($md) {
     width: 100%;
-		max-width: 370px;
-		font-size: 6em;
-	}
+    max-width: 370px;
+    font-size: 6em;
+  }
 }
 
 .share-story__description {
   margin-top: 30px;
-	color: $grey;
+  color: $grey;
   font-size: 1.2em;
 
-	@include responsive($lg) {
-		max-width: 500px;		
-	}
+  @include responsive($lg) {
+    max-width: 500px;		
+  }
 }
 
 .share-story__visual {
@@ -70,7 +70,7 @@
   @include responsive($sm) {
     margin-bottom: 280px;
   }
-  
+
   @include responsive($lg) {
     width: 60%;
     margin-bottom: 0px;
@@ -83,7 +83,7 @@
   width: 100%;
   height: auto;
   max-width: 400px;
-  
+
   @include responsive($lg) {
     max-width: 520px;
   }
@@ -107,11 +107,11 @@
 
   &--1 {
     transform: translate(calc(-50% - 170px), calc(-50% - 130px)) scale(0.7);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% - 150px), calc(-50% - 130px)) scale(0.7);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% - 230px), calc(-50% - 170px)) scale(1);
     }
@@ -119,11 +119,11 @@
 
   &--2 {
     transform: translate(calc(-50% - 10px), calc(-50% - 250px)) scale(0.5);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% - 10px), calc(-50% - 250px)) scale(0.5);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% - 10px), calc(-50% - 350px)) scale(0.75);
     }
@@ -131,11 +131,11 @@
 
   &--3 {
     transform: translate(calc(-50% + 160px), calc(-50% - 150px)) scale(0.5);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% + 160px), calc(-50% - 190px)) scale(0.5);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% + 180px), calc(-50% - 190px)) scale(0.75);
     }
@@ -143,11 +143,11 @@
 
   &--4 {
     transform: translate(calc(-50% - 180px), calc(-50% + 90px)) scale(0.5);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% - 170px), calc(-50% + 100px)) scale(0.5);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% - 220px), calc(-50% + 100px)) scale(0.75);
     }
@@ -155,11 +155,11 @@
 
   &--5 {
     transform: translate(calc(-50% - 130px), calc(-50% + 230px)) scale(0.7);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% - 170px), calc(-50% + 240px)) scale(0.7);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% - 170px), calc(-50% + 300px)) scale(1);
     }
@@ -167,11 +167,11 @@
 
   &--6 {
     transform: translate(calc(-50% + 150px), calc(-50% + 120px)) scale(0.7);
-    
+
     @include responsive($md) {
       transform: translate(calc(-50% + 150px), calc(-50% + 120px)) scale(0.7);
     }
-    
+
     @include responsive($lg) {
       transform: translate(calc(-50% + 160px), calc(-50% + 150px)) scale(1);
     }

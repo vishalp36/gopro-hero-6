@@ -21,17 +21,17 @@
   font-size: 4.4em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
-	}
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
-		font-size: 6em;
-	}
+  @include responsive($md) {
+    font-size: 6em;
+  }
 
   @include responsive($lg) {
     max-width: 400px;
   }
-  
+
   span:nth-child(1) {
     color: #fff;
   }

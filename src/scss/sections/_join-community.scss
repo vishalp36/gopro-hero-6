@@ -2,235 +2,235 @@
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-	width: 100%;
-	padding: 120px 0px 120px 0px;
+  width: 100%;
+  padding: 120px 0px 120px 0px;
   background-color: $black-background;
-	overflow: hidden;
+  overflow: hidden;
 
-	@include responsive($xs) {
-		padding: 160px 0px 160px 0px;
-	}
+  @include responsive($xs) {
+    padding: 160px 0px 160px 0px;
+  }
 
-	@include responsive($lg) {
-		flex-direction: row;
-		padding: 260px 0px 80px 0px;
-	}
+  @include responsive($lg) {
+    flex-direction: row;
+    padding: 260px 0px 80px 0px;
+  }
 }
 
 .join-community__visual {
-	overflow: hidden;
+  overflow: hidden;
 
-	@include responsive($lg) {
-		width: 50%;
-	}
+  @include responsive($lg) {
+    width: 50%;
+  }
 }
 
 .join-community__globe {
-	position: relative;
+  position: relative;
 
-	@include responsive($lg) {
-		transform: translateX(-70%);
-	}
+  @include responsive($lg) {
+    transform: translateX(-70%);
+  }
 }
 
 .join-community__marker {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 26px;
-	height: 26px;
-	transform: rotate(45deg);
-	transition: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  transform: rotate(45deg);
+  transition: none;
 
-	&.hidden {
-		pointer-events: none;
+  &.hidden {
+    pointer-events: none;
 
-		.join-community__marker-circle {
-			transform: translate(-50%, -50%) scale(0.7);
-			opacity: 0.15;
-		}
+    .join-community__marker-circle {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0.15;
+    }
 
-		.join-community__marker-dots {
-			transform: translate(-50%, -50%) scale(0.7) rotate(45deg);
-			opacity: 0.15;
-		}
-	}
+    .join-community__marker-dots {
+      transform: translate(-50%, -50%) scale(0.7) rotate(45deg);
+      opacity: 0.15;
+    }
+  }
 
-	&.active {
-		pointer-events: none;		
-	}
+  &.active {
+    pointer-events: none;		
+  }
 
-	&.active, &:hover {
-		.join-community__marker-circle {
-			transform: translate(-50%, -50%) scale(1.1);
-			background-color: $main-color;
-			transition-delay: 0.4s;
-		}
+  &.active, &:hover {
+    .join-community__marker-circle {
+      transform: translate(-50%, -50%) scale(1.1);
+      background-color: $main-color;
+      transition-delay: 0.4s;
+    }
 
-		.join-community__marker-dots {
-			transform: translate(-50%, -50%) scale(1.1) rotate(-45deg);
-			border-color: $main-color;
-			transition-delay: 0.4s;
-		}
-	}
+    .join-community__marker-dots {
+      transform: translate(-50%, -50%) scale(1.1) rotate(-45deg);
+      border-color: $main-color;
+      transition-delay: 0.4s;
+    }
+  }
 
-	&:hover {
-		.join-community__marker-circle,
-		.join-community__marker-dots {
-			transition-delay: 0s;			
-		}
-	}
+  &:hover {
+    .join-community__marker-circle,
+    .join-community__marker-dots {
+      transition-delay: 0s;			
+    }
+  }
 }
 
 .join-community__marker-content {
-	position: relative;
+  position: relative;
 }
 
 .join-community__marker-circle {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 16px;
-	height: 16px;
-	background-color: #fff;
-	border-radius: 50%;
-	transform: translate(-50%, -50%);
-	transition: $transition;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: $transition;
 }
 
 .join-community__marker-dots {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 28px;
-	height: 28px;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
-	border: 2px dotted #fff;
-	transition: $transition;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dotted #fff;
+  transition: $transition;
 }
 
 .join-community__content {
   margin-bottom: 40px;
-	color: #fff;
-	
-	@include responsive($lg) {
-		display: flex;
-		align-content: center;
-		width: 50%;
-	}
+  color: #fff;
+
+  @include responsive($lg) {
+    display: flex;
+    align-content: center;
+    width: 50%;
+  }
 }
 
 .join-community__title {
-	margin-bottom: 14px;
-	font-size: 4.4em;
+  margin-bottom: 14px;
+  font-size: 4.4em;
 
   @include responsive($sm) {
     width: 60%;
-		margin-bottom: 0px;
-		font-size: 5.4em;
-	}
+    margin-bottom: 0px;
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
-		max-width: 400px;
-		font-size: 6em;
-	}
+  @include responsive($md) {
+    max-width: 400px;
+    font-size: 6em;
+  }
 }
 
 .join-community__description {
   margin-top: 30px;
-	color: $light-grey;
+  color: $light-grey;
   font-size: 1.2em;
 
-	@include responsive($lg) {
-		max-width: 500px;		
-	}
+  @include responsive($lg) {
+    max-width: 500px;		
+  }
 }
 
 .join-community__elements {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	padding-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 50px;
 
-	@include responsive($lg) {
-		flex-direction: row;
-	}
+  @include responsive($lg) {
+    flex-direction: row;
+  }
 }
 
 .join-community__element {
   display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	flex-direction: row;
-	width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
   margin-bottom: 30px;
 
-	@include responsive($lg) {
-		width: 50%;
-	}
+  @include responsive($lg) {
+    width: 50%;
+  }
 
-	&:hover {
-		.join-community__element-name {
-			color: $main-color;
-		}
-	}
+  &:hover {
+    .join-community__element-name {
+      color: $main-color;
+    }
+  }
 }
 
 .join-community__element-left {
   display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: center;
-	width: 60px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 60px;
 }
 
 .join-community__element-date {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 50px;
-	height: 50px;
-	color: #fff;
-	text-align: center;
-	text-transform: uppercase;
-	border: 1px solid $main-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid $main-color;
 
-	span {
-		display: inline-block;
-	}
+  span {
+    display: inline-block;
+  }
 }
 
 .join-community__element-month {
-	font-size: 0.8em;
-	line-height: 1;
+  font-size: 0.8em;
+  line-height: 1;
 }
 
 .join-community__element-day {
-	margin-bottom: -4px;
-	line-height: 1;
-	font-size: 1.4em;
+  margin-bottom: -4px;
+  line-height: 1;
+  font-size: 1.4em;
 }
 
 .join-community__element-right {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	padding-left: 10px;
-	color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-left: 10px;
+  color: #fff;
 }
 
 .join-community__element-name {
-	padding-bottom: 4px;
-	font-size: 1.1em;
-	font-weight: bold;
-	transition: $transition;
+  padding-bottom: 4px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: $transition;
 }
 
 .join-community__element-location {
-	color: #7d7d7d;
+  color: #7d7d7d;
 }

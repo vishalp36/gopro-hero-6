@@ -1,67 +1,67 @@
 .loader {
   z-index: $zindex-7;
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-	background-color: $black-background;
+  background-color: $black-background;
   will-change: transform;
 }
 
 .loader__content {
   display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .loader__logo {
-	width: 180px;
-	height: 185px;
-	margin-bottom: -20px;
+  width: 180px;
+  height: 185px;
+  margin-bottom: -20px;
 
-	svg {
-		width: 180px !important;
-		height: 180px !important;
+  svg {
+    width: 180px !important;
+    height: 180px !important;
     animation: loading 1.5s ease-in-out infinite;
     will-change: opacity;
-	}
+  }
 }
 
 @keyframes loading {
-	0% {
-		opacity: 1;
-	}
-	
-	50% {
-		opacity: 0.7;
-	}
-	
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .loader__text {
-	font-size: 1.6em;
-	font-family: $heading-font;
+  font-size: 1.6em;
+  font-family: $heading-font;
 }
 
 .loader__progress {
-	width: 200px;
-	height: 1px;
-	margin-top: 40px;
-	background-color: #fff;
-	opacity: 0.8;
-	transform-origin: left;
+  width: 200px;
+  height: 1px;
+  margin-top: 40px;
+  background-color: #fff;
+  opacity: 0.8;
+  transform-origin: left;
   transform: scaleX(0);
   will-change: transform;
 }

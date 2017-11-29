@@ -1,170 +1,170 @@
 .capture {
-	position: relative;
-	width: 100%;
-	padding: 120px 0px 120px 0px;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 120px 0px 120px 0px;
+  overflow: hidden;
 
-	@include responsive($xs) {
-		padding: 160px 0px 160px 0px;
-	}
+  @include responsive($xs) {
+    padding: 160px 0px 160px 0px;
+  }
 
-	@include responsive($lg) {
-		padding: 320px 0px 260px 0px;
-	}
+  @include responsive($lg) {
+    padding: 320px 0px 260px 0px;
+  }
 }
 
 .capture__content {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .capture__title {
-	margin-bottom: 14px;
-	font-size: 4.4em;
+  margin-bottom: 14px;
+  font-size: 4.4em;
 
   @include responsive($sm) {
     width: 60%;
-		margin-bottom: 0px;
-		font-size: 5.4em;
-	}
+    margin-bottom: 0px;
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
-		max-width: 400px;
-		font-size: 6em;
-	}
+  @include responsive($md) {
+    max-width: 400px;
+    font-size: 6em;
+  }
 }
 
 .capture__description {
   margin-top: 30px;
-	color: $grey;
+  color: $grey;
   font-size: 1.2em;
 
-	@include responsive($lg) {
-		width: 45%;
-		max-width: 500px;		
-	}
+  @include responsive($lg) {
+    width: 45%;
+    max-width: 500px;		
+  }
 }
 
 .capture__shape {
-	z-index: 10;
-	position: absolute;
-	top: 25%;
-	right: calc(100% - 275px);
-	display: none;
-	width: 250px;
-	height: 90px;
-	background: linear-gradient(45deg, $main-color-light, $main-color);
-	transform: skewX($angle) scaleX(0.4);
-	transform-origin: right;
+  z-index: 10;
+  position: absolute;
+  top: 25%;
+  right: calc(100% - 275px);
+  display: none;
+  width: 250px;
+  height: 90px;
+  background: linear-gradient(45deg, $main-color-light, $main-color);
+  transform: skewX($angle) scaleX(0.4);
+  transform-origin: right;
 
-	@include responsive($lg) {
-		display: block;
-	}
+  @include responsive($lg) {
+    display: block;
+  }
 }
 
 .capture__visual {
-	width: calc(100% - 60px);
-	height: 40vh;
-	margin-left: 30px;
-	margin-right: 30px;
-	background-color: $light-white;
+  width: calc(100% - 60px);
+  height: 40vh;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: $light-white;
 
-	@include responsive($sm) {
-		width: calc(100% - 100px);
-		height: 50vh;
-		margin-left: 50px;
-		margin-right: 50px;
-	}
+  @include responsive($sm) {
+    width: calc(100% - 100px);
+    height: 50vh;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 
-	@include responsive($md) {
-		width: calc(100% - 50px);
-		height: 55vh;
-		margin-left: 50px;
-		margin-right: 0px;
-	}
+  @include responsive($md) {
+    width: calc(100% - 50px);
+    height: 55vh;
+    margin-left: 50px;
+    margin-right: 0px;
+  }
 
-	@include responsive($lg) {
-		position: absolute;
-		top: 50%;
-		right: 0;
-		width: 48%;
-		height: 80vh;
-		margin-left: 0px;
-		transform: translateY(-50%);
-	}
+  @include responsive($lg) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 48%;
+    height: 80vh;
+    margin-left: 0px;
+    transform: translateY(-50%);
+  }
 }
 
 .capture__wrapper {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;	
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;	
 
-	@include responsive($lg) {
-		&:after {
-			z-index: 8;
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
+  @include responsive($lg) {
+    &:after {
+      z-index: 8;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
       display: block;
-			width: 0;
-			height: 0;
-			border-top: 80vh solid #fff;
-			border-right: 400px solid transparent;
-			content: '';
-		}
-	}
+      width: 0;
+      height: 0;
+      border-top: 80vh solid #fff;
+      border-right: 400px solid transparent;
+      content: '';
+    }
+  }
 }
 
 .capture__source {
-	z-index: 1;
-	position: relative;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .capture__window,
 .capture__window2 {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	
-	@include responsive($lg) {
-		transform: skewX($angle) scale(1.005);
-		
-		&:after {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include responsive($lg) {
+    transform: skewX($angle) scale(1.005);
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
       display: block;
-			height: 100%;
-			width: 50%;
-			transform: skewX(30deg);
-			content: '';
-		}
-	}
+      height: 100%;
+      width: 50%;
+      transform: skewX(30deg);
+      content: '';
+    }
+  }
 }
 
 .capture__window {
-	z-index: 3;
-	background-color: #fff;
+  z-index: 3;
+  background-color: #fff;
 
-	&:after {
-		background-color: #fff;
-	}
+  &:after {
+    background-color: #fff;
+  }
 }
 
 .capture__window2 {
-	z-index: 2;
-	background-color: $main-color;
+  z-index: 2;
+  background-color: $main-color;
 
-	&:after {
-		background-color: $main-color;
-	}
+  &:after {
+    background-color: $main-color;
+  }
 }

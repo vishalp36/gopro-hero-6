@@ -18,23 +18,23 @@
   }
 
   .separator {
-		flex: 1;
-		margin-bottom: 30px;
+    flex: 1;
+    margin-bottom: 30px;
 
-		@include responsive($md) {
-			display: none;
-		}
+    @include responsive($md) {
+      display: none;
+    }
 
-		@include responsive($xl) {
-			display: flex;
-		}
-	}
+    @include responsive($xl) {
+      display: flex;
+    }
+  }
 
-	.separator__container {
-		padding-left: 10px;
-		padding-right: 40px;
-		padding-bottom: 8px;
-	}
+  .separator__container {
+    padding-left: 10px;
+    padding-right: 40px;
+    padding-bottom: 8px;
+  }
 }
 
 .slow-motion__content {
@@ -43,7 +43,7 @@
   margin-bottom: 50px;
   justify-content: space-between;
   width: 100%;
-  
+
   @include responsive($md) {
     flex-direction: row;
     align-items: flex-end;
@@ -69,13 +69,13 @@
   font-size: 4.4em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
-	}
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
+  @include responsive($md) {
     max-width: 500px;
     font-size: 6em;
-	}
+  }
 }
 
 .slow-motion__video {
@@ -112,11 +112,11 @@
 }
 
 .slow-motion__source {
-	z-index: 1;
-	position: relative;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .slow-motion__timer {

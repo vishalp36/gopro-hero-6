@@ -15,25 +15,25 @@
 
   @include responsive($md) {
     flex-direction: row;
-	}
-	
-	.separator {
-		flex: 1;
+  }
 
-		@include responsive($md) {
-			display: none;
-		}
+  .separator {
+    flex: 1;
 
-		@include responsive($xl) {
-			display: flex;
+    @include responsive($md) {
+      display: none;
+    }
 
-			.separator__container {
-				padding-left: 10px;
-				padding-right: 40px;
-				padding-bottom: 8px;
-			}
-		}
-	}
+    @include responsive($xl) {
+      display: flex;
+
+      .separator__container {
+        padding-left: 10px;
+        padding-right: 40px;
+        padding-bottom: 8px;
+      }
+    }
+  }
 }
 
 .touch-zoom__description {
@@ -55,116 +55,116 @@
   font-size: 4.4em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
-	}
+    font-size: 5.4em;
+  }
 
-	@include responsive($md) {
+  @include responsive($md) {
     max-width: 500px;
     font-size: 6em;
-	}
+  }
 }
 
 .touch-zoom__view {
-	position: relative;
-	width: 100vw;
-	height: 90vh;
-	background-color: $light-white;
-	overflow: hidden;
-	perspective: 1400px;
-	
-	@include responsive($md) {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  background-color: $light-white;
+  overflow: hidden;
+  perspective: 1400px;
+
+  @include responsive($md) {
     height: 100vh;
   }
 }
 
 .touch-zoom__controls {
-	z-index: 30;
-	position: absolute;
-	top: 50%;
-	right: 40px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	transform: translateY(-50%);
+  z-index: 30;
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
 }
 
 .touch-zoom__start {
-	z-index: -1;
-	width: 6px;
-	height: 6px;
-	background-color: #fff;
-	transform: rotate(45deg);
+  z-index: -1;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  transform: rotate(45deg);
 }
 
 .touch-zoom__line {
-	width: 2px;
-	height: 170px;
-	background-color: rgba(255, 255, 255, 0.9);
+  width: 2px;
+  height: 170px;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .touch-zoom__end {
-	width: 10px;
-	height: 14px;
-	border: 2px solid rgba(255, 255, 255, 0.9);
+  width: 10px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 .touch-zoom__pointer {
-	position: absolute;
-	bottom: -17px;
-	background-color: #fff;
-	border-radius: 50%;
+  position: absolute;
+  bottom: -17px;
+  background-color: #fff;
+  border-radius: 50%;
 
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 
-	&:active {
-		.touch-zoom__point:before {
-			transform: translate(-50%, -50%) scale(1.3);
-		}		
-	}
+  &:active {
+    .touch-zoom__point:before {
+      transform: translate(-50%, -50%) scale(1.3);
+    }		
+  }
 }
 
 .touch-zoom__point {
-	position: relative;
-	width: 42px;
-	height: 42px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all 0.3s ease;
-	border: 2px solid rgba(255, 255, 255, 0.9);
-	border-radius: 50%;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
 
-	svg {
-		transform: scale(0.7);
-	}
+  svg {
+    transform: scale(0.7);
+  }
 
-	&:before {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		display: block;
-		width: 100%;
-		height: 100%;
-		content: '';
-		border-radius: 50%;
-		border: 1px solid #fff;
-		transform: translate(-50%, -50%) scale(1.4);
-		transition: $transition;
-	}
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transform: translate(-50%, -50%) scale(1.4);
+    transition: $transition;
+  }
 }
 
 .touch-zoom__source {
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	transform: translate3d(0, 0, 30px) rotate3d(0, 0, 0, 10deg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform: translate3d(0, 0, 30px) rotate3d(0, 0, 0, 10deg);
 
-	img {
-		transform: scale(1.1);
-	}
+  img {
+    transform: scale(1.1);
+  }
 }
