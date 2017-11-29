@@ -11,6 +11,10 @@ class EarthGlobe {
     this.window = window;
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+    this.timeout = setTimeout(() => {
+      this.isInteracting = false;
+    }, 500);
+    this.isInteracting = true;
 
     this.RAD = Math.PI / 180;
     this.PI_HALF = Math.PI / 2;
@@ -129,10 +133,20 @@ class EarthGlobe {
   addEvents() {
     this.manager.on('panstart', event => {
       this.onPanStart(event);
+      this.isInteracting = true;
+      clearTimeout(this.timeout);
     });
 
     this.manager.on('panmove', event => {
       this.onPanMove(event);
+    });
+
+    this.manager.on('panend', event => {
+      this.onPanMove(event);
+
+      this.timeout = setTimeout(() => {
+        this.isInteracting = false;
+      }, 4000);
     });
 
     this.window.addEventListener('resize', () => {
@@ -197,6 +211,11 @@ class EarthGlobe {
     this.markers.forEach(marker => {
       this.updateMarker(marker);
     });
+
+    if (!this.isInteracting) {
+      this.$target.y = Math.PI / 6.0;
+      this.$target.x += 0.002;
+    }
   }
 
   /**
