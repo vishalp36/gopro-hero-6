@@ -1,7 +1,7 @@
 import { TweenMax, Expo, TimelineMax, Power4 } from 'gsap';
 import bodymovin from 'bodymovin';
 import YoutubePlayer from 'youtube-player';
-import { map, isMobile, ease } from '../components/utils';
+import { map, isEdge, ease } from '../components/utils';
 import ButtonMovement from '../components/ButtonMovement';
 import ProgressLoader from '../components/ProgressLoader';
 
@@ -264,6 +264,10 @@ intro.addEventListener('complete', () => {
     }, 800);
   }
 });
+
+if (isEdge()) {
+  document.querySelector('.loader').style.display = 'none';
+}
 
 const movement = new ButtonMovement(document.querySelector('.intro'), [
   {

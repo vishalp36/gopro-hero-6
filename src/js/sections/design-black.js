@@ -1,5 +1,6 @@
 import { TweenMax } from 'gsap';
 import SectionRevelation from '../components/SectionRevelation';
+import lazyload from '../components/Lazyload';
 import { intersectionObserver, ease } from '../components/utils';
 
 const $content = document.querySelector('.design-black__content');
@@ -26,6 +27,8 @@ const sectionRevelation = new SectionRevelation(
 
 intersectionObserver(document.querySelector('.design-black'), () => {
   sectionRevelation.reveal();
+
+  lazyload.triggerLoad(document.querySelector('.design-black__source'));
 
   TweenMax.fromTo(
     $content,

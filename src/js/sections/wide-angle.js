@@ -1,6 +1,7 @@
 import { TweenMax, Power4 } from 'gsap';
 import { map, ease } from '../components/utils';
 import TextRevelation from '../components/TextRevelation';
+import lazyload from '../components/Lazyload';
 import { intersectionObserver } from '../components/utils';
 
 const $section = document.querySelector('.wide-angle');
@@ -77,6 +78,8 @@ document.addEventListener('scroll', () => {
 
 intersectionObserver(document.querySelector('.wide-angle__title'), () => {
   titleRevelation.reveal();
+
+  lazyload.triggerLoad(document.querySelector('.wide-angle__source img'));
 
   TweenMax.to($description, 0.8, {
     opacity: 1,

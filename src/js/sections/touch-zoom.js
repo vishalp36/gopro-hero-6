@@ -1,5 +1,6 @@
 import { TweenMax, Power4 } from 'gsap';
 import TextRevelation from '../components/TextRevelation';
+import lazyload from '../components/Lazyload';
 import { intersectionObserver, ease } from '../components/utils';
 import Touchzoom from '../components/Touchzoom';
 
@@ -32,6 +33,8 @@ const titleRevelation = new TextRevelation($title);
 
 intersectionObserver(document.querySelector('.touch-zoom__title'), () => {
   titleRevelation.reveal();
+
+  lazyload.triggerLoad(document.querySelector('.touch-zoom__source img'));
 
   TweenMax.to($description, 0.8, {
     opacity: 1,

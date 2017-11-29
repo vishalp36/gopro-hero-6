@@ -40,6 +40,8 @@ const isMobile = () => {
   ).test(navigator.userAgent);
 };
 
+const isEdge = () => navigator.userAgent.indexOf('Edge') > -1;
+
 const ease = CustomEase.create('custom', 'M0,0 C0.82,0 0.188,0.93 1,1');
 
-export { map, intersectionObserver, isMobile, ease };
+export { map, intersectionObserver, isMobile, isEdge, ease };
