@@ -34,14 +34,14 @@ yarn
 ## Running
 In order to work on the project, we use Gulp.
 ```sh
-gulp
+npm run dev
 ```
 
 ## Building the app
 Use the `build` gulp task to build the project for production.
 
 ```sh
-gulp build
+npm run build
 ```
 
 ## Credits
