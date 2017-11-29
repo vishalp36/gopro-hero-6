@@ -13,6 +13,8 @@ html(lang="en")
 		link(rel='icon', type='image/png', sizes='32x32', href='assets/img/favicon-32x32.png')
 		link(rel='icon', type='image/png', sizes='16x16', href='assets/img/favicon-16x16.png')
 		link(rel='icon', type='image/png', href='assets/img/favicon.ico')
+		script(defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js")
+		script(defer src="assets/js/bundle.js")
 	body
 		include includes/_intro.pug
 		include includes/_capture-the-moment.pug
@@ -26,7 +28,3 @@ html(lang="en")
 		include includes/_quickstories.pug
 		include includes/_join-community.pug
 		include includes/_footer.pug
-
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js")
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js")
-		script(src="assets/js/bundle.js")
