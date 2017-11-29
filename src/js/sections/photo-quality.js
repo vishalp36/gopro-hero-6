@@ -55,44 +55,44 @@ intersectionObserver(document.querySelector('.photo-quality__title'), () => {
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 0.7,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1,
     ease
   });
 
   TweenMax.staggerTo(
     $bubbles,
-    0.8,
+    1,
     {
       opacity: 1,
       x: 30,
       ease,
-      delay: 0.8
+      delay: 1.2
     },
     0.08
   );
 
   TweenMax.staggerTo(
     $bubbles2,
-    0.8,
+    1,
     {
       opacity: 1,
       x: 30,
       ease,
-      delay: 0.8
+      delay: 0.9
     },
     0.08
   );
 
-  TweenMax.to($shape, 0.8, {
+  TweenMax.to($shape, 1.2, {
     x: '0%',
     skewX: -30,
     ease,
-    delay: 0.7
+    delay: 1
   });
 });

@@ -81,37 +81,37 @@ intersectionObserver(document.querySelector('.wide-angle__title'), () => {
 
   lazyload.triggerLoad(document.querySelector('.wide-angle__source img'));
 
-  TweenMax.to($description, 0.8, {
+  TweenMax.to($description, 1, {
     opacity: 1,
     y: 0,
     delay: 0.3,
     ease
   });
 
-  TweenMax.to($shape, 0.7, {
+  TweenMax.to($shape, 1.2, {
     scaleX: 1,
     skewX: -30,
-    delay: 0.45,
+    delay: 0.3,
     ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 0.7,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1,
     ease
   });
 
-  TweenMax.to($shape2, 0.7, {
+  TweenMax.to($shape2, 1, {
     scaleX: 1,
     skewX: -30,
     x: '0%',
-    delay: 0.45,
+    delay: 0.3,
     ease
   });
 });

@@ -32,7 +32,7 @@ TweenMax.set($clouds, {
 intersectionObserver(document.querySelector('.share-story__title'), () => {
   titleRevelation.reveal();
 
-  TweenMax.to($description, 0.8, {
+  TweenMax.to($description, 1, {
     opacity: 1,
     y: 0,
     delay: 0.3,
@@ -48,19 +48,19 @@ intersectionObserver(document.querySelector('.share-story__title'), () => {
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 0.7,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1,
     ease
   });
 
   TweenMax.staggerTo(
     $clouds,
-    0.8,
+    1.2,
     {
       opacity: 1,
       scale: 1,

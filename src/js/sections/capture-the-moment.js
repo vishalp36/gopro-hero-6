@@ -27,35 +27,35 @@ intersectionObserver(document.querySelector('.capture__title'), () => {
   TweenMax.to($description, 0.8, {
     opacity: 1,
     y: 0,
-    delay: 0.3,
+    delay: 0.5,
     ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 0.7,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1,
     ease
   });
 
-  TweenMax.to($window, 1, {
+  TweenMax.to($window, 1.2, {
     x: '150%',
     delay: 0.3,
     ease
   });
 
-  TweenMax.to($window2, 1, {
+  TweenMax.to($window2, 1.2, {
     x: '150%',
     delay: 0.45,
     ease
   });
 
-  TweenMax.to($shape, 0.7, {
+  TweenMax.to($shape, 1.2, {
     scaleX: 1,
     skewX: -30,
     delay: 0.45,

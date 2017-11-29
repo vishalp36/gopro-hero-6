@@ -41,19 +41,19 @@ intersectionObserver(document.querySelector('.design-black'), () => {
       opacity: 1,
       x: 0,
       ease,
-      delay: 0.8
+      delay: 1
     }
   );
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 1,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1.3,
     ease
   });
 

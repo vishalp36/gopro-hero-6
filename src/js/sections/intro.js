@@ -18,7 +18,9 @@ const intro = bodymovin.loadAnimation({
   path: 'assets/data/intro.json'
 });
 
-intro.play();
+setTimeout(() => {
+  intro.play();
+}, 1000);
 
 const introAnimation = () => {
   const $loader = document.querySelector('.loader');

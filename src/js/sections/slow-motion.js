@@ -40,26 +40,26 @@ intersectionObserver(document.querySelector('.slow-motion__title'), () => {
   TweenMax.to($description, 0.8, {
     opacity: 1,
     y: -30,
-    delay: 0.3,
+    delay: 0.4,
     ease
   });
 
   TweenMax.to($separatorSquare, 0.5, {
     strokeDasharray: 230,
-    delay: 0.5,
+    delay: 0.7,
     ease
   });
 
-  TweenMax.to($separatorBar, 0.6, {
+  TweenMax.to($separatorBar, 1.2, {
     scaleX: 1,
-    delay: 0.8,
+    delay: 1,
     ease
   });
 
   TweenMax.to($video, 0.8, {
     opacity: 1,
     y: -30,
-    delay: 0.4,
+    delay: 0.6,
     ease: Power4.easeOut
   });
 });
