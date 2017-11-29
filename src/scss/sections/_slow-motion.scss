@@ -38,11 +38,11 @@
 }
 
 .slow-motion__content {
-  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
   justify-content: space-between;
+  width: 100%;
   
   @include responsive($md) {
     flex-direction: row;
@@ -51,9 +51,9 @@
 }
 
 .slow-motion__description {
-  font-size: 1.2em;
-  color: $grey;
   margin-top: 30px;
+  color: $grey;
+  font-size: 1.2em;
 
   @include responsive($md) {
     max-width: 60%;
@@ -65,16 +65,16 @@
 }
 
 .slow-motion__title {
-  font-size: 4.4em;
   margin-bottom: 14px;
+  font-size: 4.4em;
 
   @include responsive($sm) {
 		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
-    font-size: 6em;
     max-width: 500px;
+    font-size: 6em;
 	}
 }
 
@@ -90,12 +90,12 @@
 }
 
 .slow-motion__controls {
+  z-index: 2;
   position: absolute;
   bottom: 40px;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 2;
 
   .container {
     display: flex;
@@ -112,8 +112,8 @@
 }
 
 .slow-motion__source {
-	position: relative;
 	z-index: 1;
+	position: relative;
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
@@ -121,8 +121,8 @@
 
 .slow-motion__timer {
   margin-left: 30px;
-  font-size: 1.1em;
   color: #fff;
+  font-size: 1.1em;
   user-select: none;
 }
 
@@ -130,9 +130,9 @@
   position: relative;
   width: 50px;
   height: 50px;
+  margin-bottom: 0px;
   border-radius: 50%;
   background-color: #fff;
-  margin-bottom: 0px;
 
   &:hover {
     cursor: pointer;

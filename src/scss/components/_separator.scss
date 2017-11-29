@@ -27,11 +27,11 @@
 }
 
 .separator__container {
-  width: 100%;
-  max-width: 260px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+  max-width: 260px;
 }
 
 .separator__square {
@@ -44,8 +44,8 @@
 
 .separator__bar {
   height: 1px;
-  background-color: $separator-white;
   flex: 1;
-  transform-origin: left;
+  background-color: $separator-white;
   transform: scaleX(0);
+  transform-origin: left;
 }

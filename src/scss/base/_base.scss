@@ -4,11 +4,11 @@
 
 html,
 body {
-	font-family: $main-font;
+	width: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	width: 100%;
+	font-family: $main-font;
 }
 
 body {
@@ -40,9 +40,9 @@ p {
 }
 
 a {
+	color: $main-color;
 	font-size: 1em;
 	text-decoration: none;
-	color: $main-color;
 	transition: $transition;
 
 	&:hover {
@@ -56,33 +56,33 @@ input:focus {
 }
 
 ::selection {
-	background-color: $main-color;
 	color: $white;
+	background-color: $main-color;
 }
 
 ::-moz-selection {
-	background-color: $main-color;
 	color: $white;
+	background-color: $main-color;
 }
 
 .container {
 	width: 100%;
+	max-width: 1350px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 30px;
 	padding-right: 30px;
-	max-width: 1350px;
 
 	@include responsive($sm) {
+		max-width: 1390px;
 		padding-left: 50px;
 		padding-right: 50px;
-		max-width: 1390px;
 	}
 
 	@include responsive($lg) {
+		max-width: 1430px;
 		padding-left: 70px;
 		padding-right: 70px;
-		max-width: 1430px;
 	}
 
 	&--right {

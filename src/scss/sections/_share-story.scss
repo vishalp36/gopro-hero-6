@@ -1,7 +1,7 @@
 .share-story {
 	position: relative;
-	padding: 120px 0px 120px 0px;
 	width: 100%;
+	padding: 120px 0px 120px 0px;
 	overflow: hidden;
 
 	@include responsive($xs) {
@@ -35,26 +35,26 @@
 }
 
 .share-story__title {
-	font-size: 4.4em;
 	margin-bottom: 14px;
+	font-size: 4.4em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
-		width: 60%;
+    width: 60%;
 		margin-bottom: 0px;
+		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
     width: 100%;
-		font-size: 6em;
 		max-width: 370px;
+		font-size: 6em;
 	}
 }
 
 .share-story__description {
   margin-top: 30px;
-  font-size: 1.2em;
 	color: $grey;
+  font-size: 1.2em;
 
 	@include responsive($lg) {
 		max-width: 500px;		
@@ -79,9 +79,9 @@
 }
 
 .share-story__source {
+  z-index: 2;
   width: 100%;
   height: auto;
-  z-index: 2;
   max-width: 400px;
   
   @include responsive($lg) {
@@ -98,10 +98,10 @@
 }
 
 .share-story__cloud {
+  z-index: -1;
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: -1;
   width: 300px;
   height: 175px;
 

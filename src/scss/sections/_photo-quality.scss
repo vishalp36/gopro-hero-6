@@ -1,6 +1,6 @@
 .photo-quality {
-  overflow: hidden;
   padding-bottom: 40px;
+  overflow: hidden;
 
   .separator {
 		flex: 1;
@@ -31,19 +31,19 @@
   position: absolute;
   top: 0;
   left: 0;
+  display: none;
   width: 30vw;
   height: 1400px;
   background-color: $black-background;
   transform-origin: left;
   transform: skewX($angle);
-  display: none;
 
   &:before {
     content: '';
-    display: block;
     position: absolute;
     top: 0;
     left: 10px;
+    display: block;
     width: 140%;
     height: 100%;
     background-color: $black-background;
@@ -56,9 +56,9 @@
 }
 
 .photo-quality__content {
+  width: 100%;
   padding-top: 90px;
   padding-bottom: 40px;
-  width: 100%;
   background-color: $black-background;
 
   @include responsive($lg) {
@@ -68,8 +68,8 @@
   .container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px;
     justify-content: space-between;
+    margin-bottom: 50px;
     
     @include responsive($md) {
       flex-direction: row;
@@ -79,9 +79,9 @@
 }
 
 .photo-quality__description {
-  font-size: 1.2em;
-  color: $light-grey;
   margin-top: 30px;
+  color: $light-grey;
+  font-size: 1.2em;
 
   @include responsive($md) {
     max-width: 60%;
@@ -93,17 +93,17 @@
 }
 
 .photo-quality__title {
-  font-size: 4.4em;
   margin-bottom: 14px;
   color: #fff;
+  font-size: 4.4em;
 
   @include responsive($sm) {
 		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
-    font-size: 6em;
     max-width: 400px;
     margin-bottom: 0px;
+    font-size: 6em;
 	}
 }

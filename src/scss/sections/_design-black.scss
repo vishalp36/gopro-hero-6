@@ -1,7 +1,7 @@
 .design-black {
   position: relative;
-  background-color: $black-background;
   padding: 120px 0px;
+  background-color: $black-background;
 
   @include responsive($lg) {
     padding: 260px 0px;
@@ -17,8 +17,8 @@
 }
 
 .design-black__title {
-  font-size: 4.4em;
   margin-bottom: 14px;
+  font-size: 4.4em;
 
   @include responsive($sm) {
 		font-size: 5.4em;
@@ -47,10 +47,9 @@
 }
 
 .design-black__description {
-  font-size: 1.2em;
-  color: #f7f7f7;
   margin-top: 30px;
   color: $light-grey;
+  font-size: 1.2em;
 
   @include responsive($md) {
     max-width: 620px;

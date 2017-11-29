@@ -1,19 +1,19 @@
 .join-community {
   position: relative;
-	padding: 120px 0px 120px 0px;
-	width: 100%;
   display: flex;
-	overflow: hidden;
-  background-color: $black-background;
   flex-direction: column-reverse;
+	width: 100%;
+	padding: 120px 0px 120px 0px;
+  background-color: $black-background;
+	overflow: hidden;
 
 	@include responsive($xs) {
 		padding: 160px 0px 160px 0px;
 	}
 
 	@include responsive($lg) {
-		padding: 260px 0px 80px 0px;
 		flex-direction: row;
+		padding: 260px 0px 80px 0px;
 	}
 }
 
@@ -35,15 +35,14 @@
 
 .join-community__marker {
 	position: absolute;
-	display: inline-block;
 	top: 0;
 	left: 0;
-	width: 26px;
-	height: 26px;
-	transform: rotate(45deg);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 26px;
+	height: 26px;
+	transform: rotate(45deg);
 	transition: none;
 
 	&.hidden {
@@ -94,11 +93,11 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
 	width: 16px;
 	height: 16px;
 	background-color: #fff;
 	border-radius: 50%;
+	transform: translate(-50%, -50%);
 	transition: $transition;
 }
 
@@ -106,9 +105,9 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
 	width: 28px;
 	height: 28px;
+	transform: translate(-50%, -50%);
 	border-radius: 50%;
 	border: 2px dotted #fff;
 	transition: $transition;
@@ -119,32 +118,32 @@
 	color: #fff;
 	
 	@include responsive($lg) {
-		width: 50%;
 		display: flex;
 		align-content: center;
+		width: 50%;
 	}
 }
 
 .join-community__title {
-	font-size: 4.4em;
 	margin-bottom: 14px;
+	font-size: 4.4em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
-		width: 60%;
+    width: 60%;
 		margin-bottom: 0px;
+		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
-		font-size: 6em;
 		max-width: 400px;
+		font-size: 6em;
 	}
 }
 
 .join-community__description {
   margin-top: 30px;
-  font-size: 1.2em;
 	color: $light-grey;
+  font-size: 1.2em;
 
 	@include responsive($lg) {
 		max-width: 500px;		
@@ -153,10 +152,10 @@
 
 .join-community__elements {
 	width: 100%;
-	padding-top: 50px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	padding-top: 50px;
 
 	@include responsive($lg) {
 		flex-direction: row;
@@ -164,12 +163,12 @@
 }
 
 .join-community__element {
-	width: 100%;
-	margin-bottom: 30px;
-	display: flex;
+  display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	flex-direction: row;
+	width: 100%;
+  margin-bottom: 30px;
 
 	@include responsive($lg) {
 		width: 50%;
@@ -183,23 +182,23 @@
 }
 
 .join-community__element-left {
-	width: 60px;
-	display: flex;
+  display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: center;
+	width: 60px;
 }
 
 .join-community__element-date {
-	width: 50px;
-	height: 50px;
-	border: 1px solid $main-color;
-	color: #fff;
-	text-align: center;
-	text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	border: 1px solid $main-color;
 
 	span {
 		display: inline-block;
@@ -212,23 +211,23 @@
 }
 
 .join-community__element-day {
+	margin-bottom: -4px;
 	line-height: 1;
 	font-size: 1.4em;
-	margin-bottom: -4px;
 }
 
 .join-community__element-right {
-	flex: 1;
 	display: flex;
 	flex-direction: column;
+	flex: 1;
 	padding-left: 10px;
 	color: #fff;
 }
 
 .join-community__element-name {
+	padding-bottom: 4px;
 	font-size: 1.1em;
 	font-weight: bold;
-	padding-bottom: 4px;
 	transition: $transition;
 }
 

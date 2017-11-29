@@ -10,52 +10,51 @@
 }
 
 .footer__content {
-  text-align: center;
   padding: 0px 20px 120px 20px;
+  text-align: center;
 }
 
 .footer__title {
-  font-size: 4.3em;
   margin: 0 auto;
   margin-bottom: 14px;
   color: #fff;
+  font-size: 4.3em;
 
   @include responsive($sm) {
-		font-size: 5.4em;
 		margin-bottom: 0px;
+		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
-		font-size: 6em;
 		max-width: 400px;
+		font-size: 6em;
 	}
 }
 
 .footer__order {
-  margin-top: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 }
 
 .footer__cta {
   display: inline-block;
-  background-color: #fff;
-  color: $black;
-  font-family: $heading-font;
-  text-transform: uppercase;
-  padding: 20px 30px 12px 30px;
   margin: 0px 40px;
+  padding: 20px 30px 12px 30px;
+  color: $black;
+  background-color: #fff;
+  font-family: $heading-font;
   font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 .footer__order-part {
-  flex: 2;
-  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex: 2;
   display: none;
 
   @include responsive($md) {

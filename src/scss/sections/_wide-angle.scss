@@ -1,15 +1,15 @@
 .wide-angle {
   position: relative;
-  overflow: hidden;
   width: 100%;
   padding-top: 130px;
+  overflow: hidden;
 
   .container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: 50px;
   }
 }
 
@@ -46,9 +46,9 @@
 }
 
 .wide-angle__description {
-  font-size: 1.2em;
   color: $grey;
   margin-top: 30px;
+  font-size: 1.2em;
 
   @include responsive($md) {
     max-width: 60%;
@@ -60,18 +60,18 @@
 }
 
 .wide-angle__title {
-  font-size: 4.4em;
   margin-bottom: 14px;
   color: $black;
+  font-size: 4.4em;
 
   @include responsive($sm) {
 		font-size: 5.4em;
 	}
 
 	@include responsive($md) {
-    font-size: 6em;
     max-width: 300px;
     margin-bottom: 0px;
+    font-size: 6em;
 	}
 }
 
@@ -79,10 +79,10 @@
   position: absolute;
   top: 100px;
   left: 40vw;
+  display: none;
   width: 45vw;
   height: 100px;
   background: linear-gradient(45deg, $main-color-light, $main-color);
-  display: none;
   transform: skewX($angle);
 
   @include responsive($lg) {
@@ -112,11 +112,11 @@
   transform: skewX($angle) translateX(0%);
   
   &:before {
-    content: '';
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
+    content: '';
+    display: block;
     height: 100%;
     width: 100%;
     background-color: $black-background;
@@ -128,9 +128,9 @@
   position: relative;
   width: 100%;
   height: 75vh;
+  background-color: $light-white;
   overflow: hidden;
   perspective: 800px;
-  background-color: $light-white;
 
   @include responsive($md) {
     height: 90vh;
@@ -151,23 +151,23 @@
 }
 
 .wide-angle__border-left {
+  z-index: 2;
   top: 0;
   left: 0;
   bottom: 0;
   width: 80px;
   height: 100%;
   background-color: #fff;
-  z-index: 2;
   transform-origin: left;
 }
 
 .wide-angle__border-right {
+  z-index: 2;
   top: 0;
   bottom: 0;
   right: 0;
   width: 80px;
   height: 100%;
   background-color: #fff;
-  z-index: 2;
   transform-origin: right;
 }
