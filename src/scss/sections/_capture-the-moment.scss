@@ -1,7 +1,7 @@
 .capture {
 	position: relative;
-	padding: 120px 0px 120px 0px;
 	width: 100%;
+	padding: 120px 0px 120px 0px;
 	overflow: hidden;
 
 	@include responsive($xs) {

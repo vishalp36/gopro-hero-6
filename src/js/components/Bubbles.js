@@ -11,14 +11,11 @@ class Bubbles {
     this.translate = 0;
     this.currentTime = 0;
     this.wrapperIndex = 0;
+    this.started = true;
     this.translation = translation;
 
     this.init();
     this.render();
-
-    setTimeout(() => {
-      this.started = true;
-    });
   }
 
   /**

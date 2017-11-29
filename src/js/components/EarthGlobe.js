@@ -144,6 +144,7 @@ class EarthGlobe {
     this.manager.on('panend', event => {
       this.onPanMove(event);
 
+      // Auto rotating earth restarts if no interactions
       this.timeout = setTimeout(() => {
         this.isInteracting = false;
       }, 4000);
@@ -193,6 +194,7 @@ class EarthGlobe {
   loop() {
     requestAnimationFrame(this.loop.bind(this));
 
+    // Smooth rotation
     this.$rotation.x += (this.$target.x - this.$rotation.x) * 0.1;
     this.$rotation.y += (this.$target.y - this.$rotation.y) * 0.1;
     this.$distance += (this.$distanceTarget - this.$distance) * 0.3;
